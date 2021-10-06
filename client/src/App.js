@@ -4,7 +4,7 @@ import React,{useState,useLayoutEffect} from 'react';
 function App() {
   const [apiResponse, setApiResponse] = useState();
   function callAPI() {
-    fetch("http://localhost:9000/")
+    fetch("http://localhost:9000/user")
         .then(res => res.text())
         .then(res => setApiResponse( res ));
 }
