@@ -1,6 +1,9 @@
 
 import './App.css';
 import React,{useState,useLayoutEffect} from 'react';
+import Navbar from './components/navbar';
+import Hero from './components/hero';
+import EventCard from './components/eventcard';
 function App() {
   const [apiResponse, setApiResponse] = useState();
   function callAPI() {
@@ -14,7 +17,10 @@ function App() {
   })
   return (
     <div className="App">
-      <p>{ apiResponse}</p>
+      {/* <Navbar /> */}
+      {/* <EventCard/> */}
+      <Hero/>
+      {/* <p>{apiResponse}</p> */}
     </div>
   );
 }
