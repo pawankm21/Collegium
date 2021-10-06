@@ -4,9 +4,11 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var cors = require("cors");
-
 var app = express();
-
+const mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost:27017/collegiumDB", {
+  useNewUrlParser: true,
+});
 //import routes
 var indexRouter = require("./routes/index");
 var metricsRouter = require("./routes/metrics");
@@ -14,7 +16,7 @@ var healthRouter = require("./routes/health");
 var userRouter = require("./routes/user");
 var eventRouter = require("./routes/event");
 // view engine setup
-
+app.set('view engine','jade')
 
 app.use(logger("dev"));
 app.use(express.json());

@@ -1,10 +1,14 @@
 var express = require("express");
 var router = express.Router();
-
+var {User,Tag,Event}=require('../model')
 // contains all event related endpoints
 
-router.get("/", function (req, res, next) {
-  res.send("this is an event");
-});
+router.route('/').get((req, res) => {
+  Event.find((err, foundEvents) => {
+    res.send(foundEvents);
+  }).post((req, res) => {
+    
+  })
+})
 
 module.exports = router;
