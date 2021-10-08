@@ -5,7 +5,14 @@ var {User,Tag,Event}=require('../model')
 
 router.route('/').get((req, res) => {
   Event.find((err, foundEvents) => {
+    if (!err)
+    {
     res.send(foundEvents);
+      
+    }
+    else {
+      res.send(err);
+    }
   }).post((req, res) => {
     
   })
