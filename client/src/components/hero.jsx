@@ -35,7 +35,7 @@ export default function Hero({isAuth}) {
                       <span className="sr-only"></span>
                       <img
                         className="h-8 w-auto sm:h-10"
-                        src={process.env.PUBLIC_URL + "/images/collegium.png"}
+                        src={process.env.PUBLIC_URL + "/images/loud.svg"}
                         alt="logo"
                       />
                     </Link>
@@ -97,7 +97,7 @@ export default function Hero({isAuth}) {
                     <div>
                       <img
                         className="h-8 w-auto"
-                        src={process.env.PUBLIC_URL + "/images/collegium.png"}
+                        src={process.env.PUBLIC_URL + "/images/loud.svg"}
                         alt=""
                       />
                     </div>

@@ -9,7 +9,7 @@ export default function Register() {
           <div>
             <img
               className="mx-auto h-12 w-auto"
-              src={process.env.PUBLIC_URL + "/images/collegium.png"}
+              src={process.env.PUBLIC_URL + "/images/loud.svg"}
               alt="collegium logo"
             />
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
