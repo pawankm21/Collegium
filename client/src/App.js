@@ -3,6 +3,8 @@ import React, { useState, useLayoutEffect } from "react";
 import Navbar from "./components/navbar";
 import Hero from "./components/hero";
 import EventCard from "./components/eventcard";
+import Login from "./components/login";
+import Register from "./components/register";
 import {
   BrowserRouter as Router,
   Switch,
@@ -32,15 +34,16 @@ function App() {
           {isAuth ? <Redirect to="/dashboard" /> : <Hero isAuth={isAuth} />}
         </Route>
         <Route exact path="/dashboard">
-          {isAuth ? <Navbar isAuth={isAuth} /> : <Redirect to="/" />}
+          {isAuth ? <Navbar isAuth={isAuth} /> : <Redirect to="/login" />}
         </Route>
         <Route exact path="/login">
-          {!isAuth?<></>:<Redirect to="/"/>}
+          {!isAuth?<Login/>:<Redirect to="/"/>}
         </Route>
-        <Navbar isAuth={isAuth} />
         <Route exact path="/about"></Route>
         <Route exact path="/team"></Route>
-
+        <Route exact path="/register">
+          {isAuth? <Redirect to="/dashboard" />: <Register/>}
+        </Route>
         <Router exact path="/logout">
           <Redirect to="/"></Redirect>
         </Router>
