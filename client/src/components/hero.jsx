@@ -40,7 +40,7 @@ export default function Hero({isAuth}) {
                       />
                     </Link>
                     <div className="-mr-2 flex items-center md:hidden">
-                      <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-500">
+                      <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500">
                         <span className="sr-only">Open main menu</span>
                         <MenuIcon className="h-6 w-6" aria-hidden="true" />
                       </Popover.Button>
@@ -71,7 +71,7 @@ export default function Hero({isAuth}) {
                   ))}
                   <Link
                     to="/login"
-                    className="font-medium text-red-600 hover:text-red-500"
+                    className="font-medium text-green-600 hover:text-green-500"
                   >
                     Log in
                   </Link>
@@ -102,7 +102,7 @@ export default function Hero({isAuth}) {
                       />
                     </div>
                     <div className="-mr-2">
-                      <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-500">
+                      <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500">
                         <span className="sr-only">Close main menu</span>
                         <XIcon className="h-6 w-6" aria-hidden="true" />
                       </Popover.Button>
@@ -113,27 +113,27 @@ export default function Hero({isAuth}) {
                       <a
                         key={item.name}
                         href={item.href}
-                        className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-red-50"
+                        className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-green-50"
                       >
                         {item.name}
                       </a>
                     ))}
                     <Link
                       to="/about"
-                      className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-red-50"
+                      className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-green-50"
                     >
                       About
                     </Link>
                     <Link
                       to="/team"
-                      className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-red-50"
+                      className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-green-50"
                     >
                       Team
                     </Link>
                   </div>
                   <Link
                     to="/login"
-                    className="block w-full px-5 py-3 text-center font-medium text-red-600 bg-red-50 hover:bg-red-100"
+                    className="block w-full px-5 py-3 text-center font-medium text-green-600 bg-green-50 hover:bg-green-100"
                   >
                     Log in
                   </Link>
@@ -148,7 +148,7 @@ export default function Hero({isAuth}) {
                 <span className="block xl:inline">
                   Discover Events Happening in
                 </span>
-                <span className="block text-red-500 xl:inline">
+                <span className="block text-green-500 xl:inline">
                   your College.
                 </span>
               </h1>
@@ -160,8 +160,8 @@ export default function Hero({isAuth}) {
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
                   <Link
-                    to={isAuth?"/dashboard":"/login"}
-                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-500 hover:bg-red-600 md:py-4 md:text-lg md:px-10"
+                    to={isAuth ? "/dashboard" : "/login"}
+                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-500 hover:bg-green-600 md:py-4 md:text-lg md:px-10"
                   >
                     Get started
                   </Link>
@@ -174,7 +174,10 @@ export default function Hero({isAuth}) {
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
         <img
           className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-          src="https://images.unsplash.com/photo-1519664993241-d7c8f0ae7b39?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80"
+          src={
+            process.env.PUBLIC_URL +
+            "/images/bg.jpg"
+          }
           alt=""
         />
       </div>
