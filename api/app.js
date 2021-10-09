@@ -16,7 +16,7 @@ var healthRouter = require("./routes/health");
 var userRouter = require("./routes/user");
 var eventRouter = require("./routes/event");
 // view engine setup
-app.set('view engine','jade')
+
 
 app.use(logger("dev"));
 app.use(express.json());
