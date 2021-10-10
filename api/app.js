@@ -10,13 +10,13 @@ mongoose.connect("mongodb://localhost:27017/collegiumDB", {
   useNewUrlParser: true,
 });
 //import routes
-var indexRouter = require("./routes/index");
+
 var metricsRouter = require("./routes/metrics");
 var healthRouter = require("./routes/health");
 var userRouter = require("./routes/user");
 var eventRouter = require("./routes/event");
 // view engine setup
-app.set('view engine','jade')
+app.set("view engine", "json"); 
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -26,11 +26,11 @@ app.use(cookieParser());
 app.use(cors());
 
 // routes
-app.use("/", indexRouter);
+
 app.use("/metrics", metricsRouter);
 app.use("/health", healthRouter);
-app.use("/user", userRouter);
-app.use("/event", eventRouter);
+app.use("/User", userRouter);
+app.use("/Event", eventRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

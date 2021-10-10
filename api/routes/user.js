@@ -3,16 +3,15 @@ var router = express.Router();
 const { User, Tag, Event } = require("../model");
 // all endpoints related to the user
 
-router.get("/",  (req, res, next) =>{
-  User.find((err, foundUsers) => {
-    if (!err) {
-      res.send(foundUsers);
-    } else {
-      res.send(err);
-    }
+router.get("/getUser/:id", (req, res) => {
+  console.log(req.params);
+  User.findOne({ id: req.params.id }, (err, user) => {
+    res.send({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      gender: user.gender,
+    });
   });
-});
-router.post("/", (req, res, next) => {
-  console.log(req.body);
 });
 module.exports = router;

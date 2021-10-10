@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema({
   email: String,
   password: String,
   gender: String,
+  college:String,
 });
 
 const tagSchema = new mongoose.Schema({
@@ -14,6 +15,7 @@ const tagSchema = new mongoose.Schema({
 });
 
 const eventSchema = new mongoose.Schema({
+  id:Number,
   name: String,
   message: String,
   coordinators: Array,
@@ -22,6 +24,7 @@ const eventSchema = new mongoose.Schema({
   where: String,
   attendees: Array,
   tags: Array,
+  image:String,
 });
 
 const User = mongoose.model("User", userSchema);
