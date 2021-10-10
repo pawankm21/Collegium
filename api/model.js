@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-  id: Number,
-  name: String,
-  email: String,
+  name: { type: String ,required:true},
+  email: { type: String, unique: true ,required:true},
   password: String,
   gender: String,
-  college:String,
+  college: String,
 });
 
 const tagSchema = new mongoose.Schema({
@@ -15,8 +14,7 @@ const tagSchema = new mongoose.Schema({
 });
 
 const eventSchema = new mongoose.Schema({
-  id:Number,
-  name: String,
+  name:String,
   message: String,
   coordinators: Array,
   when: Date,

@@ -5,11 +5,11 @@ const {User, Tag, Event} = require('./model');
 
 // We can loop this part for each user
 const user = new User({
-    id: 1,
     name: 'Abhijit',
     email: 'random@gmail.com',
     password: 'tuhaikaun',
-    gender: 'sigmamale'
+    gender: 'sigmamale',
+    college:"bihar board"
 });
 
 User.insertMany([user], (err) => {
