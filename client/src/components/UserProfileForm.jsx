@@ -53,7 +53,6 @@ const UserProfileBig = () => {
                                 <option value="male">MALE</option>
                                 <option value="female">FEMALE</option>
                                 <option value="other">OTHER</option>
-                                <option value="sigma-male">SIGMA MALE(only for abhijit)</option>
                             </select>
 						    {/* <input type="text" name="gender" id="gender" className="bg-red-100 outline-none" ref={genderRef} /> */}
 						</div>
