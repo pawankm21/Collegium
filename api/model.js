@@ -3,9 +3,12 @@ const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
   name: { type: String ,required:true},
   email: { type: String, unique: true ,required:true},
-  password: String,
   gender: String,
   college: String,
+  dob: Date,
+  branch: String,
+  roll:String,
+  
 });
 
 const tagSchema = new mongoose.Schema({
@@ -22,8 +25,9 @@ const eventSchema = new mongoose.Schema({
   where: String,
   attendees: Array,
   tags: Array,
-  image:String,
+  imageurl:String,
 });
+
 
 const User = mongoose.model("User", userSchema);
 const Tag = mongoose.model("Tag", tagSchema);
