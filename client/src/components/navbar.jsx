@@ -35,12 +35,12 @@ export default function Navbar({isAuth}) {
                 <div className="flex-shrink-0 flex items-center">
                   <img
                     className="block lg:hidden h-8 w-auto"
-                    src={process.env.PUBLIC_URL + "/images/collegium.png"}
+                    src={process.env.PUBLIC_URL + "/images/loud.svg"}
                     alt=""
                   />
                   <img
                     className="hidden lg:block h-8 w-auto"
-                    src={process.env.PUBLIC_URL + "/images/collegium.png"}
+                    src={process.env.PUBLIC_URL + "/images/loud.svg"}
                     alt=""
                   />
                 </div>

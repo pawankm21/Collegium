@@ -5,6 +5,7 @@ import Hero from "./components/hero";
 import EventCard from "./components/eventcard";
 import Login from "./components/login";
 import Register from "./components/register";
+import UserProfileSmall from "./components/UserProfileSmall";
 import {
   BrowserRouter as Router,
   Switch,
@@ -39,7 +40,9 @@ function App() {
         <Route exact path="/login">
           {!isAuth?<Login/>:<Redirect to="/"/>}
         </Route>
-        <Route exact path="/about"></Route>
+        <Route exact path="/about">
+          <UserProfileSmall/>
+        </Route>
         <Route exact path="/team"></Route>
         <Route exact path="/register">
           {isAuth? <Redirect to="/dashboard" />: <Register/>}
