@@ -1,92 +1,238 @@
-# Contributing
+<!-- omit in toc -->
+# Contributing to Collegium
 
-When contributing to this repository, please first discuss the change you wish to make via issue,
-email, or any other method with the owners of this repository before making a change. 
+First off, thanks for taking the time to contribute! ❤️
 
-Please note we have a code of conduct, please follow it in all your interactions with the project.
+All types of contributions are encouraged and valued. See the [Table of Contents](#table-of-contents) for different ways to help and details about how this project handles them. Please make sure to read the relevant section before making your contribution. It will make it a lot easier for us maintainers and smooth out the experience for all involved. The community looks forward to your contributions. 🎉
 
-## Pull Request Process
+> And if you like the project, but just don't have time to contribute, that's fine. There are other easy ways to support the project and show your appreciation, which we would also be very happy about:
+> - Star the project
+> - Tweet about it
+> - Refer this project in your project's readme
+> - Mention the project at local meetups and tell your friends/colleagues
 
-1. Ensure any install or build dependencies are removed before the end of the layer when doing a 
-   build.
-2. Update the README.md with details of changes to the interface, this includes new environment 
-   variables, exposed ports, useful file locations and container parameters.
-3. Increase the version numbers in any examples files and the README.md to the new version that this
-   Pull Request would represent. The versioning scheme we use is [SemVer](http://semver.org/).
-4. You may merge the Pull Request in once you have the sign-off of two other developers, or if you 
-   do not have permission to do that, you may request the second reviewer to merge it for you.
+<!-- omit in toc -->
+## Table of Contents
+
+- [Code of Conduct](#code-of-conduct)
+- [I Have a Question](#i-have-a-question)
+- [I Want To Contribute](#i-want-to-contribute)
+- [Reporting Bugs](#reporting-bugs)
+- [Suggesting Enhancements](#suggesting-enhancements)
+- [Your First Code Contribution](#your-first-code-contribution)
+<!-- - [Improving The Documentation](#improving-the-documentation) -->
+<!-- - [Styleguides](#styleguides) -->
+<!-- - [Commit Messages](#commit-messages) -->
+<!-- - [Join The Project Team](#join-the-project-team) -->
+
 
 ## Code of Conduct
 
-### Our Pledge
+This project and everyone participating in it is governed by the
+[Collegium Code of Conduct](https://github.com/pawankm21/Collegiumblob/master/CODE_OF_CONDUCT.md).
+By participating, you are expected to uphold this code. Please report unacceptable behavior
+to .
 
-In the interest of fostering an open and welcoming environment, we as
-contributors and maintainers pledge to making participation in our project and
-our community a harassment-free experience for everyone, regardless of age, body
-size, disability, ethnicity, gender identity and expression, level of experience,
-nationality, personal appearance, race, religion, or sexual identity and
-orientation.
 
-### Our Standards
+## I Have a Question
 
-Examples of behavior that contributes to creating a positive environment
-include:
+> If you want to ask a question, Ask in Discussions.
 
-* Using welcoming and inclusive language
-* Being respectful of differing viewpoints and experiences
-* Gracefully accepting constructive criticism
-* Focusing on what is best for the community
-* Showing empathy towards other community members
+Before you ask a question, it is best to search for existing [Discussion](https://github.com/pawankm21/Collegiumissues) that might help you.
 
-Examples of unacceptable behavior by participants include:
+<!-- If you then still feel the need to ask a question and need clarification, we recommend the following:
 
-* The use of sexualized language or imagery and unwelcome sexual attention or
-advances
-* Trolling, insulting/derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or electronic
-  address, without explicit permission
-* Other conduct which could reasonably be considered inappropriate in a
-  professional setting
+- Open an [Issue](https://github.com/pawankm21/Collegiumissues/new).
+- Provide as much context as you can about what you're running into.
+- Provide project and platform versions (nodejs, npm, etc), depending on what seems relevant. -->
+We keep reading the discussions and will reach out to you ASAP.
 
-### Our Responsibilities
+<!--
+You might want to create a separate issue tag for questions and include it in this description. People should then tag their issues accordingly.
 
-Project maintainers are responsible for clarifying the standards of acceptable
-behavior and are expected to take appropriate and fair corrective action in
-response to any instances of unacceptable behavior.
+Depending on how large the project is, you may want to outsource the questioning, e.g. to Stack Overflow or Gitter. You may add additional contact and information possibilities:
+- IRC
+- Slack
+- Gitter
+- Stack Overflow tag
+- Blog
+- FAQ
+- Roadmap
+- E-Mail List
+- Forum
+-->
 
-Project maintainers have the right and responsibility to remove, edit, or
-reject comments, commits, code, wiki edits, issues, and other contributions
-that are not aligned to this Code of Conduct, or to ban temporarily or
-permanently any contributor for other behaviors that they deem inappropriate,
-threatening, offensive, or harmful.
+## I Want To Contribute
 
-### Scope
+> ### Legal Notice <!-- omit in toc -->
+> When contributing to this project, you must agree that you have authored 100% of the content, that you have the necessary rights to the content and that the content you contribute may be provided under the project license.
 
-This Code of Conduct applies both within project spaces and in public spaces
-when an individual is representing the project or its community. Examples of
-representing a project or community include using an official project e-mail
-address, posting via an official social media account, or acting as an appointed
-representative at an online or offline event. Representation of a project may be
-further defined and clarified by project maintainers.
+### Reporting Bugs
 
-### Enforcement
+<!-- omit in toc -->
+#### Before Submitting a Bug Report
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported by contacting the project team at [INSERT EMAIL ADDRESS]. All
-complaints will be reviewed and investigated and will result in a response that
-is deemed necessary and appropriate to the circumstances. The project team is
-obligated to maintain confidentiality with regard to the reporter of an incident.
-Further details of specific enforcement policies may be posted separately.
+A good bug report shouldn't leave others needing to chase you up for more information. Therefore, we ask you to investigate carefully, collect information and describe the issue in detail in your report. Please complete the following steps in advance to help us fix any potential bug as fast as possible.
 
-Project maintainers who do not follow or enforce the Code of Conduct in good
-faith may face temporary or permanent repercussions as determined by other
-members of the project's leadership.
+<!-- - Make sure that you are using the latest version.
+- Determine if your bug is really a bug and not an error on your side e.g. using incompatible environment components/versions (Make sure that you have read the [documentation](). If you are looking for support, you might want to check [this section](#i-have-a-question)). -->
+- To see if other users have experienced (and potentially already solved) the same issue you are having, check if there is not already a bug report existing for your bug or error in the [bug tracker](https://github.com/pawankm21/Collegiumissues?q=label%3Abug).
+- Also make sure to search the internet (including Stack Overflow) to see if users outside of the GitHub community have discussed the issue.
+- Collect information about the bug:
+- Stack trace (Traceback)
+- OS, Platform and Version (Windows, Linux, macOS, x86, ARM)
+- Version of the interpreter, compiler, SDK, runtime environment, package manager, depending on what seems relevant.
+- Possibly your input and the output
+- Can you reliably reproduce the issue? And can you also reproduce it with older versions?
 
-### Attribution
+<!-- omit in toc -->
+#### How Do I Submit a Good Bug Report?
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4,
-available at [http://contributor-covenant.org/version/1/4][version]
+> You must never report security related issues, vulnerabilities or bugs to the issue tracker, or elsewhere in public. Instead sensitive bugs must be sent by email to <>.
+<!-- You may add a PGP key to allow the messages to be sent encrypted as well. -->
 
-[homepage]: http://contributor-covenant.org
-[version]: http://contributor-covenant.org/version/1/4/
+We use GitHub issues to track bugs and errors. If you run into an issue with the project:
+
+- Open an [Issue](https://github.com/pawankm21/Collegiumissues/new). (Since we can't be sure at this point whether it is a bug or not, we ask you not to talk about a bug yet and not to label the issue.)
+- Explain the behavior you would expect and the actual behavior.
+- Please provide as much context as possible and describe the *reproduction steps* that someone else can follow to recreate the issue on their own. This usually includes your code. For good bug reports you should isolate the problem and create a reduced test case.
+- Provide the information you collected in the previous section.
+
+Once it's filed:
+
+- The project team will label the issue accordingly.
+- A team member will try to reproduce the issue with your provided steps. If there are no reproduction steps or no obvious way to reproduce the issue, the team will ask you for those steps and mark the issue as `needs-repro`. Bugs with the `needs-repro` tag will not be addressed until they are reproduced.
+- If the team is able to reproduce the issue, it will be marked `needs-fix`, as well as possibly other tags (such as `critical`), and the issue will be left to be [implemented by someone](#your-first-code-contribution).
+
+<!-- You might want to create an issue template for bugs and errors that can be used as a guide and that defines the structure of the information to be included. If you do so, reference it here in the description. -->
+
+
+### Suggesting Enhancements
+
+This section guides you through submitting an enhancement suggestion for Collegium, **including completely new features and minor improvements to existing functionality**. Following these guidelines will help maintainers and the community to understand your suggestion and find related suggestions.
+
+<!-- omit in toc -->
+#### Before Submitting an Enhancement
+
+- Make sure that you are using the latest version.
+- Read the [documentation]() carefully and find out if the functionality is already covered, maybe by an individual configuration.
+- Perform a [search](https://github.com/pawankm21/Collegiumissues) to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
+- Find out whether your idea fits with the scope and aims of the project. It's up to you to make a strong case to convince the project's developers of the merits of this feature. Keep in mind that we want features that will be useful to the majority of our users and not just a small subset. If you're just targeting a minority of users, consider writing an add-on/plugin library.
+
+<!-- omit in toc -->
+#### How Do I Submit a Good Enhancement Suggestion?
+
+Enhancement suggestions are tracked as [GitHub issues](https://github.com/pawankm21/Collegiumissues).
+
+- Use a **clear and descriptive title** for the issue to identify the suggestion.
+- Provide a **step-by-step description of the suggested enhancement** in as many details as possible.
+- **Describe the current behavior** and **explain which behavior you expected to see instead** and why. At this point you can also tell which alternatives do not work for you.
+- You may want to **include screenshots and animated GIFs** which help you demonstrate the steps or point out the part which the suggestion is related to. You can use [this tool](https://www.cockos.com/licecap/) to record GIFs on macOS and Windows, and [this tool](https://github.com/colinkeenan/silentcast) or [this tool](https://github.com/GNOME/byzanz) on Linux. <!-- this should only be included if the project has a GUI -->
+- **Explain why this enhancement would be useful** to most Collegium users. You may also want to point out the other projects that solved it better and which could serve as inspiration.
+
+<!-- You might want to create an issue template for enhancement suggestions that can be used as a guide and that defines the structure of the information to be included. If you do so, reference it here in the description. -->
+
+### Your First Code Contribution
+This section aims to simplify and guide the way beginners make their first contribution. If you are looking to make your first contribution, follow the steps below.
+
+
+#### If you don't have git on your machine, [install it](https://help.github.com/articles/set-up-git/).
+
+
+## Choose an existing issue with ``` good-first-issue``` tag or create one by following the guidlines mentioned above.
+If you want to create new issue, first mention it in the discussions.
+
+
+
+## Fork this repository
+
+Fork this repository by clicking on the fork button on the top of this page.
+This will create a copy of this repository in your account.
+
+## Clone the repository
+
+Now clone the forked repository to your machine. Go to your GitHub account, open the forked repository, click on the code button and then click the _copy to clipboard_ icon.
+
+Open a terminal and run the following git command:
+
+```
+git clone "url you just copied"
+```
+
+where "url you just copied" (without the quotation marks) is the url to this repository (your fork of this project). See the previous steps to obtain the url.
+
+
+For example:
+
+```
+git clone https://github.com/this-is-you/Collegium.git
+```
+
+where `this-is-you` is your GitHub username. Here you're copying the contents of the first-contributions repository on GitHub to your computer.
+
+## Create a branch
+
+Change to the repository directory on your computer (if you are not already there):
+
+```
+cd Collegium
+```
+
+Now create a branch using the `git checkout` command:
+
+```
+git checkout -b your-new-branch-name
+```
+
+## Make necessary changes and commit those changes
+
+If you go to the project directory and execute the command `git status`, you'll see there are changes.
+
+Add those changes to the branch you just created using the `git add` command:
+
+```
+git add *
+```
+
+Now commit those changes using the `git commit` command:
+
+```
+git commit -m "<commit message>"
+```
+
+## Push changes to GitHub
+
+Push your changes using the command `git push`:
+
+```
+git push origin <add-your-branch-name>
+```
+
+replacing `<add-your-branch-name>` with the name of the branch you created earlier.
+
+## Submit your changes for review
+
+If you go to your repository on GitHub, you'll see a `Compare & pull request` button. Click on that button.
+
+
+Now submit the pull request.
+
+
+
+We will review your pull request shortly.
+
+
+
+<!-- ## Styleguides
+### Commit Messages
+<!-- TODO
+
+-->
+
+<!-- ## Join The Project Team
+<!-- TODO -->
+ 
+<!-- omit in toc --> 
+## Attribution
+> This guide is based on the **contributing-gen**. [Make your own](https://github.com/bttger/contributing-gen)!
+> **First-Contribution** [Get started with Open Source here](https://github.com/firstcontributions/first-contributions)
