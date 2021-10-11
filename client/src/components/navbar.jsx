@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const navigation = [
   { name: "Upcoming Events", href: "/dashboard", current: true },
   { name: "Calendar", href: "#", current: false },
+  { name:"Your Events" ,href:"/events/:id",current:false}
 ];
 
 function classNames(...classes) {
@@ -48,6 +49,9 @@ export default function Navbar({isAuth}) {
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <Link
+                        onClick={() => {
+                          item.current = true;
+                        }}
                         key={item.name}
                         to={item.href}
                         className={classNames(

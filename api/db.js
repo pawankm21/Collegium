@@ -3,13 +3,6 @@ mongoose.connect('mongodb://localhost:27017/collegiumDB', { useNewUrlParser: tru
 
 const {User, Tag, Event} = require('./model');
 
-// We can loop this part for each user
-
-Event.insertMany([event], (err) => {
-    console.log(err);
-});
-
-// Relationship b/w Tags and event tags
 Event.aggregate([
     {
         $lookup: {
