@@ -45,7 +45,7 @@ router.post("/createUser", (req, res) => {
   });
 });
 
-router.patch("/updateUser/:id", (req, res) => {
+router.post("/updateUser/:id", (req, res) => {
   const { branch, roll, email } = req.body;
   console.log(branch, roll, email);
   User.updateOne(
