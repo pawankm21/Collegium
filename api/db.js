@@ -44,7 +44,7 @@ Event.aggregate([
         $lookup: {
             from: 'users',
             localField: 'attendees',
-            foreignField: 'name',
+            foreignField: '_id',
             as: 'matchedAttendees'
         },
     },
