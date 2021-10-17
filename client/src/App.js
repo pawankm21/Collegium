@@ -15,8 +15,8 @@ import {
 
 function App() {
   const [apiResponse, setApiResponse] = useState();
-  const [isAuth, setIsAuth] = useState(false);
   const [showCard, setShowCard] = useState(true);
+  const [isAuth, setIsAuth] = useState(true);
   function callAPI() {
     fetch("http://localhost:9000/event")
       .then((res) => res.text())
@@ -24,6 +24,7 @@ function App() {
   }
   useLayoutEffect(() => {
     callAPI();
+    console.log(apiResponse);
   });
   // const hideCardHandler = () => {
   //  // for onClose prop on EventCardSmall
@@ -31,29 +32,33 @@ function App() {
   // }
   return (
     <Router>
-      <div className="App">
-        {/* <EventCard/> */}
-        {/* <p>{apiResponse}</p> */}
-      </div>
+      <div className="App">{/* <EventCard/> */}</div>
       <Switch>
         <Route exact path="/">
           {isAuth ? <Redirect to="/dashboard" /> : <Hero isAuth={isAuth} />}
         </Route>
-        <Route exact path="/dashboard">
-          {isAuth ? <Navbar isAuth={isAuth} /> : <Redirect to="/login" />}
-        </Route>
+
         <Route exact path="/login">
-          {!isAuth?<Login/>:<Redirect to="/"/>}
+          {!isAuth ? <Login /> : <Redirect to="/" />}
         </Route>
         <Route exact path="/about">
+          {/* <UserProfileSmall/> */}
+          <UserProfileBig/>
         </Route>
         <Route exact path="/team"></Route>
         <Route exact path="/register">
-          {isAuth? <Redirect to="/dashboard" />: <Register/>}
+          {isAuth ? <Redirect to="/dashboard" /> : <Register />}
         </Route>
-        <Router exact path="/logout">
+        <Route exact path="/logout">
           <Redirect to="/"></Redirect>
-        </Router>
+        </Route>
+        <Navbar isAuth={isAuth} />
+        <Route exact path="/dashboard">
+          {isAuth ? <></> : <Redirect to="/login" />}
+        </Route>
+        <Route exact path="events/:id">
+
+        </Route>
       </Switch>
     </Router>
   );

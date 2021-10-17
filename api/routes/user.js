@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-const { User, Tag, Event } = require("../model");
+const { User } = require("../model");
 // all endpoints related to the user
 router.get("/getUser/:id", (req, res) => {
   console.log(req.params);
@@ -22,7 +22,7 @@ router.get("/getUser/:id", (req, res) => {
   });
 });
 router.post("/createUser", (req, res) => {
-  const { name, email, gender, college, branch, roll, dob } = req.body;
+  const { name, email, gender, college, branch, roll, dob,password } = req.body;
   console.log(req.body);
   const newUser = new User({
     name: name,
@@ -45,7 +45,7 @@ router.post("/createUser", (req, res) => {
   });
 });
 
-router.patch("/updateUser/:id", (req, res) => {
+router.post("/updateUser/:id", (req, res) => {
   const { branch, roll, email } = req.body;
   console.log(branch, roll, email);
   User.updateOne(
