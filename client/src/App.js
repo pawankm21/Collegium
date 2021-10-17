@@ -32,7 +32,14 @@ function App() {
   // }
   return (
     <Router>
-      <div className="App">{/* <EventCard/> */}</div>
+      <div className="App">
+        <EventCard
+          tags={["women", "all"]}
+          imageurl="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1169&q=80"
+          name="Big event"
+          message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, odio nostrum nemo quaerat in eius eligendi quidem quas culpa dolor tempore ipsa assumenda sit omnis quod minima eum inventore officiis."
+        />
+      </div>
       <Switch>
         <Route exact path="/">
           {isAuth ? <Redirect to="/dashboard" /> : <Hero isAuth={isAuth} />}
@@ -43,7 +50,7 @@ function App() {
         </Route>
         <Route exact path="/about">
           {/* <UserProfileSmall/> */}
-          <UserProfileBig/>
+          {/* <UserProfileBig/> */}
         </Route>
         <Route exact path="/team"></Route>
         <Route exact path="/register">
@@ -56,9 +63,7 @@ function App() {
         <Route exact path="/dashboard">
           {isAuth ? <></> : <Redirect to="/login" />}
         </Route>
-        <Route exact path="events/:id">
-
-        </Route>
+        <Route exact path="events/:id"></Route>
       </Switch>
     </Router>
   );
