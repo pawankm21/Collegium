@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const Schema =mongoose.Schema
 const userSchema = new mongoose.Schema({
   name: { type: String ,required:true},
   email: { type: String, unique: true ,required:true},
@@ -17,15 +17,15 @@ const tagSchema = new mongoose.Schema({
 });
 
 const eventSchema = new mongoose.Schema({
-  name:String,
+  name: String,
   message: String,
-  coordinators: Array,
+  coordinators: [{type:Schema.Types.ObjectId, ref:"User"}],
   when: Date,
   lastDate: Date,
   where: String,
-  attendees: Array,
-  tags: Array,
-  imageurl:String,
+  attendees:[ { type: Schema.Types.ObjectId, ref: "User" }],
+  tags: [{ type: Schema.Types.ObjectId, ref:"Tag"}],
+  imageurl: String,
 });
 
 

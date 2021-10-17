@@ -47,7 +47,7 @@ router.get("/getEvent/attendee/:id", (req, res) => {
   });
 });
 router.post("/createEvent/:id", (req, res) => {
-  const { name, message, when, lastDate, where, tags, imageurl }= req.body;
+  const { name, message, when, lastDate, where, tags, imageurl } = req.body;
   const newEvent = new Event({
     name: name,
     message: message,
@@ -70,7 +70,17 @@ router.post("/createEvent/:id", (req, res) => {
   });
 });
 router.post("updateEvent/:id", (req, res) => {
-  const { name, message, coordinators, when, lastDate, where, tags, attendees, imageurl } = req.body;
+  const {
+    name,
+    message,
+    coordinators,
+    when,
+    lastDate,
+    where,
+    tags,
+    attendees,
+    imageurl,
+  } = req.body;
   Event.updateOne(
     { _id: req.params.id },
     {
@@ -82,19 +92,39 @@ router.post("updateEvent/:id", (req, res) => {
       where: where,
       tags: tags,
       imageurl: imageurl,
-    
-    }, (err) => {
+    },
+    (err) => {
       if (err) {
         res.send(err);
-      }
-      else {
+      } else {
         res.send({
           id: req.params.id,
-          message:"Updated Successfuly!",
-        })
+          message: "Updated Successfuly!",
+        });
       }
     }
   );
-})
+});
+router.post("addAttendee/:id", (req, res) => {
+  const { userId } = req.body;
+  Event.updateOne(
+    {
+      _id: req.params.id,
+    },
+    {
+      $push: userId,
+    },
+    (err) => {
+      if (err) {
+        res.send(err);
+      } else {
+        res.send({
+          message: "successfully registered to event",
+          date: new Date().toLocaleDateString(),
+        });
+      }
+    }
+  );
+});
 
 module.exports = router;
