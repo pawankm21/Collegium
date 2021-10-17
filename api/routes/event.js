@@ -96,5 +96,17 @@ router.post("updateEvent/:id", (req, res) => {
     }
   );
 })
+router.post("addAttendee/:id", (req, res) => {
+  const { userId } = req.body;
+  Event.updateOne(
+    {
+      _id: req.params.id,
+    },
+    {
+      $push: userId,
+    }
+  );
+
+})
 
 module.exports = router;
