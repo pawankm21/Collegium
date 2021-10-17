@@ -1,12 +1,11 @@
 import "./App.css";
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useLayoutEffect} from "react";
 import Navbar from "./components/navbar";
 import Hero from "./components/hero";
 import EventCard from "./components/eventcard";
 import Login from "./components/login";
 import Register from "./components/register";
-import UserProfileSmall from "./components/UserProfileSmall";
-import UserProfileBig from "./components/UserProfileForm";
+import EventCardSmall from "./components/EventCardSmall";
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,6 +15,7 @@ import {
 
 function App() {
   const [apiResponse, setApiResponse] = useState();
+  const [showCard, setShowCard] = useState(true);
   const [isAuth, setIsAuth] = useState(true);
   function callAPI() {
     fetch("http://localhost:9000/event")
@@ -26,6 +26,10 @@ function App() {
     callAPI();
     console.log(apiResponse);
   });
+  // const hideCardHandler = () => {
+  //  // for onClose prop on EventCardSmall
+  //   setShowCard(false);
+  // }
   return (
     <Router>
       <div className="App">{/* <EventCard/> */}</div>
@@ -38,10 +42,8 @@ function App() {
           {!isAuth ? <Login /> : <Redirect to="/" />}
         </Route>
         <Route exact path="/about">
-
           {/* <UserProfileSmall/> */}
           <UserProfileBig/>
-
         </Route>
         <Route exact path="/team"></Route>
         <Route exact path="/register">
