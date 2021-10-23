@@ -126,5 +126,10 @@ router.post("addAttendee/:id", (req, res) => {
     }
   );
 });
+router.delete("/deleteEvent/:id", async(req, res) => {
+  const { id } = req.params;
+  const response = await Event.deleteOne({ _id: id });
+  res.send(response);
+})
 
 module.exports = router;
