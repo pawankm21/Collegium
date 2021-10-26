@@ -16,10 +16,10 @@ router.get("/getUser/:id", (req, res) => {
         branch: user.branch,
         dob: user.dob,
       });
-    } catch (e){
+    } catch (err){
       res.json({
-        status:error,
-        error:e
+        status:"error",
+        error:err
       });
     }
   });
@@ -39,8 +39,8 @@ router.post("/createUser", (req, res) => {
   newUser.save((err) => {
     if (err) {
       res.json({
-        status: error,
-        e:err
+        status: "error",
+        error:err
       })
     } else {
       res.send({
