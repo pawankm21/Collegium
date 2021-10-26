@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var { User, Tag, Event } = require("../model");
+
 // contains all event related endpoints
 
 router.get("/getEvent", (req, res) => {

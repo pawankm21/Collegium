@@ -5,10 +5,22 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var cors = require("cors");
 var app = express();
-const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/collegiumDB", {
-  useNewUrlParser: true,
-});
+const mongodbUri = `mongodb+srv://pawan:a4XypE3rFfKc2X3N@collegium.de3be.mongodb.net/collegiumDB?retryWrites=true&w=majority`;
+
+try {
+  const mongoose = require("mongoose");
+  mongoose.connect(
+    mongodbUri,
+    {
+      useNewUrlParser: true,
+      useUnifiedToplogy: true,
+    },
+    () => console.log("Connected to Mongo")
+  );
+} catch (err) {
+  console.log("Error connecting to Mongo: " + err);
+}
+
 //import routes
 
 var metricsRouter = require("./routes/metrics");
@@ -16,7 +28,7 @@ var healthRouter = require("./routes/health");
 var userRouter = require("./routes/user");
 var eventRouter = require("./routes/event");
 // view engine setup
-app.set("view engine", "json"); 
+app.set("view engine", "json");
 
 app.use(logger("dev"));
 app.use(express.json());

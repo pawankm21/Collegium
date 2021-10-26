@@ -27,7 +27,7 @@ const UserProfileBig = () => {
 				<div className="mt-10">
 					<img
 						src="https://www.w3schools.com/howto/img_avatar.png"
-						alt="user image"
+						alt="user"
 						className="h-48 w-48 rounded-full"
 					/>
 				</div>
