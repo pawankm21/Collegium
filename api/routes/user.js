@@ -1,7 +1,9 @@
 var express = require("express");
 var router = express.Router();
 const { User } = require("../model");
+
 // all endpoints related to the user
+
 router.get("/getUser/:id", (req, res) => {
   console.log(req.params);
   User.findById(req.params.id, (err, user) => {
@@ -16,16 +18,26 @@ router.get("/getUser/:id", (req, res) => {
         branch: user.branch,
         dob: user.dob,
       });
-    } catch (err){
-      res.json({
-        status:"error",
-        error:err
+    } catch (err) {
+      res.send({
+        status: "error",
+        error: err,
       });
     }
   });
 });
+
 router.post("/createUser", (req, res) => {
-  const { name, email, gender, college, branch, roll, dob,password } = req.body;
+  const {
+    name,
+    email,
+    gender,
+    college,
+    branch,
+    roll,
+    dob,
+    password,
+  } = req.body;
   console.log(req.body);
   const newUser = new User({
     name: name,
@@ -34,14 +46,15 @@ router.post("/createUser", (req, res) => {
     college: college,
     branch: branch,
     roll: roll,
-    dob: new Date(dob),
+    dob: dob,
   });
   newUser.save((err) => {
+    console.log(err);
     if (err) {
-      res.json({
+      res.send({
         status: "error",
-        error:err
-      })
+        error: err,
+      });
     } else {
       res.send({
         id: newUser._id,
@@ -63,7 +76,7 @@ router.post("/updateUser/:id", (req, res) => {
     },
     (err) => {
       if (err) {
-        res.json({status:"error",error:err});
+        res.send({ status: "error", error: err });
       } else {
         res.send({
           id: req.params.id,

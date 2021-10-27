@@ -12,8 +12,7 @@ try {
   mongoose.connect(
     mongodbUri,
     {
-      useNewUrlParser: true,
-      useUnifiedToplogy: true,
+     
     },
     () => console.log("Connected to Mongo")
   );

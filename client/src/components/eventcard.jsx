@@ -1,5 +1,5 @@
 import React from 'react'
-import Tags from './tags'
+import Tags from './Tags'
 import { Link } from 'react-router-dom'
 export default function EventCard(props)  {
     return (
