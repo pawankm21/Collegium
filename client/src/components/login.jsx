@@ -19,29 +19,6 @@ import { useRef } from "react";
 import { Link,Redirect } from "react-router-dom";
 
 export default function Login() {
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const submitHandler = (event) => {
-    event.preventDefault();
-    const email = emailRef.current.value;
-    const password = passwordRef.current.value;
-    const sendReq = async () => {
-      const response = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCRmUJ_nEACYmuiHYb9faUBYcc-d8S59O4', {
-        method: 'POST',
-        body: JSON.stringify({ email, password, returnSecureToken: true }),
-        headers: {
-          'Content-type':'application/json'
-        }
-      })
-      const data = await response.json();
-      if (response.ok) {
-        alert('login successful')
-      } else {
-        alert(data.error.message);
-      }
-    }
-    sendReq();
-  }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
@@ -51,7 +28,7 @@ export default function Login() {
             Sign in to your account
           </h2>
         </div>
-        <form className="mt-8 space-y-6" onSubmit={submitHandler}>
+        <form className="mt-8 space-y-6">
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
               <label htmlFor="email-address" className="sr-only">
@@ -65,7 +42,6 @@ export default function Login() {
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
-                ref={emailRef}
               />
             </div>
             <div>
@@ -80,7 +56,6 @@ export default function Login() {
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
-                ref={passwordRef}
               />
             </div>
           </div>
