@@ -18,7 +18,7 @@ export default function Register() {
 			name: nameRef.current.value,
 			email: emailRef.current.value,
 			roll: rollRef.current.value,
-			// password: passwordRef.current.value,
+			password: passwordRef.current.value,
 			dob: dobRef.current.value,
 			gender: genderRef.current.value,
 			branch: branchRef.current.value,
@@ -35,7 +35,7 @@ export default function Register() {
 			const data = await response.json();
 			if(data.status==='success'){
 				alert(data.message);
-				history.push('/')
+				history.push('/login')
 			}
 			else {
 				alert(data.message+' Please enter a valid email')
