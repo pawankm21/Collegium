@@ -1,15 +1,48 @@
 import React, { useRef } from "react";
 import { LockClosedIcon } from "@heroicons/react/solid";
-import { Link,useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 export default function Register() {
-  const nameRef = useRef();
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  // const dobRef = useRef();
-  // const rollRef = useRef();
-  // const genderRef = useRef();
-  // const BranchRef = useRef();
-  const history = useHistory();
+	const nameRef = useRef();
+	const emailRef = useRef();
+	const passwordRef = useRef();
+	const dobRef = useRef();
+	const rollRef = useRef();
+	const genderRef = useRef();
+	const branchRef = useRef();
+	const confirmPassRef = useRef();
+	const collegeRef = useRef();
+	const history = useHistory();
+	const submitHandler = async (event) => {
+		event.preventDefault();
+		const user = {
+			name: nameRef.current.value,
+			email: emailRef.current.value,
+			roll: rollRef.current.value,
+			// password: passwordRef.current.value,
+			dob: dobRef.current.value,
+			gender: genderRef.current.value,
+			branch: branchRef.current.value,
+			college:collegeRef.current.value
+		};
+		const response = await fetch("http://localhost:9000/User/createUser", {
+			method: 'POST',
+			body: JSON.stringify(user),
+			headers: {
+				'Content-Type':'application/json'
+			}
+		});
+		if (response.ok) {
+			const data = await response.json();
+			if(data.status==='success'){
+				alert(data.message);
+				history.push('/')
+			}
+			else {
+				alert(data.message+' Please enter a valid email')
+			}
+		} 
+	
+	}
 	return (
 		<div>
 			<div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -24,7 +57,7 @@ export default function Register() {
 							Sign in to your account
 						</h2>
 					</div>
-					<form className="mt-8 space-y-6">
+					<form className="mt-8 space-y-6" onSubmit={submitHandler}>
 						<div className="rounded-md shadow-sm -space-y-px">
 							<div>
 								<label htmlFor="fullname  " className="">
@@ -37,7 +70,8 @@ export default function Register() {
 									autoComplete="text"
 									required
 									className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
-                  placeholder=""
+									placeholder=""
+									ref={nameRef}
 								/>
 							</div>
 							<div>
@@ -51,8 +85,8 @@ export default function Register() {
 									autoComplete="email"
 									required
 									className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
-                  placeholder=""
-                  ref={emailRef}
+									placeholder=""
+									ref={emailRef}
 								/>
 							</div>
 							<div className="grid grid-cols-2 gap-4">
@@ -68,6 +102,7 @@ export default function Register() {
 										required
 										className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
 										placeholder=""
+										ref={rollRef}
 									/>
 								</div>
 								<div className="">
@@ -78,6 +113,7 @@ export default function Register() {
 										name="gender"
 										id="gender"
 										className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
+										ref={genderRef}
 									>
 										<option value="Male">Male</option>
 										<option value="Female">Female</option>
@@ -89,21 +125,6 @@ export default function Register() {
 								</div>
 							</div>{" "}
 							<div className="grid grid-cols-2 gap-4">
-								<div>
-									<label
-										htmlFor="rollno"
-										className=""
-									></label>
-									<input
-										id="Rollno"
-										name="Rollno"
-										type="text"
-										autoComplete="rollno"
-										required
-										className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
-										placeholder=""
-									/>
-								</div>
 								<div className="">
 									<label htmlFor="branch" className="">
 										Branch
@@ -116,8 +137,38 @@ export default function Register() {
 										required
 										className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
 										placeholder=""
+										ref={branchRef}
 									/>
 								</div>
+								<div className="">
+									<label htmlFor="dob" className="">
+										Branch
+									</label>
+									<input
+										id="dob"
+										name="dob"
+										type="date"
+										autoComplete="dob"
+										required
+										className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
+										placeholder=""
+										ref={dobRef}
+									/>
+								</div>
+							</div>
+							<div>
+								<label htmlFor="college" className="">
+									College
+								</label>
+								<input
+									id="college"
+									name="college"
+									type="text"
+									autoComplete="college"
+									className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
+									placeholder=""
+									ref={collegeRef}
+								/>
 							</div>
 							<div>
 								<label
@@ -133,7 +184,8 @@ export default function Register() {
 									autoComplete="current-password"
 									required
 									className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
-                  placeholder=""
+									placeholder=""
+									ref={passwordRef}
 								/>
 							</div>
 							<div>
@@ -148,6 +200,7 @@ export default function Register() {
 									required
 									className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
 									placeholder=""
+									ref={confirmPassRef}
 								/>
 							</div>
 						</div>

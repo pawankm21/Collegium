@@ -3,7 +3,10 @@ var router = express.Router();
 const { User } = require("../model");
 
 // all endpoints related to the user
-
+router.post("/login", async (req, res) => {
+  console.log(req.body);
+  res.send({ message: 'got it' });
+})
 router.get("/getUser/:id", (req, res) => {
   console.log(req.params);
   User.findById(req.params.id, (err, user) => {
@@ -27,36 +30,21 @@ router.get("/getUser/:id", (req, res) => {
   });
 });
 
-router.post("/createUser", (req, res) => {
-  const {
-    name,
-    email,
-    gender,
-    college,
-    branch,
-    roll,
-    dob,
-    password,
-  } = req.body;
-  console.log(req.body);
-  const newUser = new User({
-    name: name,
-    email: email,
-    gender: gender,
-    college: college,
-    branch: branch,
-    roll: roll,
-    dob: dob,
-  });
-  newUser.save((err) => {
+router.post("/createUser", async (req, res) => {
+  const userData = req.body;
+  console.log(userData);
+  const newUser = new User(userData);
+  await newUser.save((err) => {
     console.log(err);
     if (err) {
       res.send({
         status: "error",
         error: err,
+        message:'Email already exists!!'
       });
     } else {
       res.send({
+        status:'success',
         id: newUser._id,
         message: "New User Created Successfully!",
       });
@@ -85,6 +73,10 @@ router.post("/updateUser/:id", (req, res) => {
       }
     }
   );
+});
+router.post("/login", async (req, res) => {
+	console.log(req.body);
+	res.send({ message: "got it" });
 });
 
 module.exports = router;
