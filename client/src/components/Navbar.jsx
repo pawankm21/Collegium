@@ -3,18 +3,20 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const navigation = [
-  { name: "Upcoming Events", href: "/dashboard", current: true },
+  { name: "Upcoming Events", href: "#", current: true },
   { name: "Calendar", href: "#", current: false },
-  { name:"Your Events" ,href:"/events/:id",current:false}
+  { name: "Your Events", href: "#", current: false },
 ];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Navbar({isAuth}) {
+export default function Navbar({ isAuth }) {
+  const [toggle, setToggle] = useState(navigation);
   return (
     <Disclosure as="nav" className="bg-white">
       {({ open }) => (
@@ -50,7 +52,7 @@ export default function Navbar({isAuth}) {
                     {navigation.map((item) => (
                       <Link
                         onClick={() => {
-                          item.current = true;
+                  
                         }}
                         key={item.name}
                         to={item.href}
@@ -98,11 +100,11 @@ export default function Navbar({isAuth}) {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                          to="/user/:id"
+                            to="/user/:id"
                             className={classNames(
                               active ? "bg-green-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"

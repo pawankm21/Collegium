@@ -8,7 +8,7 @@ const navigation = [
   { name: "Donate", href: "#" },
 ];
 
-export default function Hero({isAuth}) {
+export default function Hero({ isAuth }) {
   return (
     <div className="relative bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -146,7 +146,7 @@ export default function Hero({isAuth}) {
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-extrabold text-gray-700 sm:text-5xl md:text-6xl">
                 <span className="block xl:inline">
-                  Discover Events Happening in
+                  Discover Events Happening in{" "}
                 </span>
                 <span className="block text-green-500 xl:inline">
                   your College.
@@ -174,10 +174,7 @@ export default function Hero({isAuth}) {
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
         <img
           className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-          src={
-            process.env.PUBLIC_URL +
-            "/images/bg.jpg"
-          }
+          src={process.env.PUBLIC_URL + "/images/bg.jpg"}
           alt=""
         />
       </div>
