@@ -69,7 +69,7 @@ export default function Register() {
 									type="text"
 									autoComplete="text"
 									required
-									className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
+									className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
 									placeholder=""
 									ref={nameRef}
 								/>
@@ -84,7 +84,7 @@ export default function Register() {
 									type="email"
 									autoComplete="email"
 									required
-									className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
+									className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
 									placeholder=""
 									ref={emailRef}
 								/>
@@ -100,7 +100,7 @@ export default function Register() {
 										type="text"
 										autoComplete="rollno"
 										required
-										className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
+										className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
 										placeholder=""
 										ref={rollRef}
 									/>
@@ -112,7 +112,7 @@ export default function Register() {
 									<select
 										name="gender"
 										id="gender"
-										className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
+										className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
 										ref={genderRef}
 									>
 										<option value="Male">Male</option>
@@ -135,7 +135,7 @@ export default function Register() {
 										type="text"
 										autoComplete="branch"
 										required
-										className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
+										className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
 										placeholder=""
 										ref={branchRef}
 									/>
@@ -150,7 +150,7 @@ export default function Register() {
 										type="date"
 										autoComplete="dob"
 										required
-										className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
+										className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
 										placeholder=""
 										ref={dobRef}
 									/>
@@ -165,7 +165,7 @@ export default function Register() {
 									name="college"
 									type="text"
 									autoComplete="college"
-									className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
+									className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
 									placeholder=""
 									ref={collegeRef}
 								/>
@@ -183,7 +183,7 @@ export default function Register() {
 									type="password"
 									autoComplete="current-password"
 									required
-									className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
+									className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
 									placeholder=""
 									ref={passwordRef}
 								/>
@@ -198,7 +198,7 @@ export default function Register() {
 									type="password"
 									autoComplete="current-password"
 									required
-									className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
+									className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
 									placeholder=""
 									ref={confirmPassRef}
 								/>
@@ -211,7 +211,7 @@ export default function Register() {
 							<div className="text-sm">
 								<Link
 									href="#"
-									className="font-medium text-green-600 hover:text-green-500"
+									className="font-medium text-gray-600 hover:text-gray-500"
 								>
 									Forgot your password?
 								</Link>
@@ -221,11 +221,11 @@ export default function Register() {
 						<div>
 							<button
 								type="submit"
-								className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+								className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
 							>
 								<span className="absolute left-0 inset-y-0 flex items-center pl-3">
 									<LockClosedIcon
-										className="h-5 w-5 text-green-500 group-hover:text-green-400"
+										className="h-5 w-5 text-gray-500 group-hover:text-gray-400"
 										aria-hidden="true"
 									/>
 								</span>

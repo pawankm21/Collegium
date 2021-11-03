@@ -19,54 +19,65 @@ export default function Dashboard() {
   return (
     <>
       <Navbar />
-      <div className="grid grid-cols-6">
-        <div className="col-start-1 lg:col-span-2 ml-3 mt-3 mb-1 col-span-full row-span-1">
+      <div className=" grid grid-flow-col mt-2 h-screen">
+        <div className="flex flex-col ">
+          {" "}
           <UserProfileSmall />
+          <div className="shadow-2xl rounded-xl mt-4 ml-2 mr-2 justify-center h-80 overflow-y-scroll">
+            <h1 className="text-xl text-center bg-white w-full sticky top-0">
+              Registrations
+            </h1>
+            <div className="pr-4 ">{events()}</div>
+          </div>
         </div>
 
-        <div className="lg:col-start-3 lg:col-span-4 bg-green-100 m-3 col-span-full overflow-y-auto lg:row-span-3 max-h-screen rounded-lg ">
-          <div className=" bg-green-500 text-center w-full sticky top-0 text-xl p-1 font-bold text-white">
+        <div className="pl-4 pb-4 pr-4 shadow-2xl h-screen overflow-y-auto rounded-xl ">
+          <h1 className="text-2xl font-bold ml-3 bg-white w-full sticky top-0">
             Upcoming Events
-          </div>
-          <div className=" pt-2 pb-1">
+          </h1>
+          <div className="m-1 ">
             <EventCard
-              name="lorem ipsum"
-              message={
-                " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae saepe  "
-              }
-              tags={["#lorem", "#ipsum", "#dolor"]}
-              imageUrl="https://images.unsplash.com/photo-1518791841217-8f162f1e1131"
+              imageUrl="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg"
+              name="hello world"
+              message=" lorem ipsum dolores"
+              tags={["lorem", "ipsum", "dolores"]}
+            />
+          </div>{" "}
+          <div className="m-1">
+            <EventCard
+              imageUrl="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg"
+              name="hello world"
+              message=" lorem ipsum dolores"
+              tags={["lorem", "ipsum", "dolores"]}
+            />
+          </div>{" "}
+          <div className="m-1">
+            <EventCard
+              imageUrl="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg"
+              name="hello world"
+              message=" lorem ipsum dolores"
+              tags={["lorem", "ipsum", "dolores"]}
+            />
+          </div>{" "}
+          <div className="m-1">
+            <EventCard
+              imageUrl="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg"
+              name="hello world"
+              message=" lorem ipsum dolores"
+              tags={["lorem", "ipsum", "dolores"]}
+            />
+          </div>{" "}
+          <div className="m-1">
+            <EventCard
+              imageUrl="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg"
+              name="hello world"
+              message=" lorem ipsum dolores"
+              tags={["lorem", "ipsum", "dolores"]}
             />
           </div>
-          <div className=" pt-2 pb-1 ">
-            <EventCard
-              name="lorem ipsum"
-              message={
-                " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae saep.  "
-              }
-              tags={["#lorem", "#ipsum", "#dolor"]}
-              imageUrl="https://images.unsplash.com/photo-1518791841217-8f162f1e1131"
-            />
-          </div>
-          <div className=" pt-2 pb-1">
-            <EventCard
-              name="lorem ipsum"
-              message={
-                " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae saep.  "
-              }
-              tags={["#lorem", "#ipsum", "#dolor"]}
-              imageUrl="https://images.unsplash.com/photo-1518791841217-8f162f1e1131"
-            />
-          </div>
-        </div>
-
-        <div className="col-start-1 col-flow lg:col-span-2 ml-3 mt-1 mb-3 bg-green-100 rounded-lg pt-0 pb-2 row-span-2 max-h-96 col-span-full overflow-y-auto">
-          <div className=" bg-green-500 text-center w-full sticky top-0 text-xl p-1 text-white font-bold">
-           Registered Events
-          </div>
-          {events()}
         </div>
       </div>
+      <footer className="h-16 "></footer>
     </>
   );
 }

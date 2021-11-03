@@ -27,6 +27,7 @@ const eventSchema = new mongoose.Schema({
   attendees:[ { type: Schema.Types.ObjectId, ref: "User" }],
   tags: [{ type: Schema.Types.ObjectId, ref:"Tag"}],
   imageurl: String,
+  type: String,
 });
 
 
