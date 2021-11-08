@@ -5,7 +5,7 @@ const EventCardSmall = (props) => {
   const eventDate = "08 Jun 2021";
 
   return (
-    <div className="items-center w-full border-2 border-gray-700 rounded-md m-2">
+    <div className="items-center w-full  shadow-md bg-blue-300 rounded-md m-2">
         <div className="grid grid-cols-2 gap-4 p-3 ">
           <div className=" text-lg">{eventName}</div>
           <div className="">{eventDate}</div>

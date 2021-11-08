@@ -19,23 +19,25 @@ export default function Dashboard() {
   return (
     <>
       <Navbar />
-      <div className=" grid grid-flow-col mt-2 h-screen">
+      <div className=" grid grid-flow-col  h-screen mt-8">
         <div className="flex flex-col ">
           {" "}
           <UserProfileSmall />
           <div className="shadow-2xl rounded-xl mt-4 ml-2 mr-2 justify-center h-80 overflow-y-scroll">
-            <h1 className="text-xl text-center bg-white w-full sticky top-0">
+            <h1 className="text-2xl font-bold  bg-white w-full sticky top-0 pl-4">
               Registrations
             </h1>
-            <div className="pr-4 ">{events()}</div>
+            <div className="pr-4 border-4  divide-solid">
+              {events()}
+            </div>
           </div>
         </div>
 
         <div className="pl-4 pb-4 pr-4 shadow-2xl h-screen overflow-y-auto rounded-xl ">
-          <h1 className="text-2xl font-bold ml-3 bg-white w-full sticky top-0">
+          <h1 className="text-2xl font-bold  bg-white w-full sticky top-0 ">
             Upcoming Events
           </h1>
-          <div className="m-1 ">
+          <div className="mt-2 m-1 mb-2   ">
             <EventCard
               imageUrl="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg"
               name="hello world"

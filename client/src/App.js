@@ -5,6 +5,7 @@ import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
 import About from "./components/About";
 import Team from "./components/Team";
+import NewEvent from "./components/NewEvent";
 
 import {
   BrowserRouter as Router,
@@ -22,6 +23,7 @@ function App() {
       <Route exact path="/" component={Hero} />
       <Route exact path="/about" component={About} />
       <Route exact path="/team" component={Team} />
+      <Route exact path="/new-event" component={ NewEvent}/>
     </Router>
   );
 }
