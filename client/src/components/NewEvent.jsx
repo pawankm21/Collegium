@@ -4,17 +4,17 @@ function NewEvent() {
   return (
     <>
       <Navbar />
-      <div className="m-5 shadow-xl divide-y divide-gray-700 p-4">
+      <div className="m-5 shadow-xl divide-y divide-gray-700 p-4 ">
         <h1 className="text-center capitalize font-bold text-gray-800 text-3xl mt-10 mb-10 ">
           Create Event
         </h1>
         <form>
           <div className="grid grid-cols-2 gap-4 ">
             <div className="col-span-1 pointer-events-auto">
-              <div className=" w-full  bg-gray-400 justify-center h-48 border-2 border-dashed rounded-xl border-gray-700 mt-5 pointer-events-auto">
+              <div className=" w-full  bg-gray-400 justify-center h-56 border-2 border-dashed rounded-xl border-gray-700 mt-5 pointer-events-auto">
                 <input
                   type="file"
-                  className=" opacity-0 w-full h-full "
+                  className=" opacity-0 w-full h-full focus:ring-2 ring-blue-400 outline-none"
                   name=""
                   id=""
                 />
@@ -26,73 +26,75 @@ function NewEvent() {
             <div className="col-span-1 mt-5">
               <label className="text-gray-800">Event Name</label>
               <input
-                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full"
+                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
                 type="text"
                 placeholder="Event Name"
                 name="eventName"
                 required
               />{" "}
-              <label className="text-gray-800">Event Name</label>
+              <label className="text-gray-800">Event Ends on</label>
               <input
-                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full"
-                type="text"
-                placeholder="Event Name"
-                name="eventName"
+                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
+                type="datetime-local"
+                placeholder="28 June 2021"
+                name="eventEndDate"
                 required
               />{" "}
-              <label className="text-gray-800">Event Name</label>
+              <label className="text-gray-800">Event Starts on</label>
               <input
-                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full"
-                type="text"
-                placeholder="Event Name"
-                name="eventName"
+                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
+                type="datetime-local"
+                placeholder="27 June 2021"
+                name="eventDate"
+                required
+              />{" "}
+              <label className="text-gray-800">Deadline</label>
+              <input
+                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
+                type="datetime-local"
+                placeholder="Registrations open till..."
+                name="deadline"
                 required
               />
             </div>
             <div className="col-span-1 mt-5">
-              <label className="text-gray-800">Event Name</label>
-              <input
-                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full"
-                type="text"
-                placeholder="Event Name"
+              <label className="text-gray-800">Add tags</label>
+              <textarea
+                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
+                type="search"
+                placeholder="add tags separated by commas, eg. Women-Only, Students-Only...."
                 name="eventName"
                 required
               />
             </div>{" "}
             <div className="col-span-1 mt-5">
-              <label className="text-gray-800">Event Name</label>
-              <input
-                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full"
+              <label className="text-gray-800">Add Coordinators</label>
+              <textarea
+                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
                 type="text"
-                placeholder="Event Name"
+                placeholder="Add collegium usernames separated by commas, eg. Noobmaster69, john123,..."
                 name="eventName"
                 required
               />
             </div>
-            <div className="col-span-1 mt-5">
-              <div className="col-span-1 mt-5">
-                <label className="text-gray-800">Event Name</label>
-                <input
-                  className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full"
-                  type="text"
-                  placeholder="Event Name"
-                  name="eventName"
-                  required
-                />
-              </div>{" "}
-              <div className="col-span-1 mt-5">
-                <label className="text-gray-800">Event Name</label>
-                <textarea
-                  className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full"
-                  type="text"
-                  cols="30"
-                  rows="70"
-                  name="eventName"
-                  required
-                />
-              </div>
+            <div className="col-span-2 mt-5">
+              <label className="text-gray-800 text-lg font-bold  m-auto">
+                Message
+              </label>
+              <textarea
+                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
+                type="text"
+                cols="30"
+                rows="10"
+                name="eventName"
+                required
+              />
             </div>
           </div>
+          <div className="w-full text-center">
+          <button className="w-1/2 m-5 p-4 text-lg rounded-md bg-blue-500 text-white hover:bg-blue-700">
+            Submit
+          </button></div>
         </form>
       </div>
     </>
