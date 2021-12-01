@@ -5,7 +5,7 @@ import Register from "./components/Register";
 import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
 import Team from "./pages/Team";
-import NewEvent from "./components/NewEvent";
+import NewEvent from "./pages/NewEvent";
 
 import {
   BrowserRouter as Router,

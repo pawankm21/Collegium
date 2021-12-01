@@ -1,10 +1,10 @@
 import React from "react";
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
 function NewEvent() {
   return (
     <>
       <Navbar />
-      <div className="m-5 shadow-xl divide-y divide-gray-700 p-4 ">
+      <div className="m-5 shadow divide-y divide-gray-700 p-4 bg-white ">
         <h1 className="text-center capitalize font-bold text-gray-800 text-3xl mt-10 mb-10 ">
           Create Event
         </h1>

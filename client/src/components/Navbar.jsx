@@ -8,7 +8,6 @@ import { useState } from "react";
 const navigation = [
   { name: "Upcoming Events", href: "#", current: true },
   { name: "Calendar", href: "#", current: false },
-  { name: "Your Events", href: "#", current: false },
 ];
 
 function classNames(...classes) {
@@ -18,7 +17,8 @@ function classNames(...classes) {
 export default function Navbar({ isAuth }) {
   const [toggle, setToggle] = useState(navigation);
   return (
-    <Disclosure as="nav" className="bg-white">
+    <Disclosure as="nav"
+      className="bg-white shadow">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -34,7 +34,7 @@ export default function Navbar({ isAuth }) {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+              <div className="flex-1  flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
                   <img
                     className="block lg:hidden h-8 w-auto"

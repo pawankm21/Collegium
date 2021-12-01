@@ -1,9 +1,9 @@
 import React from "react";
-import EventCard from "../components/EventCard";
 import EventCardSmall from "../components/EventCardSmall";
 import Navbar from "../components/Navbar";
 import UserProfileSmall from "../components/UserProfileSmall";
 import { Tab } from "@headlessui/react";
+import EventTabs from "../components/EventTabs";
 export default function Dashboard() {
   const events = () => {
     var ret = [];
@@ -16,130 +16,27 @@ export default function Dashboard() {
     }
     return ret;
   };
-  const EVENT = {
-    Upcoming: [
-      <div className="m-1">
-        <EventCard
-          imageUrl="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg"
-          name="hello world"
-          message=" lorem ipsum dolores"
-          tags={["lorem", "ipsum", "dolores"]}
-        />
-      </div>,
-      <div className="m-1">
-        <EventCard
-          imageUrl="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg"
-          name="hello world"
-          message=" lorem ipsum dolores"
-          tags={["lorem", "ipsum", "dolores"]}
-        />
-      </div>,
-      <div className="m-1">
-        <EventCard
-          imageUrl="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg"
-          name="hello world"
-          message=" lorem ipsum dolores"
-          tags={["lorem", "ipsum", "dolores"]}
-        />
-      </div>,
-    ],
-    Past: [
-      <div className="m-1">
-        <EventCard
-          imageUrl="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg"
-          name="hello world"
-          message=" lorem ipsum dolores"
-          tags={["lorem", "ipsum", "dolores"]}
-        />
-      </div>,
-      <div className="m-1">
-        <EventCard
-          imageUrl="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg"
-          name="hello world"
-          message=" lorem ipsum dolores"
-          tags={["lorem", "ipsum", "dolores"]}
-        />
-      </div>,
-      <div className="m-1">
-        <EventCard
-          imageUrl="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg"
-          name="hello world"
-          message=" lorem ipsum dolores"
-          tags={["lorem", "ipsum", "dolores"]}
-        />
-      </div>,
-    ],
-    Ongoing: [
-      <div className="m-1">
-        <EventCard
-          imageUrl="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg"
-          name="hello world"
-          message=" lorem ipsum dolores"
-          tags={["lorem", "ipsum", "dolores"]}
-        />
-      </div>,
-      <div className="m-1">
-        <EventCard
-          imageUrl="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg"
-          name="hello world"
-          message=" lorem ipsum dolores"
-          tags={["lorem", "ipsum", "dolores"]}
-        />
-      </div>,
-      <div className="m-1">
-        <EventCard
-          imageUrl="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg"
-          name="hello world"
-          message=" lorem ipsum dolores"
-          tags={["lorem", "ipsum", "dolores"]}
-        />
-      </div>,
-    ],
-    "Your Events": [
-      <div className="m-1">
-        <EventCard
-          imageUrl="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg"
-          name="hello world"
-          message=" lorem ipsum dolores"
-          tags={["lorem", "ipsum", "dolores"]}
-        />
-      </div>,
-      <div className="m-1">
-        <EventCard
-          imageUrl="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg"
-          name="hello world"
-          message=" lorem ipsum dolores"
-          tags={["lorem", "ipsum", "dolores"]}
-        />
-      </div>,
-      <div className="m-1">
-        <EventCard
-          imageUrl="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg"
-          name="hello world"
-          message=" lorem ipsum dolores"
-          tags={["lorem", "ipsum", "dolores"]}
-        />
-      </div>,
-    ],
-  };
+
 
   return (
     <>
       <Navbar />
-      <div className=" grid grid-flow-col  h-screen mt-8">
-        <div className="flex flex-col ">
-          {" "}
+      <div className="md:flex  bg-gray-100 h-screen mt-4 w-full">
+        <div className="flex flex-col md:w-1/3">
           <UserProfileSmall />
-          <div className="shadow-2xl rounded-xl mt-4 ml-2 mr-2 justify-center h-80 overflow-y-scroll">
-            <h1 className="text-2xl font-bold  bg-white w-full sticky top-0 pl-4">
+          <div className="shadow rounded mt-4 ml-2 mr-2 justify-center h-80 overflow-y-scroll bg-gray-100">
+            <h1 className="text-2xl p-2 font-bold  bg-white w-full sticky top-0 pl-4">
               Registrations
             </h1>
             <div className="pr-4 border-4  divide-solid">{events()}</div>
           </div>
         </div>
-   
+        <div className="md:w-2/3 mt-2 overflow-y-scroll">
+        <EventTabs/>
+        </div>
       </div>
-      <footer className="h-16 "></footer>
+      <footer className="h-16 ">
+      </footer>
     </>
   );
 }
