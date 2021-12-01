@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
 import Team from "./pages/Team";
 import NewEvent from "./pages/NewEvent";
+import ShowEvent from "./pages/ShowEvent";
 
 import {
   BrowserRouter as Router,
@@ -23,7 +24,8 @@ function App() {
       <Route exact path="/" component={Hero} />
       <Route exact path="/about" component={About} />
       <Route exact path="/team" component={Team} />
-      <Route exact path="/new-event" component={ NewEvent}/>
+      <Route exact path="/new-event" component={NewEvent} />
+      <Route exact path="/show-event" component={ShowEvent} />
     </Router>
   );
 }

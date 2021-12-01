@@ -3,7 +3,7 @@ import React from "react";
 function UserProfileSmall({ image, name, upcomingEvents = 0 }) {
   return (
     <div className=" h-2/5 m-2 bg-white dark:bg-blue-900  rounded  shadow text-center pb-2">
-      <div className="h-1/2 w-full bg-gray-900 pt-2 grid grid-cols-1 place-items-center  rounded">
+      <div className="h-1/2 w-full bg-blue-900 pt-2 grid grid-cols-1 place-items-center  rounded-t ">
         <h1 className="text-lg text-gray-100 font-bold capitalize text-center ">
           John Doe
         </h1>
