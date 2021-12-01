@@ -1,8 +1,8 @@
 import React from "react";
-import EventCard from "./EventCard";
-import EventCardSmall from "./EventCardSmall";
-import Navbar from "./Navbar";
-import UserProfileSmall from "./UserProfileSmall";
+import EventCard from "../components/EventCard";
+import EventCardSmall from "../components/EventCardSmall";
+import Navbar from "../components/Navbar";
+import UserProfileSmall from "../components/UserProfileSmall";
 import { Tab } from "@headlessui/react";
 export default function Dashboard() {
   const events = () => {
@@ -137,41 +137,7 @@ export default function Dashboard() {
             <div className="pr-4 border-4  divide-solid">{events()}</div>
           </div>
         </div>
-        <Tab.Group>
-          <div className="pl-4 pb-4 pr-4 shadow-2xl h-screen overflow-y-auto rounded-xl ">
-            <div className="grid grid-cols-4 gap-1">
-              <Tab.List>
-                {" "}
-                <span className="text-2xl font-bold  bg-white w-full sticky top-0 ">
-                  Upcoming
-                </span>
-              </Tab.List>
-              <Tab.List>
-                {" "}
-                <span className="text-2xl font-bold  bg-white w-full sticky top-0 ">
-                  Ongoing
-                </span>
-              </Tab.List>
-              <Tab.List>
-                {" "}
-                <span className="text-2xl font-bold  bg-white w-full sticky top-0 ">
-                  Past Events
-                </span>
-              </Tab.List>{" "}
-              <Tab.List>
-                {" "}
-                <span className="text-2xl font-bold  bg-white w-full sticky top-0 ">
-                  Your Events
-                </span>
-              </Tab.List>
-            </div>
-             <Tab.Panels>
-        <Tab.Panel>Content 1</Tab.Panel>
-        <Tab.Panel>Content 2</Tab.Panel>
-        <Tab.Panel>Content 3</Tab.Panel>
-      </Tab.Panels>
-          </div>
-        </Tab.Group>
+   
       </div>
       <footer className="h-16 "></footer>
     </>
