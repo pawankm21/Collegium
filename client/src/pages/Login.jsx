@@ -37,7 +37,7 @@ export default function Login() {
       const data = await response.json();
       if (data.user) {
         alert('Log in successfull');
-        // localStorage.setItem('token', data.user);
+        localStorage.setItem('id', data.user);
         history.replace('/dashboard')
       } else {
         alert('Email or Password incorrect.')

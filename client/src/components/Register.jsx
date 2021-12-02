@@ -142,7 +142,7 @@ export default function Register() {
 								</div>
 								<div className="">
 									<label htmlFor="dob" className="">
-										Branch
+										DOB
 									</label>
 									<input
 										id="dob"
