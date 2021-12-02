@@ -14,14 +14,14 @@ router.post("/login", async (req, res) => {
   const validPass = await bcrypt.compare(password, user.password);
   if (validPass) {
     const token=jwt.sign({name:user.name,email:user.email},process.env.secret)
-    return res.json({status:'success',user:token})
+    return res.json({status:'success',user:user._id})
   }
   else {
     return res.json({ status: 'error', user: false });
   }
 })
 router.get("/getUser/:id", (req, res) => {
-  console.log(req.params);
+  // console.log(req.params);
   User.findById(req.params.id, (err, user) => {
     try {
       res.send({
