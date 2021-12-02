@@ -98,7 +98,7 @@ function EventTabs() {
     }
   useEffect(() => {
     fetchData();
-  })
+  },[]);
   
   return (
     <Tab.Group>
