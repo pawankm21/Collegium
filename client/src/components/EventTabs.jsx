@@ -90,7 +90,7 @@ function EventTabs() {
   return (
     <Tab.Group>
       <Tab.List className="sticky top-0 bg-white p-1  shadow">
-        <div className="m-2 bg-blue-400 grid grid-cols-4 rounded-lg p-3">
+        <div className="m-2 bg-blue-400 grid grid-cols-4  rounded-lg p-3">
           <Tab
             className={({ selected }) =>
               classNames(
@@ -98,8 +98,9 @@ function EventTabs() {
                   ? "bg-white text-black shadow"
                   : " text-gray-700 bg-transparent",
                 "p-2 mx-1",
+                "transform ease-in-out duration-300 transition-all",
                 "focus:ring-4 ring-blue-500",
-                "rounded-lg",
+                "rounded-lg"
               )
             }
           >
@@ -112,8 +113,9 @@ function EventTabs() {
                   ? "bg-white text-black shadow"
                   : " text-gray-700 bg-transparent",
                 "p-2 mx-1",
+                "transform ease-in-out duration-300 transition-all",
                 "focus:ring-4 ring-blue-500",
-                "rounded-lg",
+                "rounded-lg"
               )
             }
           >
@@ -126,8 +128,9 @@ function EventTabs() {
                   ? "bg-white text-black shadow"
                   : " text-gray-700 bg-transparent",
                 "p-2 mx-1",
+                "transform ease-in-out duration-300 transition-all",
                 "focus:ring-4 ring-blue-500",
-                "rounded-lg",
+                "rounded-lg"
               )
             }
           >
@@ -140,8 +143,9 @@ function EventTabs() {
                   ? "bg-white text-black shadow"
                   : " text-gray-700 bg-transparent",
                 "p-2 mx-1",
+                "transform ease-in-out duration-300 transition-all",
                 "focus:ring-4 ring-blue-500",
-                "rounded-lg",
+                "rounded-lg"
               )
             }
           >
