@@ -1,5 +1,5 @@
 if (process.env.NODE_ENV !== "production") {
-	require("dotenv").config();
+  require("dotenv").config();
 }
 var createError = require("http-errors");
 var express = require("express");
@@ -12,15 +12,9 @@ const mongodbUri = process.env.mongoUrl;
 
 try {
   const mongoose = require("mongoose");
-  mongoose.connect(
-    mongodbUri,
-    {
-     
-    },
-    () => console.log("Connected to Mongo")
-  );
+  mongoose.connect(mongodbUri, {}, () => console.log("Connected to Mongo"));
 } catch (err) {
-	console.log("Error connecting to Mongo: " + err);
+  console.log("Error connecting to Mongo: " + err);
 }
 
 //import routes
@@ -36,7 +30,6 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-
 app.use(cors());
 
 // routes
@@ -48,18 +41,18 @@ app.use("/Event", eventRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-	next(createError(404));
+  next(createError(404));
 });
 
 // error handler
 app.use(function (err, req, res, next) {
-	// set locals, only providing error in development
-	res.locals.message = err.message;
-	res.locals.error = req.app.get("env") === "development" ? err : {};
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get("env") === "development" ? err : {};
 
-	// render the error page
-	res.status(err.status || 500);
-	res.render("error");
+  // render the error page
+  res.status(err.status || 500);
+  res.render("error");
 });
 
 module.exports = app;

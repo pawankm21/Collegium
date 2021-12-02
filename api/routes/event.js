@@ -8,7 +8,7 @@ router.get("/getEvent", (req, res) => {
   var now = new Date();
   Event.find(
     { when: { $gte: now } },
-    "name when lastDate tags where",
+    
     (err, events) => {
       if (err) {
         res.send(err);

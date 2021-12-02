@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import EventCard from "../components/EventCard";
 import { Tab } from "@headlessui/react";
+
 function classNames(...args) {
   return args.filter(Boolean).join(" ");
 }
+
 const EVENT = {
   Upcoming: [
     <EventCard
@@ -86,7 +88,18 @@ const EVENT = {
     />,
   ],
 };
+
 function EventTabs() {
+  const [getEvent, setGetEvent] = useState([]);
+    async function fetchData() {
+      const response = await fetch("http://localhost:9000/Event/getEvent");
+      const json = await response.json();
+      setGetEvent(json);
+    }
+  useEffect(() => {
+    fetchData();
+  })
+  
   return (
     <Tab.Group>
       <Tab.List className="sticky top-0 bg-white p-1  shadow">
@@ -155,12 +168,9 @@ function EventTabs() {
       </Tab.List>
       <Tab.Panels>
         <Tab.Panel>
-          {EVENT.Upcoming.map((event, index) => {
-            return (
-              <div className="mt-2 mb-2" key={index}>
-                {event}
-              </div>
-            );
+          {getEvent.map((event, idx) => {
+            console.log(event);
+            return <div className="my-2"> <EventCard key={idx} name={event.name} imageUrl={event.imageurl} message={event.message} tags={[...event.tags]} /></div>;
           })}
         </Tab.Panel>
         <Tab.Panel>

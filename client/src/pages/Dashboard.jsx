@@ -2,7 +2,6 @@ import React from "react";
 import EventCardSmall from "../components/EventCardSmall";
 import Navbar from "../components/Navbar";
 import UserProfileSmall from "../components/UserProfileSmall";
-import { Tab } from "@headlessui/react";
 import EventTabs from "../components/EventTabs";
 export default function Dashboard() {
   const events = () => {
@@ -32,11 +31,10 @@ export default function Dashboard() {
           </div>
         </div>
         <div className="md:w-2/3 mt-2 overflow-y-scroll">
-        <EventTabs/>
+          <EventTabs />
         </div>
       </div>
-      <footer className="h-16 ">
-      </footer>
+      <footer className="h-16 "></footer>
     </>
   );
 }
