@@ -18,6 +18,19 @@ router.get("/getEvent", (req, res) => {
     }
   );
 });
+router.get("/getEvent/coordinator/:id", (req, res) => {
+  var now = new Date();
+  Event.find(
+    { when: { $gte: now }, coordinator: req.params.id },
+    (err, events) => {
+      if (err) {
+        res.send(err);
+      } else {
+        res.send(events);
+      }
+    }
+  );
+});
 router.get("/getEvent/:id", (req, res) => {
   {
     Event.findById(req.params.id, (err, event) => {
@@ -46,6 +59,19 @@ router.get("/getEvent/attendee/:id", (req, res) => {
       res.send(events);
     }
   });
+});
+router.get("/getEvent/past", (req, res) => {
+  var now = new Date();
+  Event.find(
+    { when: { $lt: now } },
+    (err, events) => {
+      if (err) {
+        res.send(err);
+      } else {
+        res.send(events);
+      }
+    }
+  );
 });
 router.post("/createEvent/:id", (req, res) => {
   const { name, message, when, lastDate, where, tags, imageurl } = req.body;
