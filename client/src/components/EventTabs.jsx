@@ -23,7 +23,6 @@ function EventTabs() {
       return getEvent.map((event, idx) => {
         return (
           <div className="my-2">
-            {" "}
             <EventCard key={idx} {...event} />
           </div>
         );
@@ -96,7 +95,6 @@ function EventTabs() {
       <Tab.Panels>
         <Tab.Panel>{renderTab()}</Tab.Panel>
         <Tab.Panel>{renderTab()}</Tab.Panel>
-
         <Tab.Panel>{renderTab()}</Tab.Panel>
       </Tab.Panels>
     </Tab.Group>

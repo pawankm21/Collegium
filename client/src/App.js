@@ -10,9 +10,8 @@ import ShowEvent from "./pages/ShowEvent";
 
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
-  Redirect,
+
 } from "react-router-dom";
 
 function App() {
@@ -25,7 +24,9 @@ function App() {
       <Route exact path="/about" component={About} />
       <Route exact path="/team" component={Team} />
       <Route exact path="/new-event" component={NewEvent} />
-      <Route exact path="/show-event" component={ShowEvent} />
+      <Route exact path="/events/:id" component={ShowEvent} >
+     
+      </Route>
     </Router>
   );
 }
