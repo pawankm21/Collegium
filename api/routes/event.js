@@ -87,7 +87,7 @@ router.post("/createEvent/:id", (req, res) => {
     }
   });
 });
-router.post("updateEvent/:id", (req, res) => {
+router.post("/updateEvent/:id", (req, res) => {
   const {
     name,
     message,
@@ -123,14 +123,15 @@ router.post("updateEvent/:id", (req, res) => {
     }
   );
 });
-router.post("addAttendee/:id", (req, res) => {
+router.post("/addAttendee/:EventId", (req, res) => {
+  console.log(req.body)
   const { userId } = req.body;
   Event.updateOne(
     {
-      _id: req.params.id,
+      _id: req.params.EventId,
     },
     {
-      $push: userId,
+      $push: {attendees:userId},
     },
     (err) => {
       if (err) {

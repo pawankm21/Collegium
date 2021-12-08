@@ -8,6 +8,22 @@ import { useParams } from "react-router-dom";
 function ShowEvent() {
   const { id } = useParams();
   const data = useShowEvent(id);
+  async function joinEvent() {
+    const response = await fetch(
+      `http://localhost:9000/Event/addAttendee/${id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: localStorage.getItem("id"),
+        }),
+      }
+    );
+    const json = await response.json();
+    window.alert(json.message);
+  }
   return (
     <div className="w-full h-screen">
       <Navbar />
@@ -27,7 +43,7 @@ function ShowEvent() {
         <div className="w-full flex bg-gray-100">
           <div className="w-2/3 p-4  m-2 text-center ">
             <h1 className="text-center my-4 text-gray-700 bg-gray-200 text-xl font-semibold p-4"></h1>
-            <button className="p-4 rounded-lg shadow bg-blue-500 hover:bg-blue-900 ease-in-out hover:scale-110 transition-all transform duration-500 text-white mx-auto ">
+            <button className="p-4 rounded-lg shadow bg-blue-500 hover:bg-blue-900 ease-in-out hover:scale-110 transition-all transform duration-500 text-white mx-auto " onClick={joinEvent}>
               Join Event
             </button>
             <div className="w-full p-4 m-4 bg-white shadow">
