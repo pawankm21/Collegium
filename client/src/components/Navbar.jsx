@@ -1,21 +1,16 @@
-/* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-
+import { Fragment } from "react";
+import { classNames } from "./utilities";
 const navigation = [
   { name: "Upcoming Events", href: "#", current: true },
   { name: "Calendar", href: "#", current: false },
 ];
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
 
-export default function Navbar({ isAuth }) {
-  const [toggle, setToggle] = useState(navigation);
+
+export default function Navbar() {
   return (
     <Disclosure as="nav"
       className="bg-white shadow">
@@ -104,7 +99,7 @@ export default function Navbar({ isAuth }) {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                            to="/user/:id"
+                            to="/settings"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"

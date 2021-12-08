@@ -1,7 +1,7 @@
 import React from "react";
 import Tags from "./Tags";
 import { Link } from "react-router-dom";
-import { MONTHS,formatDate } from "./Data";
+import {formatDate } from "./utilities";
 export default function EventCard({
   name,
   tags,

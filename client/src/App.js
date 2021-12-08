@@ -7,7 +7,7 @@ import About from "./pages/About";
 import Team from "./pages/Team";
 import NewEvent from "./pages/NewEvent";
 import ShowEvent from "./pages/ShowEvent";
-
+import Settings from "./pages/Settings";
 import {
   BrowserRouter as Router,
   Route,
@@ -25,7 +25,7 @@ function App() {
       <Route exact path="/team" component={Team} />
       <Route exact path="/new-event" component={NewEvent} />
       <Route exact path="/events/:id" component={ShowEvent} >
-     
+      <Route exact path="/settings" component={Settings} />
       </Route>
     </Router>
   );

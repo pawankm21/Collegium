@@ -1,44 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Navbar from "../components/Navbar";
-
+import useCreateEvent from "../hooks/useCreateEvent";
+import { parseTags } from "../components/utilities";
 function NewEvent() {
-  const [name, setName] = useState("");
-  const [endingDate, setEndingDate] = useState("");
-  const [when, setWhen] = useState("");
-  const [message, setMessage] = useState("");
-  const [lastDate, setLastDate] = useState("");
-  const [tags, setTags] = useState([]);
-  const [where, setWhere] = useState("");
-  function parseTags(tags) {
-    let tagList = tags.split(",");
-    return tagList;
-  }
-  async function createEvent() {
-    const id = localStorage.getItem("id");
-    await fetch(
-      `http://localhost:9000/Event/createEvent/${id}`,
-      {
-        method: "POST",
-        body: JSON.stringify({
-          name,
-          message,
-          coordinators: [id],
-          when,
-          lastDate,
-          where,
-          attendees: [],
-          tags,
-          endingDate,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => window.alert(data.message))
-      .catch((err) => window.alert(err));
-  }
+  const {
+    setName,
+    setEndingDate,
+    setWhen,
+    setMessage,
+    setLastDate,
+    setTags,
+    setWhere,
+    createEvent,
+  } = useCreateEvent();
   return (
     <>
       <Navbar />
@@ -46,7 +20,7 @@ function NewEvent() {
         <h1 className="text-center capitalize font-bold text-gray-800 text-3xl mt-10 mb-10 ">
           Create Event
         </h1>
-        <form onSubmit={createEvent}>
+        <form onSubmit={(e)=>{createEvent(e)}}>
           <div className="grid grid-cols-2 gap-4 ">
             <div className="col-span-1 pointer-events-auto">
               <div className=" w-full  bg-gray-400 justify-center h-56 border-2 border-dashed rounded-xl border-gray-700 mt-5 pointer-events-auto">

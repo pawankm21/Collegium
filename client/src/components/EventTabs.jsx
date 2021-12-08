@@ -3,9 +3,7 @@ import EventCard from "../components/EventCard";
 import { Tab } from "@headlessui/react";
 import { PlusCircleIcon } from "@heroicons/react/outline";
 import {Link} from 'react-router-dom';
-function classNames(...args) {
-  return args.filter(Boolean).join(" ");
-}
+import {classNames} from './utilities'
 
 function EventTabs() {
   const [getEvent, setGetEvent] = useState([]);

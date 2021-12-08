@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import { TagIcon, ClockIcon, LocationMarkerIcon } from "@heroicons/react/solid";
-import { formatDate } from "../components/Data";
+import { formatDate } from "../components/utilities";
 import useShowEvent from "../hooks/useShowEvent";
 
 function ShowEvent() {
