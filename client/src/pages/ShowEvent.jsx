@@ -3,9 +3,11 @@ import Navbar from "../components/Navbar";
 import { TagIcon, ClockIcon, LocationMarkerIcon } from "@heroicons/react/solid";
 import { formatDate } from "../components/utilities";
 import useShowEvent from "../hooks/useShowEvent";
+import { useParams } from "react-router-dom";
 
 function ShowEvent() {
-  const data=useShowEvent();
+  const { id } = useParams();
+  const data = useShowEvent(id);
   return (
     <div className="w-full h-screen">
       <Navbar />
@@ -24,9 +26,7 @@ function ShowEvent() {
 
         <div className="w-full flex bg-gray-100">
           <div className="w-2/3 p-4  m-2 text-center ">
-            <h1 className="text-center my-4 text-gray-700 bg-gray-200 text-xl font-semibold p-4">
-              {}
-            </h1>
+            <h1 className="text-center my-4 text-gray-700 bg-gray-200 text-xl font-semibold p-4"></h1>
             <button className="p-4 rounded-lg shadow bg-blue-500 hover:bg-blue-900 ease-in-out hover:scale-110 transition-all transform duration-500 text-white mx-auto ">
               Join Event
             </button>

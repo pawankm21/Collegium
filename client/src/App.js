@@ -24,9 +24,8 @@ function App() {
       <Route exact path="/about" component={About} />
       <Route exact path="/team" component={Team} />
       <Route exact path="/new-event" component={NewEvent} />
-      <Route exact path="/events/:id" component={ShowEvent} >
+      <Route exact path="/events/:id" component={ShowEvent} />
       <Route exact path="/settings" component={Settings} />
-      </Route>
     </Router>
   );
 }
