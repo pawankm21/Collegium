@@ -1,7 +1,7 @@
 import "./App.css";
 import Hero from "./pages/Hero";
 import Login from "./pages/Login";
-import Register from "./components/Register";
+import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
 import Team from "./pages/Team";

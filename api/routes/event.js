@@ -74,17 +74,8 @@ router.get("/getEvent/past", (req, res) => {
   );
 });
 router.post("/createEvent/:id", (req, res) => {
-  const { name, message, when, lastDate, where, tags, imageurl } = req.body;
-  const newEvent = new Event({
-    name: name,
-    message: message,
-    coordinators: [req.params.id],
-    when: new Date(when),
-    lastDate: new Date(lastDate),
-    where: where,
-    tags: tags,
-    imageurl: imageurl,
-  });
+  const send = req.body;
+  const newEvent = new Event(send);
   newEvent.save((err) => {
     if (err) {
       res.send(err);

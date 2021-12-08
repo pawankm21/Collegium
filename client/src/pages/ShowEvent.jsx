@@ -1,32 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Navbar from "../components/Navbar";
 import { TagIcon, ClockIcon, LocationMarkerIcon } from "@heroicons/react/solid";
-import { useParams } from "react-router-dom";
 import { formatDate } from "../components/Data";
-function ShowEvent() {
-  const { id } = useParams();
-  const [data, setData] = useState({
-    name: String,
-    message: String,
-    coordinators: [],
-    when: Date,
-    lastDate: Date,
-    where: String,
-    attendees: [],
-    tags: [],
-    imageurl: String,
-    type: String,
-  });
-  async function getData() {
-    const response = await fetch(`http://localhost:9000/Event/getEvent/${id}`);
-    const json = await response.json();
-    setData(json);
-    console.log(json);
-  }
-  useEffect(() => {
-    getData();
-  }, [id]);
+import useShowEvent from "../hooks/useShowEvent";
 
+function ShowEvent() {
+  const data=useShowEvent();
   return (
     <div className="w-full h-screen">
       <Navbar />

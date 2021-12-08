@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
 import { Tab } from "@headlessui/react";
-
+import { PlusCircleIcon } from "@heroicons/react/outline";
+import {Link} from 'react-router-dom';
 function classNames(...args) {
   return args.filter(Boolean).join(" ");
 }
@@ -13,7 +14,6 @@ function EventTabs() {
     const response = await fetch(`http://localhost:9000/Event/${activeTab}`);
     const json = await response.json();
     setGetEvent(json);
-    console.log(json);
   }
   useEffect(() => {
     fetchData();
@@ -90,6 +90,8 @@ function EventTabs() {
           >
             Your Events
           </Tab>
+          <Link to="/new-event"  className="lg:w-36 ml-4 bg-green-500 rounded-lg text-white pt-2 text-center transition ease-in-out duration-300 transform hover:scale-105 "
+          > New Event <PlusCircleIcon className="inline w-6 relative bottom-0.5 text-gray-100"/>  </Link>
         </div>
       </Tab.List>
       <Tab.Panels>
