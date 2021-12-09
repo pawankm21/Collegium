@@ -23,11 +23,13 @@ const eventSchema = new mongoose.Schema({
   coordinators: [{type:Schema.Types.ObjectId, ref:"User"}],
   when: Date,
   lastDate: Date,
+  tillWhen: Date,
   where: String,
   attendees:[ { type: Schema.Types.ObjectId, ref: "User" }],
   tags: [{ type: Schema.Types.ObjectId, ref:"Tag"}],
   imageurl: String,
   type: String,
+  tagLine: String,
 });
 
 

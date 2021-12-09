@@ -1,120 +1,163 @@
 import React from "react";
 import useUpdateUser from "../hooks/useUpdateUser";
+import useFetchUser from "../hooks/useFetchUser";
 export default function Settings() {
+  
   const {
     formSubmitHandler,
     nameRef,
     emailRef,
-    genderRef,
     idRef,
     collegeRef,
     passwordRef,
   } = useUpdateUser();
 
   return (
-    <div className="h-auto max-h-screen w-auto bg-red-100 border-8 border-red-100 py-5 px-5 grid grid-cols-3 space-x-8 mx-10">
-      <div className="bg-blue-200 grid justify-items-center">
-        <div className="mt-10">
-          <img
-            src="https://www.w3schools.com/howto/img_avatar.png"
-            alt="user"
-            className="h-48 w-48 rounded-full"
-          />
+    <div className="p-6  w-full h-screen">
+      <form
+        className=" w-full md:flex bg-white shadow mt-4 p-4 rounded"
+        onSubmit={formSubmitHandler}
+      >
+        <div className="w-full lg:w-1/3 border-2 border-blue-200 rounded text-center p-4 mr-2 ">
+          <div className=" relative  rounded-full bg-red-200 w-36 h-36 m-auto flex mb-8">
+            <img
+              src="https://images.unsplash.com/photo-1638987168435-e5f278c25a90"
+              alt="profile"
+              className="w-full h-full rounded-full object-cover object-center"
+            />
+            <input
+              type="file"
+              name=""
+              id=""
+              className="absolute w-full h-full top-0 rounded-full left-0 pointer-events-auto opacity-0"
+            />
+            <p className="absolute top-10 text-black  bg-opacity-25 font-bold bg-white pointer-events-none">
+              click here to add image
+            </p>
+          </div>
+          <button className="bg-blue-500  text-white py-2 px-4 rounded shadow hover:scale-110  transform ease-in-out transition duration-300 border-b-0">
+            Upload
+          </button>
         </div>
-        <div className="bg-blue-400 mt-4 mb-10 py-2 px-2 rounded-full font-mono text-sm">
-          <button className="">Change picture</button>
-        </div>
-      </div>
-      <div className="bg-blue-200 col-span-2 flex">
-        <div className="ml-10 flex content-center">
-          <form
-            action=""
-            className="flex flex-col justify-center space-y-4"
-            onSubmit={formSubmitHandler}
-          >
-            <div className="">
-              <label htmlFor="name" className="font-mono text-sm">
-                Name:{" "}
-              </label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                className="bg-red-100 outline-none font-mono text-sm"
-                ref={nameRef}
-              />
+        <div className="w-full lg:w-2/3 border-2 border-blue-200 rounded text-center p-4 ml-2">
+          <div className="mt-8 w-full text-left">
+            <div className="rounded-md shadow-sm ">
+              <div>
+                <label htmlFor="fullname  " className="">
+                  Full name
+                </label>
+                <input
+                  id="fullname"
+                  name="fullname"
+                  type="text"
+                  autoComplete="text"
+                  required
+                  className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
+                  placeholder=""
+                  ref={nameRef}
+                />
+              </div>
+              <div>
+                <label htmlFor="email-address" className="">
+                  Email address
+                </label>
+                <input
+                  id="email-address"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm "
+                  placeholder=""
+                  ref={emailRef}
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="" className="">
+                    Roll Number
+                  </label>
+                  <input
+                    id=""
+                    name=""
+                    type="text"
+                    autoComplete="rollno"
+                    required
+                    className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
+                    placeholder=""
+                    ref={idRef}
+                  />
+                </div>
+                <div className="">
+                  <label htmlFor="branch" className="">
+                    Branch
+                  </label>
+                  <input
+                    id="branch"
+                    name="branch"
+                    type="text"
+                    autoComplete="branch"
+                    required
+                    className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
+                    placeholder=""
+                    // ref
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="college" className="">
+                  College
+                </label>
+                <input
+                  id="college"
+                  name="college"
+                  type="text"
+                  autoComplete="college"
+                  className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
+                  placeholder=""
+                  ref={collegeRef}
+                />
+              </div>
+              <div>
+                <label htmlFor="college" className="">
+                  College
+                </label>
+                <input
+                  id="college"
+                  name="college"
+                  type="text"
+                  autoComplete="college"
+                  className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
+                  placeholder=""
+                  ref={collegeRef}
+                />
+              </div>
+              <div>
+                <label htmlFor="college" className="">
+                  Password
+                </label>
+                <input
+                  id="college"
+                  name="college"
+                  type="text"
+                  autoComplete="college"
+                  className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
+                  placeholder=""
+                  ref={passwordRef}
+                />
+              </div>
             </div>
-            <div className="">
-              <label className="font-mono text-sm" htmlFor="email">
-                Email:{" "}
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                className="bg-red-100 outline-none font-mono text-center text-sm"
-                ref={emailRef}
-              />
-            </div>
-            <div className="">
-              <label className="font-mono text-sm" htmlFor="gender">
-                Gender:{" "}
-              </label>
-              <select
-                name="gender"
-                id="gender"
-                className="bg-red-100 outline-none font-mono text-sm"
-                ref={genderRef}
+            <div>
+              <button
+                type="submit"
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 mt-4"
               >
-                <option value="select">Select</option>
-                <option value="male">MALE</option>
-                <option value="female">FEMALE</option>
-                <option value="other">OTHER</option>
-              </select>
-              {/* <input type="text" name="gender" id="gender" className="bg-red-100 outline-none" ref={genderRef} /> */}
+                Update
+              </button>
             </div>
-            <div className="">
-              <label className="font-mono text-sm" htmlFor="password">
-                Password:{" "}
-              </label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                className="bg-red-100 outline-none font-mono text-sm"
-                ref={passwordRef}
-              />
-            </div>
-            <div className="">
-              <label className="font-mono text-sm" htmlFor="college">
-                College:{" "}
-              </label>
-              <input
-                type="text"
-                name="college"
-                id="college"
-                className="bg-red-100 outline-none font-mono text-sm"
-                ref={collegeRef}
-              />
-            </div>
-            <div className="">
-              <label className="font-mono text-sm" htmlFor="id">
-                ID:{" "}
-              </label>
-              <input
-                type="text"
-                name="id"
-                id="id"
-                className="bg-red-100 outline-none font-mono text-sm"
-                ref={idRef}
-              />
-            </div>
-            <button className="bg-green-400 mt-2 w-24 rounded-full font-mono text-sm">
-              Submit
-            </button>
-          </form>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 }

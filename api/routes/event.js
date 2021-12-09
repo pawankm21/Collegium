@@ -8,7 +8,7 @@ router.get("/getEvent", (req, res) => {
   var now = new Date();
   Event.find(
     { when: { $gte: now } },
-    
+
     (err, events) => {
       if (err) {
         res.send(err);
@@ -62,16 +62,13 @@ router.get("/getEvent/attendee/:id", (req, res) => {
 });
 router.get("/getEvent/past", (req, res) => {
   var now = new Date();
-  Event.find(
-    { when: { $lt: now } },
-    (err, events) => {
-      if (err) {
-        res.send(err);
-      } else {
-        res.send(events);
-      }
+  Event.find({ when: { $lt: now } }, (err, events) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(events);
     }
-  );
+  });
 });
 router.post("/createEvent/:id", (req, res) => {
   const send = req.body;
@@ -124,14 +121,14 @@ router.post("/updateEvent/:id", (req, res) => {
   );
 });
 router.post("/addAttendee/:EventId", (req, res) => {
-  console.log(req.body)
+  console.log(req.body);
   const { userId } = req.body;
   Event.updateOne(
     {
       _id: req.params.EventId,
     },
     {
-      $push: {attendees:userId},
+      $addToSet: { attendees: userId },
     },
     (err) => {
       if (err) {
@@ -145,10 +142,10 @@ router.post("/addAttendee/:EventId", (req, res) => {
     }
   );
 });
-router.delete("/deleteEvent/:id", async(req, res) => {
+router.delete("/deleteEvent/:id", async (req, res) => {
   const { id } = req.params;
   const response = await Event.deleteOne({ _id: id });
   res.send(response);
-})
+});
 
 module.exports = router;

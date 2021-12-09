@@ -1,6 +1,5 @@
 import React from "react";
 import EventCardSmall from "../components/EventCardSmall";
-import Navbar from "../components/Navbar";
 import UserProfileSmall from "../components/UserProfileSmall";
 import EventTabs from "../components/EventTabs";
 import useMyEvents from "../hooks/useMyEvents";
@@ -21,7 +20,7 @@ export default function Dashboard() {
   }
   return (
     <>
-      <Navbar />
+
       <div className="md:flex  bg-gray-100 h-screen mt-4 w-full">
         <div className="flex flex-col md:w-1/3">
           <UserProfileSmall />

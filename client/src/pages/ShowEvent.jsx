@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import { TagIcon, ClockIcon, LocationMarkerIcon } from "@heroicons/react/solid";
 import { formatDate } from "../components/utilities";
 import useShowEvent from "../hooks/useShowEvent";
@@ -26,7 +25,6 @@ function ShowEvent() {
   }
   return (
     <div className="w-full h-screen">
-      <Navbar />
       <div className="w-full">
         <div className="w-full p-2 ">
           <img
