@@ -9,12 +9,12 @@ export default function useUpdateUser() {
   const branchRef = useRef();
 
   const user = [
-    { propsName: "name", ref: nameRef },
-    { propsName: "email", ref: emailRef },
-    { propsName: "roll", ref: rollRef },
-    { propsName: "college", ref: collegeRef },
-    { propsName: "password", ref: passwordRef },
-    { propsName: "branch", ref: branchRef },
+    { propsName: "name", value: nameRef },
+    { propsName: "email", value: emailRef },
+    { propsName: "roll", value: rollRef },
+    { propsName: "college", value: collegeRef },
+    { propsName: "password", value: passwordRef },
+    { propsName: "branch", value: branchRef },
   ];
 
   async function formSubmitHandler(event) {
@@ -25,18 +25,19 @@ export default function useUpdateUser() {
     }
 
     const response = await fetch(
-      `http://localhost:9000/User/updateUser${localStorage.getItem("id")}`,
+      `http://localhost:9000/User/updateUser/${localStorage.getItem("id")}`,
       {
         method: "PATCH",
+        body: JSON.stringify(user),
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(user),
       }
     );
     const data = await response.json();
     window.alert(data.message);
   }
+
   return {
     user,
     formSubmitHandler,

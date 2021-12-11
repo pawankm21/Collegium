@@ -73,6 +73,7 @@ router.get("/getEvent/past", (req, res) => {
 router.post("/createEvent/:id", (req, res) => {
   const send = req.body;
   const newEvent = new Event(send);
+
   newEvent.save((err) => {
     if (err) {
       res.send(err);
@@ -115,6 +116,24 @@ router.post("/updateEvent/:id", (req, res) => {
         res.send({
           id: req.params.id,
           message: "Updated Successfuly!",
+        });
+      }
+    }
+  );
+});
+router.post("/AddCoordinator/:EventId", (req, res) => {
+  const { id } = req.params;
+  const { userId } = req.body;
+  Event.updateOne(
+    { _id: id },
+    { $addToSet: { coordinators: userId } },
+    (err) => {
+      if (err) {
+        res.send(err);
+      } else {
+        res.send({
+          id: id,
+          message: "Coordinator Added Successfuly!",
         });
       }
     }

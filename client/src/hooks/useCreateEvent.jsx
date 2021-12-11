@@ -14,26 +14,44 @@ function useCreateEvent() {
   async function createEvent(event) {
     event.preventDefault();
     const id = localStorage.getItem("id");
-    await fetch(`http://localhost:9000/Event/createEvent/${id}`, {
-      method: "POST",
-      body: JSON.stringify({
-        name,
-        message,
-        coordinators: [id],
-        when,
-        lastDate,
-        where,
-        // tags,
-        attendees: [],
-        endingDate,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => window.alert(data.message))
-      .catch((err) => window.alert(err));
+    try {
+       const response = await fetch(
+         `http://localhost:9000/Event/createEvent/${id}`,
+         {
+           method: "POST",
+           body: JSON.stringify({
+             name,
+             message,
+             coordinators: [id],
+             when,
+             lastDate,
+             where,
+             // tags,
+             attendees: [],
+             endingDate,
+           }),
+           headers: {
+             "Content-Type": "application/json",
+           },
+         }
+       );
+       const data = await response.json();
+      window.alert(data.message);
+      const addCoordinator = await fetch(`http://localhost:9000/Event/addCoordinator/${data.id}`, {
+        method: "POST",
+        body: JSON.stringify({ id }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data2 = await addCoordinator.json();
+      window.alert(data2.message);
+    }
+    catch (err)
+    {
+      window.alert(err);
+    }
+   
   }
   return {
     setName,

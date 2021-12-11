@@ -36,7 +36,7 @@ function EventTabs() {
           <Tab
             className={({ selected }) => {
               if (selected) {
-                setActiveTab("getEvent");
+                setActiveTab("getEvent/");
               }
               return classNames(
                 selected
@@ -54,7 +54,7 @@ function EventTabs() {
           <Tab
             className={({ selected }) => {
               if (selected) {
-                setActiveTab("getEvent/past");
+                setActiveTab("getEvent/past/");
               }
               return classNames(
                 selected
@@ -73,7 +73,7 @@ function EventTabs() {
           <Tab
             className={({ selected }) => {
               if (selected) {
-                setActiveTab("getEvent/coordinator/1");
+                setActiveTab("getEvent/coordinator/"+localStorage.getItem('id'));
               }
               return classNames(
                 selected

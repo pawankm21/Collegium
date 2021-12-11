@@ -2,7 +2,7 @@ import React from "react";
 import useUpdateUser from "../hooks/useUpdateUser";
 import useFetchUser from "../hooks/useFetchUser";
 export default function Settings() {
-  
+  const { username, email, college, roll, branch } = useFetchUser();
   const {
     formSubmitHandler,
     nameRef,
@@ -10,15 +10,21 @@ export default function Settings() {
     idRef,
     collegeRef,
     passwordRef,
+    confirmPasswordRef,
   } = useUpdateUser();
 
   return (
     <div className="p-6  w-full h-screen">
+      <h1 className="w-full text-center text-6xl bold capitalize p-2">
+        Settings
+      </h1>
       <form
         className=" w-full md:flex bg-white shadow mt-4 p-4 rounded"
         onSubmit={formSubmitHandler}
       >
         <div className="w-full lg:w-1/3 border-2 border-blue-200 rounded text-center p-4 mr-2 ">
+          <h1 className="text-lg py-6 font-bold capitalize">Profile Image</h1>
+
           <div className=" relative  rounded-full bg-red-200 w-36 h-36 m-auto flex mb-8">
             <img
               src="https://images.unsplash.com/photo-1638987168435-e5f278c25a90"
@@ -27,8 +33,8 @@ export default function Settings() {
             />
             <input
               type="file"
-              name=""
-              id=""
+              name="photo"
+              id="photo"
               className="absolute w-full h-full top-0 rounded-full left-0 pointer-events-auto opacity-0"
             />
             <p className="absolute top-10 text-black  bg-opacity-25 font-bold bg-white pointer-events-none">
@@ -40,7 +46,8 @@ export default function Settings() {
           </button>
         </div>
         <div className="w-full lg:w-2/3 border-2 border-blue-200 rounded text-center p-4 ml-2">
-          <div className="mt-8 w-full text-left">
+          <div className="mt-6 w-full text-left">
+            <h1 className="text-lg pb-6 font-bold capitalize">Your Profile</h1>
             <div className="rounded-md shadow-sm ">
               <div>
                 <label htmlFor="fullname  " className="">
@@ -52,6 +59,7 @@ export default function Settings() {
                   type="text"
                   autoComplete="text"
                   required
+                  defaultValue={username}
                   className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
                   placeholder=""
                   ref={nameRef}
@@ -67,6 +75,7 @@ export default function Settings() {
                   type="email"
                   autoComplete="email"
                   required
+                  defaultValue={email}
                   className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm "
                   placeholder=""
                   ref={emailRef}
@@ -78,13 +87,11 @@ export default function Settings() {
                     Roll Number
                   </label>
                   <input
-                    id=""
-                    name=""
                     type="text"
                     autoComplete="rollno"
                     required
+                    defaultValue={roll}
                     className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
-                    placeholder=""
                     ref={idRef}
                   />
                 </div>
@@ -98,8 +105,8 @@ export default function Settings() {
                     type="text"
                     autoComplete="branch"
                     required
+                    defaultValue={branch}
                     className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
-                    placeholder=""
                     // ref
                   />
                 </div>
@@ -113,37 +120,34 @@ export default function Settings() {
                   name="college"
                   type="text"
                   autoComplete="college"
+                  required
+                  defaultValue={college}
                   className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
                   placeholder=""
                   ref={collegeRef}
                 />
               </div>
               <div>
-                <label htmlFor="college" className="">
-                  College
-                </label>
+                <h1 className="text-lg py-6 font-bold capitalize">
+                  Change password
+                </h1>
+                <label htmlFor="college">Password</label>
                 <input
-                  id="college"
-                  name="college"
-                  type="text"
-                  autoComplete="college"
+                  id="password"
+                  name="password"
+                  type="password"
                   className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
-                  placeholder=""
-                  ref={collegeRef}
-                />
-              </div>
-              <div>
-                <label htmlFor="college" className="">
-                  Password
-                </label>
-                <input
-                  id="college"
-                  name="college"
-                  type="text"
-                  autoComplete="college"
-                  className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
-                  placeholder=""
                   ref={passwordRef}
+                />
+              </div>
+              <div>
+                <label htmlFor="college">Confirm Password</label>
+                <input
+                  id="password2"
+                  name="password2"
+                  type="password"
+                  className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
+                  ref={confirmPasswordRef}
                 />
               </div>
             </div>

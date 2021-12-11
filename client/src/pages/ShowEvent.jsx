@@ -3,10 +3,11 @@ import { TagIcon, ClockIcon, LocationMarkerIcon } from "@heroicons/react/solid";
 import { formatDate } from "../components/utilities";
 import useShowEvent from "../hooks/useShowEvent";
 import { useParams } from "react-router-dom";
-
+import { Link } from 'react-router-dom'
+import { classNames } from "../components/utilities";
 function ShowEvent() {
   const { id } = useParams();
-  const data = useShowEvent(id);
+  const {data,canEdit} = useShowEvent(id);
   async function joinEvent() {
     const response = await fetch(
       `http://localhost:9000/Event/addAttendee/${id}`,
@@ -41,9 +42,7 @@ function ShowEvent() {
         <div className="w-full flex bg-gray-100">
           <div className="w-2/3 p-4  m-2 text-center ">
             <h1 className="text-center my-4 text-gray-700 bg-gray-200 text-xl font-semibold p-4"></h1>
-            <button className="p-4 rounded-lg shadow bg-blue-500 hover:bg-blue-900 ease-in-out hover:scale-110 transition-all transform duration-500 text-white mx-auto " onClick={joinEvent}>
-              Join Event
-            </button>
+
             <div className="w-full p-4 m-4 bg-white shadow">
               <h1 className="text-2xl font-bold text-gray-900 p-4 border-b border-gray-300">
                 {data.name}
@@ -71,6 +70,7 @@ function ShowEvent() {
             <h2 className=" text-gray-700 text-lg  font-semibold border-b py-2 border-gray-400">
               Venue: <div>{data.where} </div>
             </h2>
+
             <div className="grid grid-cols-4 gap-4 p-4">
               {data.tags.map((item, index) => {
                 return (
@@ -79,6 +79,20 @@ function ShowEvent() {
                   </div>
                 );
               })}
+            </div>
+            <div className=" grid grid-flow-col gap-2 p-2">
+              <button
+                className="py-2 rounded-lg shadow bg-blue-400 hover:bg-blue-900 ease-in-out transition-all w-full text-center transform duration-300 text-white m-auto "
+                onClick={joinEvent}
+              >
+                Join Event
+              </button>
+              <Link
+                className={classNames("py-2 rounded-lg shadow bg-blue-400 hover:bg-blue-900 ease-in-out transition-all w-full text-center transform duration-300 text-white m-auto ",canEdit?'':'hidden')}
+                to={""}
+              >
+                Edit
+              </Link>
             </div>
           </div>
         </div>

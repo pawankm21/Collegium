@@ -30,6 +30,11 @@ function useFetchUser() {
     college,
     roll,
     branch,
+    setBranch,
+    setCollege,
+    setEmail,
+    setRoll,
+    setUsername,
   };
 }
 
