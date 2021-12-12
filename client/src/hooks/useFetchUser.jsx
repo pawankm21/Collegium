@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 
 function useFetchUser() {
-  const [username, setUsername] = useState("John Doe");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [college, setCollege] = useState("");
   const [roll, setRoll] = useState("");
   const [branch, setBranch] = useState("");
-  const id = localStorage.getItem("id");
   const fetchUser = async () => {
     if (localStorage.getItem("id") === null) return;
     const response = await fetch(
@@ -19,6 +18,9 @@ function useFetchUser() {
       setCollege(data.college);
       setRoll(data.roll);
       setBranch(data.branch);
+    }
+    else {
+      window.alert("Error");
     }
   };
   useEffect(() => {

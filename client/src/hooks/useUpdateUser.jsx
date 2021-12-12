@@ -1,26 +1,28 @@
-import { useRef } from "react";
-export default function useUpdateUser() {
-  const nameRef = useRef();
-  const emailRef = useRef();
-  const rollRef = useRef();
-  const collegeRef = useRef();
-  const passwordRef = useRef();
-  const confirmPasswordRef = useRef();
-  const branchRef = useRef();
+import { useState } from "react";
 
-  const user = [
-    { propsName: "name", value: nameRef },
-    { propsName: "email", value: emailRef },
-    { propsName: "roll", value: rollRef },
-    { propsName: "college", value: collegeRef },
-    { propsName: "password", value: passwordRef },
-    { propsName: "branch", value: branchRef },
+export default function useUpdateUser() {
+  const [name, setName] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+  const [passwordConfirm, setPasswordConfirm] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [roll, setRoll] = useState(null);
+  const [branch, setBranch] = useState(null);
+  const [college, setCollege] = useState(null);
+  var user = [
+    { propName: "name", value:  name},
+    { propName: "email", value: email },
+    { propName: "roll", value: roll },
+    { propName: "college", value: college },
+    { propName: "password", value: password},
+    { propName: "branch", value: branch },
   ];
+   user=user.filter((u) => u.value !== null&&u.value !== "");
 
   async function formSubmitHandler(event) {
     event.preventDefault();
-    if (passwordRef.current.value !== confirmPasswordRef.current.value) {
-      window.AbortSignalalert("Passwords do not match");
+    if (password !== passwordConfirm ) {
+      window.alert("Passwords do not match");
       return;
     }
 
@@ -39,14 +41,14 @@ export default function useUpdateUser() {
   }
 
   return {
-    user,
     formSubmitHandler,
-    nameRef,
-    emailRef,
-    rollRef,
-    collegeRef,
-    passwordRef,
-    confirmPasswordRef,
-    branchRef,
-  };
+    setName,
+    setEmail,
+    setPassword,
+    setPasswordConfirm,
+    setIsLoading,
+    setRoll,
+    setBranch,
+    setCollege,
+  }
 }

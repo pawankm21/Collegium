@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 
 function useShowEvent(id) {
   const [data, setData] = useState({

@@ -5,12 +5,14 @@ export default function Settings() {
   const { username, email, college, roll, branch } = useFetchUser();
   const {
     formSubmitHandler,
-    nameRef,
-    emailRef,
-    idRef,
-    collegeRef,
-    passwordRef,
-    confirmPasswordRef,
+    setName,
+    setEmail,
+    setPassword,
+    setPasswordConfirm,
+    setIsLoading,
+    setRoll,
+    setBranch,
+    setCollege,
   } = useUpdateUser();
 
   return (
@@ -57,12 +59,10 @@ export default function Settings() {
                   id="fullname"
                   name="fullname"
                   type="text"
-                  autoComplete="text"
                   required
                   defaultValue={username}
                   className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
-                  placeholder=""
-                  ref={nameRef}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div>
@@ -73,12 +73,10 @@ export default function Settings() {
                   id="email-address"
                   name="email"
                   type="email"
-                  autoComplete="email"
                   required
                   defaultValue={email}
                   className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm "
-                  placeholder=""
-                  ref={emailRef}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
@@ -88,11 +86,10 @@ export default function Settings() {
                   </label>
                   <input
                     type="text"
-                    autoComplete="rollno"
                     required
                     defaultValue={roll}
                     className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
-                    ref={idRef}
+                    onChange={(e) => setRoll(e.target.value)}
                   />
                 </div>
                 <div className="">
@@ -103,11 +100,10 @@ export default function Settings() {
                     id="branch"
                     name="branch"
                     type="text"
-                    autoComplete="branch"
                     required
                     defaultValue={branch}
                     className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
-                    // ref
+                    onChange={(e) => setBranch(e.target.value)}
                   />
                 </div>
               </div>
@@ -119,12 +115,11 @@ export default function Settings() {
                   id="college"
                   name="college"
                   type="text"
-                  autoComplete="college"
                   required
                   defaultValue={college}
                   className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
                   placeholder=""
-                  ref={collegeRef}
+                  onChange={(e) => setCollege(e.target.value)}
                 />
               </div>
               <div>
@@ -136,8 +131,9 @@ export default function Settings() {
                   id="password"
                   name="password"
                   type="password"
+                  autoComplete="off"
                   className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
-                  ref={passwordRef}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               <div>
@@ -146,8 +142,9 @@ export default function Settings() {
                   id="password2"
                   name="password2"
                   type="password"
+                  autoComplete="off"
                   className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
-                  ref={confirmPasswordRef}
+                  onChange={(e) => setPasswordConfirm(e.target.value)}
                 />
               </div>
             </div>
