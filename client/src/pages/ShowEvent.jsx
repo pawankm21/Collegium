@@ -41,7 +41,7 @@ function ShowEvent() {
 
         <div className="w-full flex bg-gray-100">
           <div className="w-2/3 p-4  m-2 text-center ">
-            <h1 className="text-center my-4 text-gray-700 bg-gray-200 text-xl font-semibold p-4"></h1>
+            {/* <h1 className="text-center my-4 text-gray-700 bg-gray-200 text-xl font-semibold p-4"></h1> */}
 
             <div className="w-full p-4 m-4 bg-white shadow">
               <h1 className="text-2xl font-bold text-gray-900 p-4 border-b border-gray-300">

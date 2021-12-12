@@ -27,7 +27,7 @@ router.get("/getEvent/:id", (req, res) => {
     });
   }
 });
-router.get("/countEvents/:id", async (req, res) => {
+router.get("/countEvent/:id", async (req, res) => {
   var now = new Date();
   try {
     var upcoming = await Event.count({

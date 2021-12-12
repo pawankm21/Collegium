@@ -5,7 +5,7 @@ function useCountEvents() {
     const [past, setPast] = useState(0)
     const [conducted, setConducted] = useState(0)
     async function getCounts() {
-        const response = await fetch(`http://localhost:9000/Event/countEvents/${localStorage.getItem('id')}`)
+        const response = await fetch(`http://localhost:9000/Event/countEvent/${localStorage.getItem('id')}`)
         const data = await response.json()
         setUpcoming(data.upcoming)
         setPast(data.past)

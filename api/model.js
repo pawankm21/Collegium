@@ -8,7 +8,8 @@ const userSchema = new mongoose.Schema({
   college: String,
   dob: Date,
   branch: String,
-  roll:String,
+  roll: String,
+  imgurl:String,
   
 });
 

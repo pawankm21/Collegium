@@ -16,18 +16,15 @@ function useShowEvent(id) {
   const [canEdit, setCanEdit] = useState(false);
   async function getData() {
     const response = await fetch(
-      `http://localhost:9000/Event/getEvent/61a90d8744e83b6a1d3a2503`
+      `http://localhost:9000/Event/getEvent/${id}`
     );
 
     const json = await response.json();
     console.log(json);
     setData(json);
-    for (let id in json.coordinators) {
-      if (id === localStorage.getItem("id")) {
+    for (let userId in json.coordinators) {
+      if (userId === localStorage.getItem("id")) {
         setCanEdit(true);
-        break;
-      } else {
-        setCanEdit(false);
       }
     }
   }
