@@ -23,7 +23,7 @@ export default function EventCard({
           />
         </div>
         <div className="p-8">
-          <div className={classNames(" tracking-wide text-sm text-white text-center p-1 rounded-2xl shadow font-semibold",leftDays(lastDate).color)}>
+          <div className={classNames(" tracking-wide text-sm text-white text-center p-2 rounded-2xl shadow font-semibold",leftDays(lastDate).color)}>
             {leftDays(lastDate).message} 
           </div>
           <Link

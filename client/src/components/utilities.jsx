@@ -33,10 +33,10 @@ function leftDays(date) {
   const days = Math.floor(left / (1000 * 60 * 60 * 24));
   if (days > 0)
   {
-    return {message:`${days} days left`,color:"bg-blue-500"};
+    return {message:`closing in ${days} days`,color:"bg-blue-500"};
   }
   else {
-    return {message:`${Math.abs(days)} days ago`,color:"bg-red-500"};
+    return {message:`closed ${Math.abs(days)} days ago`,color:"bg-red-500"};
   }
 }
 export { MONTHS, formatDate, parseTags ,classNames,leftDays};
