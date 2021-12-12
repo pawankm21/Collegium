@@ -18,12 +18,12 @@ function useShowEvent(id) {
     const response = await fetch(
       `http://localhost:9000/Event/getEvent/${id}`
     );
-
     const json = await response.json();
     console.log(json);
+    console.log(localStorage.getItem("id"))
     setData(json);
-    for (let userId in json.coordinators) {
-      if (userId === localStorage.getItem("id")) {
+    for (let i = 0; i < json.coordinators.length; i++) {
+      if (json["coordinators"][i] === localStorage.getItem("id")) {
         setCanEdit(true);
       }
     }

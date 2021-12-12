@@ -11,7 +11,7 @@ function EventTabs() {
   function renderEvent()
   {
     var ret=events.map(event => {
-      return <div className="m-1">
+      return <div className="p-2">
 
       <EventCard key={event._id} {...event} />
       </div>
