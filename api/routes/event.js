@@ -2,8 +2,6 @@ var express = require("express");
 var router = express.Router();
 var { User, Tag, Event } = require("../model");
 
-// contains all event related endpoints
-
 router.get("/getEvent", (req, res) => {
   var now = new Date();
   Event.find(
@@ -28,6 +26,27 @@ router.get("/getEvent/:id", (req, res) => {
       }
     });
   }
+});
+router.get("/countEvents/:id", async (req, res) => {
+  var now = new Date();
+  try {
+    var upcoming = await Event.count({
+      when: { $gte: now },
+      attendees: req.params.id,
+    });
+    var past = await Event.count({
+      when: { $lt: now },
+      attendees: req.params.id,
+    });
+      var conducted = await Event.count({
+        coordinators: req.params.id,
+      });
+    res.send({ upcoming, past, conducted });
+  } catch (err) {
+    res.send(err);
+  }
+
+
 });
 router.get("/coordinator/:id", (req, res) => {
   var now = new Date();

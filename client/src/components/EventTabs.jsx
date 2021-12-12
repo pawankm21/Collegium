@@ -10,12 +10,17 @@ function EventTabs() {
   const {  setActiveTab, events } = useGetEvents();
   function renderEvent()
   {
-    return events.map(event => {
+    var ret=events.map(event => {
       return <div className="m-1">
 
-      <EventCard key={event._id} {...event} />;
+      <EventCard key={event._id} {...event} />
       </div>
     });
+    if (ret === [] ||ret===undefined || ret===null)
+    {
+      ret= <div className="text-center w-full h-full text-lg font-bold flex">No Events</div>
+    }
+    return ret;
   }
   return (
     <Tab.Group>
