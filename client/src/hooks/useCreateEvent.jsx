@@ -26,7 +26,7 @@ function useCreateEvent() {
              when,
              lastDate,
              where,
-             // tags,
+             tags,
              attendees: [],
              endingDate,
            }),

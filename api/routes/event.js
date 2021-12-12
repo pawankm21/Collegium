@@ -38,15 +38,13 @@ router.get("/countEvent/:id", async (req, res) => {
       when: { $lt: now },
       attendees: req.params.id,
     });
-      var conducted = await Event.count({
-        coordinators: req.params.id,
-      });
+    var conducted = await Event.count({
+      coordinators: req.params.id,
+    });
     res.send({ upcoming, past, conducted });
   } catch (err) {
     res.send(err);
   }
-
-
 });
 router.get("/coordinator/:id", (req, res) => {
   var now = new Date();
@@ -91,8 +89,7 @@ router.get("/past", (req, res) => {
   });
 });
 router.post("/createEvent/:id", (req, res) => {
-  const send = req.body;
-  const newEvent = new Event(send);
+  const newEvent = new Event(req.body);
 
   newEvent.save((err) => {
     if (err) {
@@ -182,9 +179,16 @@ router.post("/addAttendee/:EventId", (req, res) => {
   );
 });
 router.delete("/deleteEvent/:id", async (req, res) => {
-  const { id } = req.params;
-  const response = await Event.deleteOne({ _id: id });
-  res.send(response);
+  
+  Event.deleteOne({ _id: req.params.id }, (err) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send({
+        id: id,
+        message: "Event Deleted Successfuly!",
+      });
+    }
 });
-
+});
 module.exports = router;

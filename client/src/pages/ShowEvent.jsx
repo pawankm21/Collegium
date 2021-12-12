@@ -3,11 +3,12 @@ import { TagIcon, ClockIcon, LocationMarkerIcon } from "@heroicons/react/solid";
 import { formatDate } from "../components/utilities";
 import useShowEvent from "../hooks/useShowEvent";
 import { useParams } from "react-router-dom";
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from "react-router-dom";
 import { classNames } from "../components/utilities";
 function ShowEvent() {
   const { id } = useParams();
-  const {data,canEdit} = useShowEvent(id);
+  const { data, canEdit } = useShowEvent(id);
+  const history = useHistory();
   async function joinEvent() {
     const response = await fetch(
       `http://localhost:9000/Event/addAttendee/${id}`,
@@ -23,6 +24,20 @@ function ShowEvent() {
     );
     const json = await response.json();
     window.alert(json.message);
+  }
+  async function deleteEvent() {
+    await fetch(`http://localhost:9000/Event/deleteEvent/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        history.push("/dashboard");
+      });
+    
   }
   return (
     <div className="w-full h-screen">
@@ -82,14 +97,29 @@ function ShowEvent() {
             </div>
             <div className=" grid grid-flow-col gap-2 p-2">
               <button
-                className="py-2 rounded-lg shadow bg-blue-400 hover:bg-blue-900 ease-in-out transition-all w-full text-center transform duration-300 text-white m-auto "
+                className={classNames(
+                  "py-2 rounded-lg shadow bg-red-400 hover:bg-red-900 ease-in-out transition-all w-full text-center transform duration-300 text-white m-auto ",
+                  canEdit ? "hidden" : ""
+                )}
                 onClick={joinEvent}
               >
                 Join Event
               </button>
+              <button
+                className={classNames(
+                  "py-2 rounded-lg shadow bg-red-400 hover:bg-red-900 ease-in-out transition-all w-full text-center transform duration-300 text-white m-auto ",
+                  canEdit ? "" : "hidden"
+                )}
+                onClick={deleteEvent}
+              >
+                Delete Event
+              </button>
               <Link
-                className={classNames("py-2 rounded-lg shadow bg-blue-400 hover:bg-blue-900 ease-in-out transition-all w-full text-center transform duration-300 text-white m-auto ",canEdit?'':'hidden')}
-                to={""}
+                className={classNames(
+                  "py-2 rounded-lg shadow bg-blue-400 hover:bg-blue-900 ease-in-out transition-all w-full text-center transform duration-300 text-white m-auto ",
+                  canEdit ? "" : "hidden"
+                )}
+                to={"/new-event/"}
               >
                 Edit
               </Link>

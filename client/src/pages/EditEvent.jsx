@@ -1,25 +1,14 @@
-import React from "react";
-import useCreateEvent from "../hooks/useCreateEvent";
-import { parseTags } from "../components/utilities";
-function NewEvent() {
-  const {
-    setName,
-    setEndingDate,
-    setWhen,
-    setMessage,
-    setLastDate,
-    setTags,
-    setWhere,
-    createEvent,
-  } = useCreateEvent();
-  return (
-    <>
+import React from 'react'
+
+function EditEvent() {
+    return (
+         <>
 
       <div className="m-5 shadow divide-y divide-gray-700 p-4 bg-white ">
         <h1 className="text-center capitalize font-bold text-gray-800 text-3xl mt-10 mb-10 ">
           Create Event
         </h1>
-        <form onSubmit={(e)=>{createEvent(e)}}>
+        <form onSubmit={(e)=>{}}>
           <div className="grid grid-cols-2 gap-4 ">
             <div className="col-span-1 pointer-events-auto">
               <div className=" w-full  bg-gray-400 justify-center h-56 border-2 border-dashed rounded-xl border-gray-700 mt-5 pointer-events-auto">
@@ -48,6 +37,7 @@ function NewEvent() {
                 type="datetime-local"
                 placeholder="28 June 2021"
                 name="eventEndDate"
+                required
                 onChange={(e) => setEndingDate(e.target.value)}
               />{" "}
               <label className="text-gray-800">Event Starts on</label>
@@ -76,6 +66,7 @@ function NewEvent() {
                 type="search"
                 placeholder="add tags separated by commas, eg. Women-Only, Students-Only...."
                 name="eventName"
+                required
                 onChange={(e) => {
                   setTags(parseTags(e.target.value));
                 }}
@@ -88,10 +79,11 @@ function NewEvent() {
                 type="text"
                 placeholder="Add collegium usernames separated by commas, eg. Noobmaster69, john123,..."
                 name="eventName"
+                required
               />
             </div>
             <div className="col-span-1 mt-5">
-              <label className="text-gray-800 text-lg  m-auto">Venue</label>
+              <label className="text-gray-800 text-lg  m-auto">Address</label>
               <textarea
                 className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
                 type="text"
@@ -129,6 +121,7 @@ function NewEvent() {
       </div>
     </>
   );
+    
 }
 
-export default NewEvent;
+export default EditEvent
