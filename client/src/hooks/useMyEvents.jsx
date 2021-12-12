@@ -5,7 +5,7 @@ function useMyEvents() {
   const [loading, setLoading] = useState(false);
   async function getMyEvents() {
     const response = await fetch(
-      `http://localhost:9000/Event/getEvent/attendee/${localStorage.getItem(
+      `http://localhost:9000/Event/attendee/${localStorage.getItem(
         "id"
       )}`
     );

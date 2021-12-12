@@ -3,41 +3,29 @@ import EventCard from "../components/EventCard";
 import { Tab } from "@headlessui/react";
 import { PlusCircleIcon } from "@heroicons/react/outline";
 import {Link} from 'react-router-dom';
-import {classNames} from './utilities'
-
+import { classNames } from './utilities';
+import useGetEvents from "../hooks/useGetEvents"
 function EventTabs() {
-  const [getEvent, setGetEvent] = useState([]);
-  const [activeTab, setActiveTab] = useState("getEvent");
-  async function fetchData() {
-    const response = await fetch(`http://localhost:9000/Event/${activeTab}`);
-    const json = await response.json();
-    setGetEvent(json);
-  }
-  useEffect(() => {
-    fetchData();
-  }, [activeTab]);
-  function renderTab() {
-    try {
-      return getEvent.map((event, idx) => {
-        return (
-          <div className="my-2">
-            <EventCard key={idx} {...event} />
-          </div>
-        );
-      });
-    } catch (err) {
-      return <div className="w-full text-5xl text-center m-auto font-bold capitalize mt-20 ">No Events</div>;
-    }
+
+  const {  setActiveTab, events } = useGetEvents();
+  function renderEvent()
+  {
+    return events.map(event => {
+      return <div className="m-1">
+
+      <EventCard key={event._id} {...event} />;
+      </div>
+    });
   }
   return (
     <Tab.Group>
       <Tab.List className="sticky top-0 bg-white p-1  shadow">
         <div className="m-2 bg-blue-900 grid grid-cols-4  rounded-lg p-3">
-          <Tab
+          <Tab 
             className={({ selected }) => {
-              if (selected) {
-                setActiveTab("getEvent/");
-              }
+                   if (selected) {
+                     setActiveTab("getEvent");
+                   }
               return classNames(
                 selected
                   ? "bg-white text-black shadow"
@@ -53,9 +41,9 @@ function EventTabs() {
           </Tab>
           <Tab
             className={({ selected }) => {
-              if (selected) {
-                setActiveTab("getEvent/past/");
-              }
+                   if (selected) {
+                     setActiveTab("past");
+                   }
               return classNames(
                 selected
                   ? "bg-white text-black shadow"
@@ -70,10 +58,10 @@ function EventTabs() {
             Past
           </Tab>
 
-          <Tab
+          <Tab 
             className={({ selected }) => {
               if (selected) {
-                setActiveTab("getEvent/coordinator/"+localStorage.getItem('id'));
+                setActiveTab("coordinator/" + localStorage.getItem("id"));
               }
               return classNames(
                 selected
@@ -93,9 +81,9 @@ function EventTabs() {
         </div>
       </Tab.List>
       <Tab.Panels>
-        <Tab.Panel>{renderTab()}</Tab.Panel>
-        <Tab.Panel>{renderTab()}</Tab.Panel>
-        <Tab.Panel>{renderTab()}</Tab.Panel>
+        <Tab.Panel>{renderEvent()}</Tab.Panel>
+        <Tab.Panel>{renderEvent()}</Tab.Panel>
+        <Tab.Panel>{renderEvent()}</Tab.Panel>
       </Tab.Panels>
     </Tab.Group>
   );

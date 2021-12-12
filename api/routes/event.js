@@ -18,19 +18,6 @@ router.get("/getEvent", (req, res) => {
     }
   );
 });
-router.get("/getEvent/coordinator/:id", (req, res) => {
-  var now = new Date();
-  Event.find(
-    { when: { $gte: now }, coordinator: req.params.id },
-    (err, events) => {
-      if (err) {
-        res.send(err);
-      } else {
-        res.send(events);
-      }
-    }
-  );
-});
 router.get("/getEvent/:id", (req, res) => {
   {
     Event.findById(req.params.id, (err, event) => {
@@ -42,7 +29,21 @@ router.get("/getEvent/:id", (req, res) => {
     });
   }
 });
-router.get("/getEvent/college/:name", (req, res) => {
+router.get("/coordinator/:id", (req, res) => {
+  var now = new Date();
+  Event.find(
+    { when: { $gte: now }, coordinators: req.params.id },
+    (err, events) => {
+      if (err) {
+        res.send(err);
+      } else {
+        res.send(events);
+      }
+    }
+  );
+});
+
+router.get("/college/:name", (req, res) => {
   Event.find({ college: req.params.name }, (err, events) => {
     if (err) {
       res.send(err);
@@ -51,8 +52,8 @@ router.get("/getEvent/college/:name", (req, res) => {
     }
   });
 });
-router.get("/getEvent/attendee/:id", (req, res) => {
-  Event.find({ attendee: req.params.id }, (err, events) => {
+router.get("/attendee/:id", (req, res) => {
+  Event.find({ attendees: req.params.id }, (err, events) => {
     if (err) {
       res.send(err);
     } else {
@@ -60,9 +61,9 @@ router.get("/getEvent/attendee/:id", (req, res) => {
     }
   });
 });
-router.get("/getEvent/past", (req, res) => {
+router.get("/past", (req, res) => {
   var now = new Date();
-  Event.find({ when: { $lt: now } }, (err, events) => {
+  Event.find({ when: { $lte: now } }, (err, events) => {
     if (err) {
       res.send(err);
     } else {
