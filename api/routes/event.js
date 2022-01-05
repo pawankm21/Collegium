@@ -49,7 +49,10 @@ router.get("/countEvent/:id", async (req, res) => {
 router.get("/coordinator/:id", (req, res) => {
   var now = new Date();
   Event.find(
-    { when: { $gte: now }, coordinators: req.params.id },
+    {
+      // when: { $gte: now },
+       coordinators: req.params.id
+    },
     (err, events) => {
       if (err) {
         res.send(err);
@@ -178,9 +181,9 @@ router.post("/addAttendee/:EventId", (req, res) => {
     }
   );
 });
-router.delete("/deleteEvent/:id", async (req, res) => {
+router.get("/deleteEvent/:id", async (req, res) => {
   
-  Event.deleteOne({ _id: req.params.id }, (err) => {
+  Event.findOneAndDelete({ _id: req.params.id }, (err) => {
     if (err) {
       res.send(err);
     } else {

@@ -2,9 +2,10 @@ import React from "react";
 import { TagIcon, ClockIcon, LocationMarkerIcon } from "@heroicons/react/solid";
 import { formatDate } from "../components/utilities";
 import useShowEvent from "../hooks/useShowEvent";
-import { useParams } from "react-router-dom";
-import { Link, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { classNames } from "../components/utilities";
+import Navbar from "../components/Navbar";
 function ShowEvent() {
   const { id } = useParams();
   const { data, canEdit } = useShowEvent(id);
@@ -26,21 +27,21 @@ function ShowEvent() {
     window.alert(json.message);
   }
   async function deleteEvent() {
-    await fetch(`http://localhost:9000/Event/deleteEvent/${id}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-    })
-      .then((res) => res.json())
-      .then((json) => {
-        history.push("/dashboard");
-      });
-    
+    try {
+       const res = await fetch(`http://localhost:9000/Event/deleteEvent/${id}`);
+       const json = await res.json();
+       window.alert(json.message);
+    }
+    catch (err) {
+      window.alert(err);
+    }
+
+
+      
   }
   return (
     <div className="w-full h-screen">
+      <Navbar />
       <div className="w-full">
         <div className="w-full p-2 ">
           <img

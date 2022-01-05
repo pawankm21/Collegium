@@ -3,6 +3,7 @@ import EventCardSmall from "../components/EventCardSmall";
 import UserProfileSmall from "../components/UserProfileSmall";
 import EventTabs from "../components/EventTabs";
 import useMyEvents from "../hooks/useMyEvents";
+import Navbar from "../components/Navbar";
 export default function Dashboard() {
   const {events, loading} = useMyEvents()
   function displayEvents() {
@@ -20,7 +21,7 @@ export default function Dashboard() {
   }
   return (
     <>
-
+      <Navbar />
       <div className="md:flex  bg-gray-100 h-screen mt-4 w-full">
         <div className="flex flex-col md:w-1/3">
           <UserProfileSmall />

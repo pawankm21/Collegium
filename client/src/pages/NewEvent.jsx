@@ -1,7 +1,10 @@
 import React from "react";
 import useCreateEvent from "../hooks/useCreateEvent";
+import {useHistory} from "react-router-dom";
 import { parseTags } from "../components/utilities";
+import Navbar from "../components/Navbar";
 function NewEvent() {
+  const history=useHistory();
   const {
     setName,
     setEndingDate,
@@ -14,12 +17,16 @@ function NewEvent() {
   } = useCreateEvent();
   return (
     <>
-
+      <Navbar />
       <div className="m-5 shadow divide-y divide-gray-700 p-4 bg-white ">
         <h1 className="text-center capitalize font-bold text-gray-800 text-3xl mt-10 mb-10 ">
           Create Event
         </h1>
-        <form onSubmit={(e)=>{createEvent(e)}}>
+        <form
+          onSubmit={(e) => {
+            createEvent(e);
+          }}
+        >
           <div className="grid grid-cols-2 gap-4 ">
             <div className="col-span-1 pointer-events-auto">
               <div className=" w-full  bg-gray-400 justify-center h-56 border-2 border-dashed rounded-xl border-gray-700 mt-5 pointer-events-auto">
