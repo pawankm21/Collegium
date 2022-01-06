@@ -49,7 +49,7 @@ function useCreateEvent() {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
-            fetch(`http://localhost:9000/AddCoordinator/${data.id}`, {
+            fetch(`http://localhost:9000/Event/addCoordinator/${data.id}`, {
               method: "post",
               headers: {
                 "Content-Type": "application/json",
@@ -61,7 +61,7 @@ function useCreateEvent() {
               .then((res) => res.json())
               .then((data) => {
                 window.alert("Event Created Successfully!");
-                history.push("/");
+                history.push("/dashboard");
               });
           })
           .catch((err) => {
@@ -83,7 +83,7 @@ function useCreateEvent() {
     setCoordinators,
     setTagline,
     setType,
-
+    image,
     where,
     name,
     tillWhen,

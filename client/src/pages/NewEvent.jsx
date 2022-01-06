@@ -1,6 +1,6 @@
 import React from "react";
 import useCreateEvent from "../hooks/useCreateEvent";
-
+import { classNames } from "../components/utilities";
 import { parseTags } from "../components/utilities";
 import Navbar from "../components/Navbar";
 import DateTimePicker from "react-datetime-picker";
@@ -18,6 +18,7 @@ function NewEvent() {
     setCoordinators,
     setTagline,
     setType,
+    image,
     name,
     when,
     tillWhen,
@@ -37,7 +38,18 @@ function NewEvent() {
         >
           <div className="grid grid-cols-2 gap-4 ">
             <div className="col-span-1 pointer-events-auto">
-              <div className=" w-full  bg-gray-400 justify-center h-56 border-2 border-dashed rounded-xl border-gray-700 mt-5 pointer-events-auto">
+              <div className=" w-full  bg-gray-400 justify-center h-56 border-2 border-dashed rounded-xl border-gray-700 mt-5 pointer-events-auto relative">
+                <div
+                  className={classNames(
+                    image ? "opacity-30 " : "hidden"
+                  ,"bg-cover bg-center w-full absolute h-56")}
+                >
+                  <img
+                    src={image ? URL.createObjectURL(image) : ""}
+                    className="h-full w-full"
+                    alt={image ? image.name : ""}
+                  />
+                </div>
                 <input
                   type="file"
                   className=" opacity-0 w-full h-full focus:ring-2 ring-blue-400 outline-none"
@@ -46,7 +58,7 @@ function NewEvent() {
                   }}
                 />
                 <div className="pointer-events-none text-center relative bottom-24 text-gray-600">
-                  Click or drag here to add file
+                  {image !== "" ? image.name : "Upload Image"}
                 </div>
               </div>
             </div>
