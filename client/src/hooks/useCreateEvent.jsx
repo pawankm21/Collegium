@@ -60,8 +60,9 @@ function useCreateEvent() {
             })
               .then((res) => res.json())
               .then((data) => {
-                window.alert("Event Created Successfully!");
+                window.alert(data.message);
                 history.push("/dashboard");
+
               });
           })
           .catch((err) => {

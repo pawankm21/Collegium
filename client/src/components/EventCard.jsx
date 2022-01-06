@@ -20,13 +20,22 @@ export default function EventCard({
         <div className="">
           <img
             className="h-full w-full object-cover md:w-48"
-            src={imageurl}
+            src={
+              imageurl
+                ? imageurl
+                : "https://designshack.net/wp-content/uploads/placeholder-image.png"
+            }
             alt="Event "
           />
         </div>
         <div className="p-8">
-          <div className={classNames(" tracking-wide text-sm text-white text-center p-2 rounded-2xl shadow font-semibold",leftDays(lastDate).color)}>
-            {leftDays(lastDate).message} 
+          <div
+            className={classNames(
+              " tracking-wide text-sm text-white text-center p-2 rounded-2xl shadow font-semibold",
+              leftDays(lastDate).color
+            )}
+          >
+            {leftDays(lastDate).message}
           </div>
           <Link
             to={`events/${_id}`}
@@ -35,7 +44,11 @@ export default function EventCard({
             {name}
           </Link>
           <div className="mt-2 text-gray-600 font-bold">
-            <span className="text-blue-700">{formatDate(when)} <ArrowNarrowRightIcon className="w-4 text-gray-900 inline"/> {formatDate(tillWhen) }</span>
+            <span className="text-blue-700">
+              {formatDate(when)}{" "}
+              <ArrowNarrowRightIcon className="w-4 text-gray-900 inline" />{" "}
+              {formatDate(tillWhen)}
+            </span>
           </div>
         </div>
         <Tags tags={tags} />

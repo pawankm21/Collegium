@@ -19,18 +19,19 @@ function useShowEvent(id) {
       `http://localhost:9000/Event/getEvent/${id}`
     );
     const json = await response.json();
-    console.log(json);
-    console.log(localStorage.getItem("id"))
     setData(json);
-    for (let i = 0; i < json.coordinators.length; i++) {
-      if (json["coordinators"][i] === localStorage.getItem("id")) {
-        setCanEdit(true);
-      }
+    if (json.coordinators.includes(localStorage.getItem("id"))) {
+      setCanEdit(true);
+      console.log("Exists")
+    }
+    else {
+      setCanEdit(false);
     }
   }
+
   useEffect(() => {
-    getData();
-  }, [id]);
+    return getData();
+  }, []);
   return { canEdit, data };
 }
 

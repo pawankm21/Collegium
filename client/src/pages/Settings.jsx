@@ -14,6 +14,8 @@ export default function Settings() {
     setRoll,
     setBranch,
     setCollege,
+    setImage,
+    setImageUrl,
   } = useUpdateUser();
 
   return (
@@ -25,7 +27,7 @@ export default function Settings() {
         </h1>
         <form
           className=" w-full md:flex bg-white shadow mt-4 p-4 rounded"
-          onSubmit={formSubmitHandler}
+          onSubmit={(e)=>formSubmitHandler(e,)}
         >
           <div className="w-full lg:w-1/3 border-2 border-blue-200 rounded text-center p-4 mr-2 ">
             <h1 className="text-lg py-6 font-bold capitalize">Profile Image</h1>

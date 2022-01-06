@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
   dob: Date,
   branch: String,
   roll: String,
-  imgurl: String,
+  imageurl: String,
 });
 
 const eventSchema = new mongoose.Schema({

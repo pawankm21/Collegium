@@ -9,35 +9,49 @@ export default function useUpdateUser() {
   const [roll, setRoll] = useState(null);
   const [branch, setBranch] = useState(null);
   const [college, setCollege] = useState(null);
-  var user = [
-    { propName: "name", value:  name},
-    { propName: "email", value: email },
-    { propName: "roll", value: roll },
-    { propName: "college", value: college },
-    { propName: "password", value: password},
-    { propName: "branch", value: branch },
-  ];
-   user=user.filter((u) => u.value !== null&&u.value !== "");
+  const [image, setImage] = useState(null);
+  const [imageurl, setImageUrl] = useState(null);
 
-  async function formSubmitHandler(event) {
+  function formSubmitHandler(event, image) {
     event.preventDefault();
-    if (password !== passwordConfirm ) {
+    if (password !== passwordConfirm) {
       window.alert("Passwords do not match");
       return;
     }
-
-    const response = await fetch(
-      `http://localhost:9000/User/updateUser/${localStorage.getItem("id")}`,
-      {
-        method: "PATCH",
-        body: JSON.stringify(user),
-        headers: {
-          "Content-Type": "application/json",
+    const formData = new FormData();
+    formData.append("file", image);
+    formData.append("upload_preset", "upload");
+    formData.append("cloud_name", "collegium12");
+    fetch("https://api.cloudinary.com/v1_1/collegium12/image/upload", {
+      method: "post",
+      body: formData,
+    }).then((data) => {
+      var user = [
+        { propName: "name", value: name },
+        { propName: "email", value: email },
+        { propName: "roll", value: roll },
+        { propName: "college", value: college },
+        { propName: "password", value: password },
+        { propName: "branch", value: branch },
+        {
+          propName: "imageurl",
+          value: data.url,
         },
-      }
-    );
-    const data = await response.json();
-    window.alert(data.message);
+      ];
+      user = user.filter((u) => u.value !== null && u.value !== "");
+      fetch(
+        `http://localhost:9000/User/updateUser/${localStorage.getItem("id")}`,
+        {
+          method: "PATCH",
+          body: JSON.stringify(user),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((json) => window.alert(json.message));
+    });
   }
 
   return {
@@ -50,5 +64,8 @@ export default function useUpdateUser() {
     setRoll,
     setBranch,
     setCollege,
-  }
+    setImage,
+    imageurl,
+    image,
+  };
 }

@@ -46,12 +46,16 @@ function ShowEvent() {
       <div className="w-full">
         <div className="w-full p-2 ">
           <img
-            src={data.imageurl}
-            alt="cat"
-            className="h-48  object-cover w-full object-center shadow rounded"
+            src={
+              data.imageurl
+                ? data.imageurl
+                : "https://designshack.net/wp-content/uploads/placeholder-image.png"
+            }
+            alt="banner"
+            className="h-64  object-cover w-full object-center shadow rounded"
           />
 
-          <h1 className="relative w-1/2 m-auto rounded p-4 text-center bottom-8 bg-white text-4xl font-bold shadow">
+          <h1 className="relative w-1/2 m-auto rounded p-4 text-center bottom-8 bg-white text-4xl font-bold shadow uppercase">
             {data.name}
           </h1>
         </div>
@@ -61,8 +65,8 @@ function ShowEvent() {
             {/* <h1 className="text-center my-4 text-gray-700 bg-gray-200 text-xl font-semibold p-4"></h1> */}
 
             <div className="w-full p-4 m-4 bg-white shadow">
-              <h1 className="text-2xl font-bold text-gray-900 p-4 border-b border-gray-300">
-                {data.name}
+              <h1 className="text-2xl font-bold text-gray-900 uppercase p-4 border-b border-gray-300">
+                {data.tagline ? data.tagline : "EVENT DETAILS"}
               </h1>
               <div className="text-left py-6 px-2 text-gray-700">
                 {data.message
@@ -90,10 +94,13 @@ function ShowEvent() {
               Venue: <div>{data.where} </div>
             </h2>
 
-            <div className="grid grid-cols-4 gap-4 p-4">
+            <div className="grid grid-flow-col text-center gap-2 p-4">
               {data.tags.map((item, index) => {
                 return (
-                  <div className="tex-center bg-blue-600 text-white p-1 shadow rounded-xl">
+                  <div
+                    key={index}
+                    className="tex-center bg-blue-600 text-white p-1 shadow rounded-xl"
+                  >
                     {item}
                   </div>
                 );

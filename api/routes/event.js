@@ -142,7 +142,7 @@ router.post("/updateEvent/:id", (req, res) => {
     }
   );
 });
-router.post("/AddCoordinator/:EventId", (req, res) => {
+router.post("/addCoordinator/:EventId", (req, res) => {
   const { id } = req.params;
   const { userId } = req.body;
   Event.updateOne(
