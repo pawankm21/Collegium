@@ -1,67 +1,96 @@
 import { useState } from "react";
-
-
-
+import { useHistory } from "react-router-dom";
 function useCreateEvent() {
+  const history = useHistory();
   const [name, setName] = useState("");
-  const [endingDate, setEndingDate] = useState("");
+  const [tillWhen, settillWhen] = useState("");
   const [when, setWhen] = useState("");
   const [message, setMessage] = useState("");
   const [lastDate, setLastDate] = useState("");
   const [tags, setTags] = useState([]);
   const [where, setWhere] = useState("");
-
-  async function createEvent(event) {
+  const [coordinators, setCoordinators] = useState([]);
+  const [tagline, setTagline] = useState("");
+  const [type, setType] = useState("");
+  const [image, setImage] = useState("");
+  const id = localStorage.getItem("id");
+  function createEvent(event) {
     event.preventDefault();
-    const id = localStorage.getItem("id");
-    try {
-       const response = await fetch(
-         `http://localhost:9000/Event/createEvent/${id}`,
-         {
-           method: "POST",
-           body: JSON.stringify({
-             name,
-             message,
-             coordinators: [id],
-             when,
-             lastDate,
-             where,
-             tags,
-             attendees: [],
-             endingDate,
-           }),
-           headers: {
-             "Content-Type": "application/json",
-           },
-         }
-       );
-       const data = await response.json();
-      window.alert(data.message);
-      const addCoordinator = await fetch(`http://localhost:9000/Event/addCoordinator/${data.id}`, {
-        method: "POST",
-        body: JSON.stringify({ id }),
-        headers: {
-          "Content-Type": "application/json",
-        },
+    const formData = new FormData();
+    formData.append("file", image);
+    formData.append("upload_preset", "upload");
+    formData.append("cloud_name", "collegium12");
+    fetch("https://api.cloudinary.com/v1_1/collegium12/image/upload", {
+      method: "post",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const event = {
+          name,
+          tillWhen,
+          when,
+          message,
+          lastDate,
+          tags,
+          where,
+          coordinators,
+          tagline,
+          type,
+          imageurl: data.url,
+        };
+        fetch(`http://localhost:9000/Event/createEvent/${id}`, {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(event),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            fetch(`http://localhost:9000/AddCoordinator/${data.id}`, {
+              method: "post",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                userId: id,
+              }),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                window.alert("Event Created Successfully!");
+                history.push("/");
+              });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       });
-      const data2 = await addCoordinator.json();
-      window.alert(data2.message);
-    }
-    catch (err)
-    {
-      window.alert(err);
-    }
-   
   }
+
   return {
     setName,
-    setEndingDate,
+    settillWhen,
     setWhen,
     setMessage,
     setLastDate,
     setTags,
     setWhere,
     createEvent,
+    setImage,
+    setCoordinators,
+    setTagline,
+    setType,
+
+    where,
+    name,
+    tillWhen,
+    when,
+    message,
+    lastDate,
+    tags,
   };
 }
 

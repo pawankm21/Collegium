@@ -24,6 +24,7 @@ function ShowEvent() {
       }
     );
     const json = await response.json();
+    console.log(json);
     window.alert(json.message);
   }
   async function deleteEvent() {
@@ -45,7 +46,7 @@ function ShowEvent() {
       <div className="w-full">
         <div className="w-full p-2 ">
           <img
-            src=" https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+            src={data.imageurl}
             alt="cat"
             className="h-48  object-cover w-full object-center shadow rounded"
           />
@@ -80,8 +81,10 @@ function ShowEvent() {
             </h2>
 
             <h2 className="  text-lg  text-black font-semibold border-b py-4 border-gray-400">
-              Event on <p className="text-blue-700">{formatDate(data.when)}</p>
-              <p className="text-blue-700">to 25 July 2021 6:00pm</p>
+              Event from{" "}
+              <p className="text-blue-700">{formatDate(data.when)}</p>
+              <p>to</p>
+              <p className="text-blue-700"> {formatDate(data.tillWhen)}</p>
             </h2>
             <h2 className=" text-gray-700 text-lg  font-semibold border-b py-2 border-gray-400">
               Venue: <div>{data.where} </div>

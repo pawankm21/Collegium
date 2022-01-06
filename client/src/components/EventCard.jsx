@@ -2,6 +2,7 @@ import React from "react";
 import Tags from "./Tags";
 import { Link } from "react-router-dom";
 import { classNames, formatDate, leftDays } from "./utilities";
+import { ArrowNarrowRightIcon } from "@heroicons/react/outline";
 export default function EventCard({
   name,
   tags,
@@ -10,6 +11,7 @@ export default function EventCard({
   type,
   _id,
   when,
+  tillWhen,
 }) {
 
   return (
@@ -33,7 +35,7 @@ export default function EventCard({
             {name}
           </Link>
           <div className="mt-2 text-gray-600 font-bold">
-            <span className="text-blue-700"> {formatDate(when)}</span>
+            <span className="text-blue-700">{formatDate(when)} <ArrowNarrowRightIcon className="w-4 text-gray-900 inline"/> {formatDate(tillWhen) }</span>
           </div>
         </div>
         <Tags tags={tags} />

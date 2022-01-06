@@ -38,7 +38,7 @@ function EditEvent() {
                   placeholder="28 June 2021"
                   name="eventEndDate"
                   required
-                  onChange={(e) => setEndingDate(e.target.value)}
+                  onChange={(e) => settillWhen(e.target.value)}
                 />{" "}
                 <label className="text-gray-800">Event Starts on</label>
                 <input

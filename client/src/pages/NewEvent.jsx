@@ -1,19 +1,27 @@
 import React from "react";
 import useCreateEvent from "../hooks/useCreateEvent";
-import {useHistory} from "react-router-dom";
+
 import { parseTags } from "../components/utilities";
 import Navbar from "../components/Navbar";
+import DateTimePicker from "react-datetime-picker";
 function NewEvent() {
-  const history=useHistory();
   const {
     setName,
-    setEndingDate,
+    settillWhen,
     setWhen,
     setMessage,
     setLastDate,
     setTags,
     setWhere,
     createEvent,
+    setImage,
+    setCoordinators,
+    setTagline,
+    setType,
+    name,
+    when,
+    tillWhen,
+    lastDate,
   } = useCreateEvent();
   return (
     <>
@@ -33,12 +41,16 @@ function NewEvent() {
                 <input
                   type="file"
                   className=" opacity-0 w-full h-full focus:ring-2 ring-blue-400 outline-none"
+                  onChange={(e) => {
+                    setImage(e.target.files[0]);
+                  }}
                 />
                 <div className="pointer-events-none text-center relative bottom-24 text-gray-600">
                   Click or drag here to add file
                 </div>
               </div>
             </div>
+            <img src="" alt="" />
             <div className="col-span-1 mt-5">
               <label className="text-gray-800">Event Name</label>
               <input
@@ -49,31 +61,29 @@ function NewEvent() {
                 required
                 onChange={(e) => setName(e.target.value)}
               />{" "}
-              <label className="text-gray-800">Event Ends on</label>
-              <input
-                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
-                type="datetime-local"
-                placeholder="28 June 2021"
-                name="eventEndDate"
-                onChange={(e) => setEndingDate(e.target.value)}
-              />{" "}
               <label className="text-gray-800">Event Starts on</label>
-              <input
+              <DateTimePicker
+                onChange={setWhen}
+                value={when}
                 className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
-                type="datetime-local"
-                placeholder="27 June 2021"
-                name="eventDate"
+                name="eventStartsOn"
                 required
-                onChange={(e) => setWhen(e.target.value)}
-              />{" "}
-              <label className="text-gray-800">Deadline</label>
-              <input
+              />
+              <label className="text-gray-800">Event Ends on</label>
+              <DateTimePicker
                 className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
-                type="datetime-local"
-                placeholder="Registrations open till..."
+                onChange={settillWhen}
+                value={tillWhen}
+                name="eventEndDate"
+                required
+              />
+              <label className="text-gray-800">Deadline</label>
+              <DateTimePicker
+                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
+                onChange={setLastDate}
+                value={lastDate}
                 name="deadline"
                 required
-                onChange={(e) => setLastDate(e.target.value)}
               />
             </div>
             <div className="col-span-1 mt-5">

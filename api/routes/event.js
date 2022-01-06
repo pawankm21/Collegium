@@ -92,8 +92,9 @@ router.get("/past", (req, res) => {
   });
 });
 router.post("/createEvent/:id", (req, res) => {
+  console.log(req.body);
   const newEvent = new Event(req.body);
-
+  
   newEvent.save((err) => {
     if (err) {
       res.send(err);

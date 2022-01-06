@@ -12,7 +12,9 @@ const mongodbUri = process.env.mongoUrl;
 
 try {
   const mongoose = require("mongoose");
-  mongoose.connect(mongodbUri, {}, () => console.log("Connected to Mongo"));
+  mongoose.connect(mongodbUri, {}, () =>
+    console.log("Connected to Mongo")
+  );
 } catch (err) {
   console.log("Error connecting to Mongo: " + err);
 }
