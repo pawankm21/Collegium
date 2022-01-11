@@ -42,7 +42,7 @@ function ShowEvent() {
   }
   return (
     <div className="w-full h-screen">
-      <Navbar />
+     
       <div className="w-full">
         <div className="w-full p-2 ">
           <img

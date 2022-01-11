@@ -3,6 +3,7 @@ import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 import { Fragment, useState } from "react";
 import { classNames } from "./utilities";
+import useFetchUser from "../hooks/useFetchUser";
 const navigation = [
   { name: "Dashboard", href: "/dashboard" },
   { name: "Calendar", href: "/calendar" },
@@ -10,6 +11,7 @@ const navigation = [
 
 export default function Navbar() {
   const [tabnum, setTabnum] = useState(0);
+   const { profileImage} = useFetchUser();
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
@@ -79,7 +81,7 @@ export default function Navbar() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src="https://cdn-icons-png.flaticon.com/512/21/21104.png"
+                        src={profileImage}
                         alt="user"
                       />
                     </Menu.Button>

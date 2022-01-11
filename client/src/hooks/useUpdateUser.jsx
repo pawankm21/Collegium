@@ -25,7 +25,7 @@ export default function useUpdateUser() {
     fetch("https://api.cloudinary.com/v1_1/collegium12/image/upload", {
       method: "post",
       body: formData,
-    }).then((data) => {
+    }).then((resp) => resp.json()).then((data)=>{
       console.log(data.url);
       setImageUrl(data.url);
       var user = [

@@ -20,7 +20,7 @@ export default function Settings() {
 
   return (
     <>
-      <Navbar />
+      
       <div className="p-6  w-full h-screen">
         <h1 className="w-full text-center text-6xl bold capitalize p-2">
           Settings
@@ -37,11 +37,10 @@ export default function Settings() {
                 src={
                   image
                     ? URL.createObjectURL(image)
-                    : "https://flyinryanhawks.org/wp-content/uploads/2016/08/profile-placeholder.png"
+                    : profileImage
                 }
                 alt="profile"
                 className="w-full h-full rounded-full object-cover object-center"
-                defaultValue={profileImage}
               />
               <input
                 type="file"

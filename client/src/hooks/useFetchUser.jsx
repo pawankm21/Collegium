@@ -7,12 +7,10 @@ function useFetchUser() {
   const [roll, setRoll] = useState("");
   const [branch, setBranch] = useState("");
   const [profileImage, setProfileImage] = useState("");
-  function fetchUser()
-  {
-    fetch(`http://localhost:9000/User/getUser/${localStorage.getItem("id")}`).then(
-      (res) => res.json()
-    ).then(
-      (json) => {
+  function fetchUser() {
+    fetch(`http://localhost:9000/User/getUser/${localStorage.getItem("id")}`)
+      .then((res) => res.json())
+      .then((json) => {
         console.log(json);
         setUsername(json.name);
         setEmail(json.email);
@@ -20,16 +18,12 @@ function useFetchUser() {
         setRoll(json.roll);
         setBranch(json.branch);
         setProfileImage(json.imageurl);
-      }
-    ).catch(
-      (err) => console.log(err)
-    )
-    
+      })
+      .catch((err) => console.log(err));
   }
   useEffect(() => {
     fetchUser();
-  }
-    , [])
+  }, []);
   return {
     username,
     email,

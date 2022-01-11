@@ -19,17 +19,16 @@ import { Switch } from "@headlessui/react";
 function App() {
   return (
     <Router>
-
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/" component={Hero} />
+      <Navbar/>
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/register" component={Register} />
+      <Route exact path="/" component={Hero} />
       <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/about" component={About} />
       <Route exact path="/team" component={Team} />
       <Route exact path="/new-event" component={NewEvent} />
       <Route exact path="/events/:id" component={ShowEvent} />
-        <Route exact path="/settings" component={Settings} />
-   
+      <Route exact path="/settings" component={Settings} />
     </Router>
   );
 }

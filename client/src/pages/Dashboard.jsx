@@ -21,7 +21,7 @@ export default function Dashboard() {
   }
   return (
     <>
-      <Navbar />
+ 
       <div className="md:flex  bg-gray-100 h-screen mt-4 w-full">
         <div className="flex flex-col md:w-1/3">
           <UserProfileSmall />
