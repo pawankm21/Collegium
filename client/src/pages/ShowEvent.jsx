@@ -94,13 +94,14 @@ function ShowEvent() {
               Venue: <div>{data.where} </div>
             </h2>
 
-            <div className="grid grid-flow-col text-center gap-2 p-4">
+            <div className="grid grid-flow-col text-center gap-2 p-4 m-4">
               {data.tags.map((item, index) => {
                 return (
                   <div
                     key={index}
-                    className="tex-center bg-blue-600 text-white p-1 shadow rounded-xl"
+                    className="tex-center bg-blue-600 text-white p-1 text-xs text-center shadow rounded w-24 "
                   >
+                    <TagIcon className="h-4 w-4 inline mx-2" />
                     {item}
                   </div>
                 );
@@ -128,7 +129,7 @@ function ShowEvent() {
               <Link
                 className={classNames(
                   "py-2 rounded-lg shadow bg-blue-400 hover:bg-blue-900 ease-in-out transition-all w-full text-center transform duration-300 text-white m-auto ",
-                  canEdit ? "" : "hidden"
+                  true? "" : "hidden"
                 )}
                 to={"/new-event/"}
               >
