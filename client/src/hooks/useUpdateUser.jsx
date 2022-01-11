@@ -26,6 +26,8 @@ export default function useUpdateUser() {
       method: "post",
       body: formData,
     }).then((data) => {
+      console.log(data.url);
+      setImageUrl(data.url);
       var user = [
         { propName: "name", value: name },
         { propName: "email", value: email },
@@ -33,10 +35,7 @@ export default function useUpdateUser() {
         { propName: "college", value: college },
         { propName: "password", value: password },
         { propName: "branch", value: branch },
-        {
-          propName: "imageurl",
-          value: data.url,
-        },
+        { propName: "imageurl", value: data.url },
       ];
       user = user.filter((u) => u.value !== null && u.value !== "");
       fetch(

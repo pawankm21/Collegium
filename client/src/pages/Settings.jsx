@@ -3,7 +3,7 @@ import useUpdateUser from "../hooks/useUpdateUser";
 import useFetchUser from "../hooks/useFetchUser";
 import Navbar from "../components/Navbar";
 export default function Settings() {
-  const { username, email, college, roll, branch } = useFetchUser();
+  const { username, email, college, roll, branch,profileImage } = useFetchUser();
   const {
     formSubmitHandler,
     setName,
@@ -15,7 +15,7 @@ export default function Settings() {
     setBranch,
     setCollege,
     setImage,
-    setImageUrl,
+    image,
   } = useUpdateUser();
 
   return (
@@ -27,30 +27,33 @@ export default function Settings() {
         </h1>
         <form
           className=" w-full md:flex bg-white shadow mt-4 p-4 rounded"
-          onSubmit={(e)=>formSubmitHandler(e,)}
+          onSubmit={(e) => formSubmitHandler(e, image)}
         >
           <div className="w-full lg:w-1/3 border-2 border-blue-200 rounded text-center p-4 mr-2 ">
             <h1 className="text-lg py-6 font-bold capitalize">Profile Image</h1>
 
             <div className=" relative  rounded-full bg-red-200 w-36 h-36 m-auto flex mb-8">
               <img
-                src="https://images.unsplash.com/photo-1638987168435-e5f278c25a90"
+                src={
+                  image
+                    ? URL.createObjectURL(image)
+                    : "https://flyinryanhawks.org/wp-content/uploads/2016/08/profile-placeholder.png"
+                }
                 alt="profile"
                 className="w-full h-full rounded-full object-cover object-center"
+                defaultValue={profileImage}
               />
               <input
                 type="file"
                 name="photo"
                 id="photo"
                 className="absolute w-full h-full top-0 rounded-full left-0 pointer-events-auto opacity-0"
+                onChange={(e) => setImage(e.target.files[0])}
               />
               <p className="absolute top-10 text-black  bg-opacity-25 font-bold bg-white pointer-events-none">
                 click here to add image
               </p>
             </div>
-            <button className="bg-blue-500  text-white py-2 px-4 rounded shadow hover:scale-110  transform ease-in-out transition duration-300 border-b-0">
-              Upload
-            </button>
           </div>
           <div className="w-full lg:w-2/3 border-2 border-blue-200 rounded text-center p-4 ml-2">
             <div className="mt-6 w-full text-left">
@@ -59,7 +62,7 @@ export default function Settings() {
               </h1>
               <div className="rounded-md shadow-sm ">
                 <div>
-                  <label htmlFor="fullname  " className="">
+                  <label htmlFor="fullname" className="">
                     Full name
                   </label>
                   <input

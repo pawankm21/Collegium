@@ -10,10 +10,10 @@ function EventTabs() {
   const {  setActiveTab, events } = useGetEvents();
   function renderEvent()
   {
-    var ret=events.map((event,idx) => {
-      return <div className="p-2">
+    var ret = events.map((event, idx) => {
+      return <div key={event._id} className="p-2">
 
-      <EventCard key={idx} {...event} />
+      <EventCard {...event} />
       </div>
     });
     if (ret === [] ||ret===undefined || ret===null)

@@ -51,8 +51,8 @@ export default function Navbar() {
                         to={item.href}
                         className={classNames(
                           idx === tabnum
-                            ? "bg-blue-500 text-white"
-                            : "text-gray-500 hover:bg-blue-400 hover:text-white",
+                            ? "bg-blue-900 text-white"
+                            : "text-gray-500 hover:bg-blue-700 hover:text-white",
                           "px-3 py-2 rounded-md text-sm font-medium"
                         )}
                         aria-current={item.current ? "page" : undefined}
@@ -135,7 +135,7 @@ export default function Navbar() {
                   href={item.href}
                   className={classNames(
                     item.current
-                      ? "bg-blue-500 text-white"
+                      ? "bg-blue-900 text-white"
                       : "text-gray-500 hover:bg-blue-400 hover:text-white",
                     "block px-3 py-2 rounded-md text-base font-medium"
                   )}

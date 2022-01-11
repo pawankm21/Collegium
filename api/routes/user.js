@@ -35,6 +35,7 @@ router.get("/getUser/:id", (req, res) => {
         college: user.college,
         branch: user.branch,
         dob: user.dob,
+        imageurl:user.imageurl
       });
     } catch (err) {
       res.send({
