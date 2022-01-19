@@ -15,20 +15,30 @@ import {
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import { Switch } from "@headlessui/react";
+function AuthenticatedRoutes()
+{
+  return (
+    <Switch>
+      <Navbar/>
+      <Route path="/" component={Dashboard} />
+      <Route path="/settings" component={Settings} />
+      <Route path="/new-event" component={NewEvent} />
+      <Route path="" />
 
+    </Switch>
+  );
+}
 function App() {
   return (
     <Router>
-      <Navbar/>
-      <Route exact path="/login" component={Login} />
-      <Route exact path="/register" component={Register} />
-      <Route exact path="/" component={Hero} />
-      <Route exact path="/dashboard" component={Dashboard} />
-      <Route exact path="/about" component={About} />
-      <Route exact path="/team" component={Team} />
-      <Route exact path="/new-event" component={NewEvent} />
-      <Route exact path="/events/:id" component={ShowEvent} />
-      <Route exact path="/settings" component={Settings} />
+      <Switch>
+        
+      <Route path="/login" component={Login} />
+      <Route path="/register" component={Register} />
+      <Route path="/about" component={About} />
+      <Route path="/team" component={Team} />
+      <Route path="/" component={AuthenticatedRoutes}/>
+     </Switch>
     </Router>
   );
 }
