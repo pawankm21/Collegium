@@ -5,13 +5,13 @@ import { Fragment, useState } from "react";
 import { classNames } from "./utilities";
 import useFetchUser from "../hooks/useFetchUser";
 const navigation = [
-  { name: "Dashboard", href: "/dashboard" },
+  { name: "Dashboard", href: "/" },
   { name: "Calendar", href: "/calendar" },
 ];
 
 export default function Navbar() {
   const [tabnum, setTabnum] = useState(0);
-   const { profileImage} = useFetchUser();
+  const { profileImage } = useFetchUser();
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
@@ -109,17 +109,17 @@ export default function Navbar() {
                           </Link>
                         )}
                       </Menu.Item>
-                      <Menu.Item>
+                      <Menu.Item >
                         {({ active }) => (
-                          <Link
-                            to="/"
-                            className={classNames(
-                              active ? "bg-blue-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
-                            )}
+                          <button
+                            onClick={() => {
+                              localStorage.removeItem("id");
+                              window.location.reload();
+                            }}
+                            className={classNames("bg-blue-900 block px-4 py-2 text-sm w-full shadow text-white")}
                           >
                             Sign out
-                          </Link>
+                          </button>
                         )}
                       </Menu.Item>
                     </Menu.Items>

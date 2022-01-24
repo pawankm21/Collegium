@@ -1,4 +1,4 @@
-import "./App.css";
+
 import Hero from "./pages/Hero";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -8,37 +8,37 @@ import Team from "./pages/Team";
 import NewEvent from "./pages/NewEvent";
 import ShowEvent from "./pages/ShowEvent";
 import Settings from "./pages/Settings";
-import {
-  BrowserRouter as Router,
-  Route,
-
-} from "react-router-dom";
+import { BrowserRouter as Router, Route ,Switch} from "react-router-dom";
 import Navbar from "./components/Navbar";
-import { Switch } from "@headlessui/react";
-function AuthenticatedRoutes()
-{
+import {isAuthenticated} from "./components/utilities";
+function AuthenticatedRoutes() {
   return (
-    <Switch>
-      <Navbar/>
-      <Route path="/" component={Dashboard} />
-      <Route path="/settings" component={Settings} />
-      <Route path="/new-event" component={NewEvent} />
-      <Route path="" />
-
-    </Switch>
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Dashboard} />
+        <Route exact path="/new-event" component={NewEvent} />
+        <Route exact path="/events/:id" component={ShowEvent} />
+        <Route exact path="/settings" component={Settings} />
+        <Route path="/about" component={About} />
+        <Route path="/team" component={Team} />
+      </Switch>
+    </Router>
   );
 }
 function App() {
+  if (isAuthenticated()) {
+    return <AuthenticatedRoutes />;
+  }
   return (
     <Router>
       <Switch>
-        
-      <Route path="/login" component={Login} />
-      <Route path="/register" component={Register} />
-      <Route path="/about" component={About} />
-      <Route path="/team" component={Team} />
-      <Route path="/" component={AuthenticatedRoutes}/>
-     </Switch>
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+        <Route path="/about" component={About} />
+        <Route path="/team" component={Team} />
+        <Route path="/" exact component={Hero} />
+      </Switch>
     </Router>
   );
 }

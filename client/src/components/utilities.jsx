@@ -39,4 +39,15 @@ function leftDays(date) {
     return {message:`closed ${Math.abs(days)} days ago`,color:"bg-red-500"};
   }
 }
-export { MONTHS, formatDate, parseTags ,classNames,leftDays};
+
+function isAuthenticated()
+{
+  if(localStorage.getItem("id"))
+  {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+export { MONTHS, formatDate, parseTags ,classNames,leftDays,isAuthenticated};

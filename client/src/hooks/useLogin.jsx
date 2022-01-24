@@ -1,8 +1,7 @@
 
 import { useRef } from "react";
-import {  useHistory } from "react-router-dom";
 function useLogin() {
-    const history = useHistory();
+  
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const submitHandler = async (event) => {
@@ -21,7 +20,7 @@ function useLogin() {
       if (data.user) {
         alert("Log in successfull");
         localStorage.setItem("id", data.user);
-        history.replace("/dashboard");
+        window.location.href = "/";
       } else {
         alert("Email or Password incorrect.");
       }

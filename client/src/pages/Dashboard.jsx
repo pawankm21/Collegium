@@ -21,8 +21,7 @@ export default function Dashboard() {
   }
   return (
     <>
- 
-      <div className="md:flex  bg-gray-100 h-screen mt-4 w-full">
+      <div className="md:flex  bg-gray-100 mt-4 w-screen h-screen">
         <div className="flex flex-col md:w-1/3">
           <UserProfileSmall />
           <div className="shadow rounded mt-4 ml-2 mr-2 justify-center h-80 overflow-y-scroll bg-gray-100">
