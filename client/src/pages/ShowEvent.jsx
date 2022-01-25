@@ -5,11 +5,9 @@ import useShowEvent from "../hooks/useShowEvent";
 import { useParams, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { classNames } from "../components/utilities";
-import Navbar from "../components/Navbar";
 function ShowEvent() {
   const { id } = useParams();
   const { data, canEdit } = useShowEvent(id);
-  const history = useHistory();
   async function joinEvent() {
     const response = await fetch(
       `http://localhost:9000/Event/addAttendee/${id}`,
@@ -29,20 +27,15 @@ function ShowEvent() {
   }
   async function deleteEvent() {
     try {
-       const res = await fetch(`http://localhost:9000/Event/deleteEvent/${id}`);
-       const json = await res.json();
-       window.alert(json.message);
-    }
-    catch (err) {
+      const res = await fetch(`http://localhost:9000/Event/deleteEvent/${id}`);
+      const json = await res.json();
+      window.alert(json.message);
+    } catch (err) {
       window.alert(err);
     }
-
-
-      
   }
   return (
     <div className="w-full h-screen">
-     
       <div className="w-full">
         <div className="w-full p-2 ">
           <img
@@ -129,7 +122,7 @@ function ShowEvent() {
               <Link
                 className={classNames(
                   "py-2 rounded-lg shadow bg-blue-400 hover:bg-blue-900 ease-in-out transition-all w-full text-center transform duration-300 text-white m-auto ",
-                  true? "" : "hidden"
+                  true ? "" : "hidden"
                 )}
                 to={"/new-event/"}
               >

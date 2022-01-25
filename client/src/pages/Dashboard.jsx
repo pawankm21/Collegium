@@ -3,21 +3,28 @@ import EventCardSmall from "../components/EventCardSmall";
 import UserProfileSmall from "../components/UserProfileSmall";
 import EventTabs from "../components/EventTabs";
 import useMyEvents from "../hooks/useMyEvents";
-import Navbar from "../components/Navbar";
+import empty from "../assets/empty.png";
 export default function Dashboard() {
-  const {events, loading} = useMyEvents()
+  const { events, loading } = useMyEvents();
   function displayEvents() {
     if (loading) {
-
-      return <div>Loading...</div>
+      return <div>Loading...</div>;
     }
     if (events.length === 0) {
-      return <div>No events to display</div>
+      return (
+        <div className="p-2">
+          <div className=" w-full text-center h-full bg-gray-200 m-auto py-6 ml-2 ">
+            <img src={empty} alt="empty" className="h-24 w-24 mx-auto my-4" />
+            <p className="text-xl text-gray-600 capitalize p-4 ">
+              No events to display
+            </p>
+          </div>
+        </div>
+      );
     }
-    return events.map((event,idx) => {
-      return <EventCardSmall key={idx}
-        {...event} />
-    })
+    return events.map((event, idx) => {
+      return <EventCardSmall key={idx} {...event} />;
+    });
   }
   return (
     <>

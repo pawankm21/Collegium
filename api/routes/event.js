@@ -51,7 +51,7 @@ router.get("/coordinator/:id", (req, res) => {
   Event.find(
     {
       // when: { $gte: now },
-       coordinators: req.params.id
+      coordinators: req.params.id,
     },
     (err, events) => {
       if (err) {
@@ -94,7 +94,7 @@ router.get("/past", (req, res) => {
 router.post("/createEvent/:id", (req, res) => {
   console.log(req.body);
   const newEvent = new Event(req.body);
-  
+
   newEvent.save((err) => {
     if (err) {
       res.send(err);
@@ -143,18 +143,23 @@ router.post("/updateEvent/:id", (req, res) => {
   );
 });
 router.post("/addCoordinator/:EventId", (req, res) => {
-  const { id } = req.params;
+  console.log(req.body);
   const { userId } = req.body;
   Event.updateOne(
-    { _id: id },
-    { $addToSet: { coordinators: userId } },
+    {
+      _id: req.params.EventId,
+    },
+    {
+      $addToSet: { coordinators: userId },
+    },
     (err) => {
       if (err) {
         res.send(err);
       } else {
         res.send({
-          id: id,
-          message: "Coordinator Added Successfuly!",
+          id:userId,
+          message: "successfully added coordinator to event",
+          date: new Date().toLocaleDateString(),
         });
       }
     }
@@ -183,7 +188,6 @@ router.post("/addAttendee/:EventId", (req, res) => {
   );
 });
 router.get("/deleteEvent/:id", async (req, res) => {
-  
   Event.findOneAndDelete({ _id: req.params.id }, (err) => {
     if (err) {
       res.send(err);
@@ -193,6 +197,6 @@ router.get("/deleteEvent/:id", async (req, res) => {
         message: "Event Deleted Successfuly!",
       });
     }
-});
+  });
 });
 module.exports = router;

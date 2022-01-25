@@ -13,7 +13,7 @@ function useCreateEvent() {
   const [tagline, setTagline] = useState("");
   const [type, setType] = useState("");
   const [image, setImage] = useState("");
-  const id = localStorage.getItem("id");
+  
   function createEvent(event) {
     event.preventDefault();
     const formData = new FormData();
@@ -39,8 +39,8 @@ function useCreateEvent() {
           type,
           imageurl: data.url,
         };
-        fetch(`http://localhost:9000/Event/createEvent/${id}`, {
-          method: "post",
+        fetch(`http://localhost:9000/Event/createEvent/${localStorage.getItem("id")}`, {
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
@@ -50,18 +50,18 @@ function useCreateEvent() {
           .then((data) => {
             console.log(data);
             fetch(`http://localhost:9000/Event/addCoordinator/${data.id}`, {
-              method: "post",
+              method: "POST",
               headers: {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
-                userId: id,
+                userId: localStorage.getItem("id"),
               }),
             })
               .then((res) => res.json())
               .then((data) => {
                 window.alert(data.message);
-                history.push("/dashboard");
+                history.push("/");
 
               });
           })

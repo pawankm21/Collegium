@@ -1,4 +1,3 @@
-
 import Hero from "./pages/Hero";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -8,9 +7,10 @@ import Team from "./pages/Team";
 import NewEvent from "./pages/NewEvent";
 import ShowEvent from "./pages/ShowEvent";
 import Settings from "./pages/Settings";
-import { BrowserRouter as Router, Route ,Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import {isAuthenticated} from "./components/utilities";
+import { isAuthenticated } from "./components/utilities";
+import Markdown from "./pages/Markdown";
 function AuthenticatedRoutes() {
   return (
     <Router>
@@ -22,6 +22,7 @@ function AuthenticatedRoutes() {
         <Route exact path="/settings" component={Settings} />
         <Route path="/about" component={About} />
         <Route path="/team" component={Team} />
+        <Route path="/markdown" component={Markdown} />
       </Switch>
     </Router>
   );

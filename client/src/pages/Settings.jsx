@@ -20,36 +20,31 @@ export default function Settings() {
 
   return (
     <>
-      
       <div className="p-6  w-full h-screen">
         <h1 className="w-full text-center text-6xl bold capitalize p-2">
           Settings
         </h1>
         <form
-          className=" w-full md:flex bg-white shadow mt-4 p-4 rounded"
+          className=" w-full md:flex bg-white shadow mt-4 p-4  rounded"
           onSubmit={(e) => formSubmitHandler(e, image)}
         >
-          <div className="w-full lg:w-1/3 border-2 border-blue-200 rounded text-center p-4 mr-2 ">
+          <div className="w-full lg:w-1/3 border-2 border-blue-200 rounded text-center p-4 md-2 mx-2 ">
             <h1 className="text-lg py-6 font-bold capitalize">Profile Image</h1>
 
-            <div className=" relative  rounded-full bg-red-200 w-36 h-36 m-auto flex mb-8">
+            <div className=" relative  w-56 h-56 m-auto flex mb-8">
               <img
-                src={
-                  image
-                    ? URL.createObjectURL(image)
-                    : profileImage
-                }
+                src={image ? URL.createObjectURL(image) : profileImage}
                 alt="profile"
-                className="w-full h-full rounded-full object-cover object-center"
+                className="w-full h-full object-cover object-center rounded-full"
               />
               <input
                 type="file"
                 name="photo"
                 id="photo"
-                className="absolute w-full h-full top-0 rounded-full left-0 pointer-events-auto opacity-0"
+                className="absolute w-full h-full top-0  left-0 pointer-events-auto opacity-0"
                 onChange={(e) => setImage(e.target.files[0])}
               />
-              <p className="absolute top-10 text-black  bg-opacity-25 font-bold bg-white pointer-events-none">
+              <p className="absolute top-16 left-6 text-black  bg-opacity-25 p-2 opacity-50 rounded font-bold bg-white pointer-events-none">
                 click here to add image
               </p>
             </div>

@@ -62,7 +62,7 @@ function NewEvent() {
                 </div>
               </div>
             </div>
-            <img src="" alt="" />
+
             <div className="col-span-1 mt-5">
               <label className="text-gray-800">Event Name</label>
               <input
@@ -115,7 +115,7 @@ function NewEvent() {
               <textarea
                 className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
                 type="text"
-                placeholder="Add collegium usernames separated by commas, eg. Noobmaster69, john123,..."
+                placeholder="Add coordinator names separated by commas, eg. John, Mary, Sam...."
                 name="eventName"
               />
             </div>
@@ -141,6 +141,7 @@ function NewEvent() {
                 cols="30"
                 rows="10"
                 name="eventName"
+                placeholder="Markdown supported here, eg. #Event Name, ##Event Name, **Event Name**, *Event Name*, [Event Name](https://www.google.com)"
                 required
                 onChange={(e) => setMessage(e.target.value)}
               />
