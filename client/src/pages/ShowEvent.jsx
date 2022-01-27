@@ -9,7 +9,6 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import "../css/Markdown.css";
 
-
 function ShowEvent() {
   const { id } = useParams();
   const { data, canEdit } = useShowEvent(id);
@@ -120,8 +119,7 @@ function ShowEvent() {
             <div className=" grid grid-flow-col gap-2 p-2">
               <button
                 className={classNames(
-                  "py-2 rounded-lg shadow bg-red-400 hover:bg-red-900 ease-in-out transition-all w-full text-center transform duration-300 text-white m-auto ",
-                  canEdit ? "hidden" : ""
+                  "py-2 rounded-lg shadow bg-red-400 hover:bg-red-900 ease-in-out transition-all w-full text-center transform duration-300 text-white m-auto "
                 )}
                 onClick={joinEvent}
               >

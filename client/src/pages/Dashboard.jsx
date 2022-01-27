@@ -12,8 +12,8 @@ export default function Dashboard() {
     }
     if (events.length === 0) {
       return (
-        <div className="p-2">
-          <div className=" w-full text-center h-full bg-gray-200 m-auto py-6 ml-2 ">
+        <div className="p-2 bg-white">
+          <div className=" w-full text-center h-full bg-gray-100 m-auto py-6 ml-2 ">
             <img src={empty} alt="empty" className="h-24 w-24 mx-auto my-4" />
             <p className="text-xl text-gray-600 capitalize p-4 ">
               No events to display
@@ -35,7 +35,9 @@ export default function Dashboard() {
             <h1 className="text-2xl p-2 font-bold shadow bg-blue-900 text-white w-full sticky top-0 pl-4">
               Registrations
             </h1>
-            <div className="pr-4 border-4  divide-solid">{displayEvents()}</div>
+            <div className="pr-4 border-4 bg-gray-200 h-full divide-solid">
+              {displayEvents()}
+            </div>
           </div>
         </div>
         <div className="md:w-2/3 mt-2 overflow-y-scroll">

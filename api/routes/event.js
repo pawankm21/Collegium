@@ -57,7 +57,11 @@ router.get("/coordinator/:id", (req, res) => {
       if (err) {
         res.send(err);
       } else {
-        res.send(events);
+        var ret
+        events.forEach(event => {
+          
+        })
+        res.send();
       }
     }
   );
