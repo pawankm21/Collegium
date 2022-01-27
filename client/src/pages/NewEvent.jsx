@@ -1,9 +1,12 @@
-import React from "react";
 import useCreateEvent from "../hooks/useCreateEvent";
 import { classNames } from "../components/utilities";
 import { parseTags } from "../components/utilities";
-import Navbar from "../components/Navbar";
 import DateTimePicker from "react-datetime-picker";
+import { CalendarIcon } from "@heroicons/react/solid";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import "../css/Markdown.css";
+import "../css/DateTimePicker.css";
 function NewEvent() {
   const {
     setName,
@@ -16,17 +19,15 @@ function NewEvent() {
     createEvent,
     setImage,
     setCoordinators,
-    setTagline,
     setType,
     image,
-    name,
+    message,
     when,
     tillWhen,
     lastDate,
   } = useCreateEvent();
   return (
     <>
- 
       <div className="m-5 shadow divide-y divide-gray-700 p-4 bg-white ">
         <h1 className="text-center capitalize font-bold text-gray-800 text-3xl mt-10 mb-10 ">
           Create Event
@@ -41,8 +42,9 @@ function NewEvent() {
               <div className=" w-full  bg-gray-400 justify-center h-56 border-2 border-dashed rounded-xl border-gray-700 mt-5 pointer-events-auto relative">
                 <div
                   className={classNames(
-                    image ? "opacity-30 " : "hidden"
-                  ,"bg-cover bg-center w-full absolute h-56")}
+                    image ? "opacity-30 " : "hidden",
+                    "bg-cover bg-center w-full absolute h-56"
+                  )}
                 >
                   <img
                     src={image ? URL.createObjectURL(image) : ""}
@@ -62,11 +64,10 @@ function NewEvent() {
                 </div>
               </div>
             </div>
-
             <div className="col-span-1 mt-5">
               <label className="text-gray-800">Event Name</label>
               <input
-                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
+                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none "
                 type="text"
                 placeholder="Event Name"
                 name="eventName"
@@ -75,27 +76,48 @@ function NewEvent() {
               />{" "}
               <label className="text-gray-800">Event Starts on</label>
               <DateTimePicker
+                calendarIcon={<CalendarIcon className="w-6 h-6" />}
+                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none date-time-picker"
                 onChange={setWhen}
                 value={when}
-                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
                 name="eventStartsOn"
+                showLeadingZeros={true}
                 required
+                monthPlaceholder="mm"
+                minutePlaceholder="mins"
+                hourPlaceholder="hrs"
+                dayPlaceholder="dd"
+                yearPlaceholder="yyyy"
               />
               <label className="text-gray-800">Event Ends on</label>
               <DateTimePicker
-                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
+                calendarIcon={<CalendarIcon className="w-6 h-6" />}
+                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none date-time-picker"
                 onChange={settillWhen}
                 value={tillWhen}
-                name="eventEndDate"
+                name="eventEndsDate"
+                showLeadingZeros={true}
                 required
+                monthPlaceholder="mm"
+                minutePlaceholder="mins"
+                hourPlaceholder="hrs"
+                dayPlaceholder="dd"
+                yearPlaceholder="yyyy"
               />
               <label className="text-gray-800">Deadline</label>
               <DateTimePicker
-                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
+                calendarIcon={<CalendarIcon className="w-6 h-6" />}
+                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none date-time-picker"
                 onChange={setLastDate}
                 value={lastDate}
                 name="deadline"
+                showLeadingZeros={true}
                 required
+                monthPlaceholder="mm"
+                minutePlaceholder="mins"
+                hourPlaceholder="hrs"
+                dayPlaceholder="dd"
+                yearPlaceholder="yyyy"
               />
             </div>
             <div className="col-span-1 mt-5">
@@ -119,7 +141,7 @@ function NewEvent() {
                 name="eventName"
               />
             </div>
-            <div className="col-span-1 mt-5">
+            <div className="col-span-2 mt-5">
               <label className="text-gray-800 text-lg  m-auto">Venue</label>
               <textarea
                 className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
@@ -131,23 +153,34 @@ function NewEvent() {
                 onChange={(e) => setWhere(e.target.value)}
               />
             </div>
-            <div className="col-span-2 mt-5">
+            <div className="col-span-1 mt-5">
               <label className="text-gray-800 text-lg font-bold  m-auto">
                 Message
               </label>
               <textarea
-                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
+                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none h-full"
                 type="text"
-                cols="30"
-                rows="10"
+                rows="15"
                 name="eventName"
                 placeholder="Markdown supported here, eg. #Event Name, ##Event Name, **Event Name**, *Event Name*, [Event Name](https://www.google.com)"
                 required
                 onChange={(e) => setMessage(e.target.value)}
               />
             </div>
+            <div className="col-span-1 mt-5">
+              <label className="text-gray-800 text-lg font-bold m-auto">
+                Preview
+              </label>
+              <div className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none h-full">
+                <ReactMarkdown
+                  className="markdown-body"
+                  children={message}
+                  remarkPlugins={[remarkGfm]}
+                />
+              </div>
+            </div>
           </div>
-          <div className="w-full text-center">
+          <div className="w-full text-center mt-12">
             <button
               type="submit"
               className="w-1/2 m-5 p-4 text-lg rounded-md bg-blue-500 text-white hover:bg-blue-700"

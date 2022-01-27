@@ -1,6 +1,9 @@
 module.exports = {
-  purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
-  darkMode: 'class', 
+  content: [
+    // Example content paths...
+    "./public/**/*.html",
+    "./src/**/*.{js,jsx,ts,tsx,vue}",
+  ],
   theme: {
     extend: {},
   },

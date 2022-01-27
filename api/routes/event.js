@@ -187,13 +187,12 @@ router.post("/addAttendee/:EventId", (req, res) => {
     }
   );
 });
-router.get("/deleteEvent/:id", async (req, res) => {
+router.delete("/deleteEvent/:id", async (req, res) => {
   Event.findOneAndDelete({ _id: req.params.id }, (err) => {
     if (err) {
       res.send(err);
     } else {
       res.send({
-        id: id,
         message: "Event Deleted Successfuly!",
       });
     }
