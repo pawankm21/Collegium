@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema({
   branch: String,
   roll: String,
   imageurl: String,
+  image_id:String,
 });
 
 const eventSchema = new mongoose.Schema({
@@ -25,6 +26,7 @@ const eventSchema = new mongoose.Schema({
   imageurl: String,
   type: String,
   tagLine: String,
+  image_id:String,
 });
 
 const User = mongoose.model("User", userSchema);

@@ -13,7 +13,7 @@ function useCreateEvent() {
   const [tagline, setTagline] = useState("");
   const [type, setType] = useState("");
   const [image, setImage] = useState("");
-  
+
   function createEvent(event) {
     event.preventDefault();
     const formData = new FormData();
@@ -38,14 +38,20 @@ function useCreateEvent() {
           tagline,
           type,
           imageurl: data.url,
+          image_id: data.public_id,
         };
-        fetch(`http://localhost:9000/Event/createEvent/${localStorage.getItem("id")}`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(event),
-        })
+        fetch(
+          `http://localhost:9000/Event/createEvent/${localStorage.getItem(
+            "id"
+          )}`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(event),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -62,7 +68,6 @@ function useCreateEvent() {
               .then((data) => {
                 window.alert(data.message);
                 history.push("/");
-
               });
           })
           .catch((err) => {

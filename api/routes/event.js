@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var cloudinary = require("cloudinary").v2;
+var { deleteImage, uploadImage } = require("../cloudinary");
 var { User, Tag, Event } = require("../model");
 
 router.get("/getEvent", (req, res) => {
@@ -196,12 +196,13 @@ router.delete("/deleteEvent/:id", async (req, res) => {
     (err, event) => {
       if (err) res.send(err);
       else {
-        cloudinary.uploader.destroy()
+        console.log(event);
         Event.deleteOne(
           {
             _id: req.params.id,
           },
           (err) => {
+            deleteImage(event.image_id);
             if (err) res.send(err);
             else
               res.send({

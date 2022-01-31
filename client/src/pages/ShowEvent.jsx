@@ -37,6 +37,9 @@ function ShowEvent() {
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify({
+        userId: localStorage.getItem("id"),
+      }),
     })
       .then((response) => response.json())
       .then((json) => {
@@ -127,8 +130,8 @@ function ShowEvent() {
               </button>
               <button
                 className={classNames(
-                  "py-2 rounded-lg shadow bg-red-400 hover:bg-red-900 ease-in-out transition-all w-full text-center transform duration-300 text-white m-auto"
-                  ,canEdit? "":"hidden"
+                  "py-2 rounded-lg shadow bg-red-400 hover:bg-red-900 ease-in-out transition-all w-full text-center transform duration-300 text-white m-auto",
+                  canEdit ? "" : "hidden"
                 )}
                 onClick={deleteEvent}
               >
