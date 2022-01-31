@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+var cloudinary = require("cloudinary").v2;
 var { User, Tag, Event } = require("../model");
 
 router.get("/getEvent", (req, res) => {
@@ -57,11 +58,7 @@ router.get("/coordinator/:id", (req, res) => {
       if (err) {
         res.send(err);
       } else {
-        var ret
-        events.forEach(event => {
-          
-        })
-        res.send();
+        res.send(events);
       }
     }
   );
@@ -161,7 +158,7 @@ router.post("/addCoordinator/:EventId", (req, res) => {
         res.send(err);
       } else {
         res.send({
-          id:userId,
+          id: userId,
           message: "successfully added coordinator to event",
           date: new Date().toLocaleDateString(),
         });
@@ -192,14 +189,28 @@ router.post("/addAttendee/:EventId", (req, res) => {
   );
 });
 router.delete("/deleteEvent/:id", async (req, res) => {
-  Event.findOneAndDelete({ _id: req.params.id }, (err) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.send({
-        message: "Event Deleted Successfuly!",
-      });
+  Event.findById(
+    {
+      _id: req.params.id,
+    },
+    (err, event) => {
+      if (err) res.send(err);
+      else {
+        cloudinary.uploader.destroy()
+        Event.deleteOne(
+          {
+            _id: req.params.id,
+          },
+          (err) => {
+            if (err) res.send(err);
+            else
+              res.send({
+                message: "Event Deleted Successfully!",
+              });
+          }
+        );
+      }
     }
-  });
+  );
 });
 module.exports = router;
