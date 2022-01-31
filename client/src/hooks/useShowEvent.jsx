@@ -14,19 +14,18 @@ function useShowEvent(id) {
     type: String,
   });
   const [canEdit, setCanEdit] = useState(false);
-  async function getData() {
-    const response = await fetch(
-      `http://localhost:9000/Event/getEvent/${id}`
-    );
-    const json = await response.json();
-    setData(json);
-    if (json.coordinators.includes(localStorage.getItem("id"))) {
-      setCanEdit(true);
-      console.log("Exists")
-    }
-    else {
-      setCanEdit(false);
-    }
+  function getData() {
+    fetch(`http://localhost:9000/Event/getEvent/${id}`)
+      .then((res) => res.json())
+      .then((json) => {
+        setData(json);
+        
+        if (json.coordinators.includes(localStorage.getItem("id"))) {
+          setCanEdit(true);
+        } else {
+          setCanEdit(false);
+        }
+      });
   }
 
   useEffect(() => {

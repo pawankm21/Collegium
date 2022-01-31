@@ -17,7 +17,11 @@ function useFetchUser() {
         setCollege(json.college);
         setRoll(json.roll);
         setBranch(json.branch);
-        setProfileImage(json.imageurl);
+        setProfileImage(
+          json.imageurl === null
+            ? ""
+            : "https://res.cloudinary.com/collegium12/image/upload/v1643635155/149071_omrq4m.png"
+        );
       })
       .catch((err) => console.log(err));
   }

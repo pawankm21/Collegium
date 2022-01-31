@@ -127,7 +127,8 @@ function ShowEvent() {
               </button>
               <button
                 className={classNames(
-                  "py-2 rounded-lg shadow bg-red-400 hover:bg-red-900 ease-in-out transition-all w-full text-center transform duration-300 text-white m-auto "
+                  "py-2 rounded-lg shadow bg-red-400 hover:bg-red-900 ease-in-out transition-all w-full text-center transform duration-300 text-white m-auto"
+                  ,canEdit? "":"hidden"
                 )}
                 onClick={deleteEvent}
               >
@@ -136,7 +137,7 @@ function ShowEvent() {
               <Link
                 className={classNames(
                   "py-2 rounded-lg shadow bg-blue-400 hover:bg-blue-900 ease-in-out transition-all w-full text-center transform duration-300 text-white m-auto ",
-                  true ? "" : "hidden"
+                  canEdit ? "" : "hidden"
                 )}
                 to={"/new-event/"}
               >
