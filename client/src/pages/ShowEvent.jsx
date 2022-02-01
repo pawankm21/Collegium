@@ -45,7 +45,7 @@ function ShowEvent() {
       .then((json) => {
         console.log(json);
         window.alert(json.message);
-        history.push("/");
+        history.replace("/");
       })
       .catch((error) => {
         console.log(error);
@@ -91,11 +91,12 @@ function ShowEvent() {
             </div>
           </div>
           <div className="w-1/4 m-auto mt-4 bg-white shadow rounded p-4 text-left divide-y-2  text-gray-500">
-            <h2 className=" text-gray-700 text-lg  font-semibold  py-2 ">
-              Deadline:{" "}
-              <span className="text-red-500">{formatDate(data.lastDate)}</span>
-            </h2>
-
+            <div>
+              <h2 className=" text-gray-700 text-lg  font-semibold w-full py-2 ">
+                Register Before
+              </h2>
+              <li className="text-red-500">{formatDate(data.lastDate)}</li>
+            </div>
             <h2 className="  text-lg  text-black font-semibold border-b py-4 border-gray-400">
               Event from{" "}
               <p className="text-blue-700">{formatDate(data.when)}</p>
@@ -142,7 +143,7 @@ function ShowEvent() {
                   "py-2 rounded-lg shadow bg-blue-400 hover:bg-blue-900 ease-in-out transition-all w-full text-center transform duration-300 text-white m-auto ",
                   canEdit ? "" : "hidden"
                 )}
-                to={"/new-event/"}
+                to={`/edit-event/${id}`}
               >
                 Edit
               </Link>

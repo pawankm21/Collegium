@@ -35,7 +35,7 @@ function useRegister() {
          const data = await response.json();
          if (data.status === "success") {
            alert(data.message);
-           history.push("/login");
+           history.replace("/login");
          } else {
            alert(data.message + " Please enter a valid email");
          }

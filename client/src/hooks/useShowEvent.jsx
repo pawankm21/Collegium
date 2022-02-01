@@ -2,17 +2,17 @@ import { useState, useEffect } from "react";
 
 function useShowEvent(id) {
   const [data, setData] = useState({
-    name: String,
-    message: String,
+    name: "",
+    message: "",
     coordinators: [],
-    when: Date,
-    lastDate: Date,
-    where: String,
+    when: Date(),
+    lastDate: Date(),
+    where: "",
     attendees: [],
     tags: [],
-    imageurl: String,
-    type: String,
-    image_id:String,
+    imageurl: "",
+    type: "",
+    image_id:"",
   });
   const [canEdit, setCanEdit] = useState(false);
   function getData() {

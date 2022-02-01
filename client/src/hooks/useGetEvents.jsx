@@ -11,11 +11,10 @@ function useGetEvents() {
     } catch (err) {
       window.alert(err);
     }
-    }
-    useEffect(() => {
-        getEvents();
-
-    },[activeTab]);
+  }
+  useEffect(() => {
+    return getEvents();
+  }, [activeTab]);
   return { setActiveTab, events };
 }
 

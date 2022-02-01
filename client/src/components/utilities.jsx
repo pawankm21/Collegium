@@ -31,23 +31,21 @@ function leftDays(date) {
   const today = new Date();
   const left = new Date(date) - today;
   const days = Math.floor(left / (1000 * 60 * 60 * 24));
-  if (days > 0)
-  {
-    return {message:`closing in ${days} days`,color:"bg-blue-500"};
-  }
-  else {
-    return {message:`closed ${Math.abs(days)} days ago`,color:"bg-red-500"};
+  if (days > 0) {
+    return { message: `closing in ${days} days`, color: "bg-blue-500" };
+  } else {
+    return {
+      message: `closed ${Math.abs(days)} days ago`,
+      color: "bg-red-500",
+    };
   }
 }
 
-function isAuthenticated()
-{
-  if(localStorage.getItem("id"))
-  {
+function isAuthenticated() {
+  if (localStorage.getItem("id")) {
     return true;
   }
-  else {
-    return false;
-  }
+
+  return false;
 }
-export { MONTHS, formatDate, parseTags ,classNames,leftDays,isAuthenticated};
+export { MONTHS, formatDate, parseTags, classNames, leftDays, isAuthenticated };

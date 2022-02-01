@@ -3,6 +3,7 @@ var router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { User } = require("../model");
+var { deleteImage, uploadImage } = require("../cloudinary");
 
 // all endpoints related to the user
 router.post("/login", async (req, res) => {
@@ -35,7 +36,7 @@ router.get("/getUser/:id", (req, res) => {
         college: user.college,
         branch: user.branch,
         dob: user.dob,
-        imageurl:user.imageurl
+        imageurl: user.imageurl,
       });
     } catch (err) {
       res.send({

@@ -7,6 +7,7 @@ import Team from "./pages/Team";
 import NewEvent from "./pages/NewEvent";
 import ShowEvent from "./pages/ShowEvent";
 import Settings from "./pages/Settings";
+import EditEvent from "./pages/EditEvent";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import { isAuthenticated } from "./components/utilities";
@@ -18,6 +19,7 @@ function AuthenticatedRoutes() {
         <Route exact path="/" component={Dashboard} />
         <Route exact path="/new-event" component={NewEvent} />
         <Route exact path="/events/:id" component={ShowEvent} />
+        <Route exact path="/edit-event/:id" component={EditEvent} />
         <Route exact path="/settings" component={Settings} />
         <Route path="/about" component={About} />
         <Route path="/team" component={Team} />

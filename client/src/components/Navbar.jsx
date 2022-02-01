@@ -1,6 +1,6 @@
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Fragment, useState } from "react";
 import { classNames } from "./utilities";
 import useFetchUser from "../hooks/useFetchUser";
@@ -10,6 +10,7 @@ const navigation = [
 ];
 
 export default function Navbar() {
+  const history = useHistory();
   const [tabnum, setTabnum] = useState(0);
   const { profileImage } = useFetchUser();
   return (
@@ -109,14 +110,16 @@ export default function Navbar() {
                           </Link>
                         )}
                       </Menu.Item>
-                      <Menu.Item >
+                      <Menu.Item>
                         {({ active }) => (
                           <button
                             onClick={() => {
-                              localStorage.removeItem("id");
+                              localStorage.removeItem("id", history.push("/"));
                               window.location.reload();
                             }}
-                            className={classNames("bg-blue-900 block px-4 py-2 text-sm w-full shadow text-white")}
+                            className={classNames(
+                              "bg-blue-900 block px-4 py-2 text-sm w-full shadow text-white"
+                            )}
                           >
                             Sign out
                           </button>

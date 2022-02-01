@@ -67,7 +67,7 @@ function useCreateEvent() {
               .then((res) => res.json())
               .then((data) => {
                 window.alert(data.message);
-                history.push("/");
+                history.replace("/");
               });
           })
           .catch((err) => {

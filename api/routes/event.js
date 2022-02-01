@@ -107,37 +107,30 @@ router.post("/createEvent/:id", (req, res) => {
     }
   });
 });
-router.post("/updateEvent/:id", (req, res) => {
-  const {
-    name,
-    message,
-    coordinators,
-    when,
-    lastDate,
-    where,
-    tags,
-    attendees,
-    imageurl,
-  } = req.body;
+router.patch("/updateEvent/:id", (req, res) => {
+  var updateOps = {};
+
+  for (const ops of req.body) {
+    updateOps[ops.propName] = ops.value;
+  }
+  console.log(updateOps);
   Event.updateOne(
     { _id: req.params.id },
     {
-      name: name,
-      message: message,
-      coordinators: coordinators,
-      when: new Date(when),
-      lastDate: new Date(lastDate),
-      where: where,
-      tags: tags,
-      imageurl: imageurl,
+      $set: updateOps,
     },
-    (err) => {
+    (err, event) => {
       if (err) {
-        res.send(err);
+        res.send({
+          status: "error",
+          message: "Error in updating event",
+          error: err,
+        });
       } else {
         res.send({
           id: req.params.id,
           message: "Updated Successfuly!",
+          event,
         });
       }
     }

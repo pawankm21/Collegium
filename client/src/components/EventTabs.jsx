@@ -17,16 +17,16 @@ function EventTabs() {
       );
     });
     if (ret.length === 0) {
-      ret = 
-       ( <div className="p-2">
+      ret = (
+        <div className="p-2">
           <div className=" w-full text-center h-full bg-gray-200 m-4 py-6 ">
             <img src={empty} alt="empty" className="h-32 w-32 mx-auto my-12" />
             <p className="text-xl text-gray-600 capitalize p-6 ">
               No events to display
             </p>
           </div>
-        </div>)
-      
+        </div>
+      );
     }
     return ret;
   }
@@ -37,9 +37,6 @@ function EventTabs() {
           <Tab
             key="1"
             className={({ selected }) => {
-              if (selected) {
-                setActiveTab("getEvent");
-              }
               return classNames(
                 selected
                   ? "bg-white text-black shadow"
@@ -50,15 +47,13 @@ function EventTabs() {
                 "rounded-lg"
               );
             }}
+            onSelect={() => setActiveTab("getEvent")}
           >
             Upcoming
           </Tab>
           <Tab
             key="2"
             className={({ selected }) => {
-              if (selected) {
-                setActiveTab("past");
-              }
               return classNames(
                 selected
                   ? "bg-white text-black shadow"
@@ -69,6 +64,7 @@ function EventTabs() {
                 "rounded-lg"
               );
             }}
+            onSelect={() => setActiveTab("past")}
           >
             Past
           </Tab>
@@ -76,9 +72,6 @@ function EventTabs() {
           <Tab
             key="3"
             className={({ selected }) => {
-              if (selected) {
-                setActiveTab("coordinator/" + localStorage.getItem("id"));
-              }
               return classNames(
                 selected
                   ? "bg-white text-black shadow"
@@ -89,6 +82,9 @@ function EventTabs() {
                 "rounded-lg"
               );
             }}
+            onSelect={() =>
+              setActiveTab("coordinator/" + localStorage.getItem("id"))
+            }
           >
             Your Events
           </Tab>
@@ -103,9 +99,9 @@ function EventTabs() {
         </div>
       </Tab.List>
       <Tab.Panels>
-        <Tab.Panel>{renderEvent()}</Tab.Panel>
-        <Tab.Panel>{renderEvent()}</Tab.Panel>
-        <Tab.Panel>{renderEvent()}</Tab.Panel>
+        <Tab.Panel key="1">{renderEvent()}</Tab.Panel>
+        <Tab.Panel key="2">{renderEvent()}</Tab.Panel>
+        <Tab.Panel key="3">{renderEvent()}</Tab.Panel>
       </Tab.Panels>
     </Tab.Group>
   );
