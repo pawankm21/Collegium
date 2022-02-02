@@ -9,11 +9,10 @@ import "../css/Markdown.css";
 import "../css/DateTimePicker.css";
 import useShowEvent from "../hooks/useShowEvent";
 import { useParams } from "react-router-dom";
+import Footer from "../components/Footer";
 function EditEvent() {
   const { id } = useParams();
   const { data } = useShowEvent(id);
-  console.log(data);
-
   const editEvent = useUpdateEvent(id);
   return (
     <>
@@ -22,7 +21,7 @@ function EditEvent() {
           Create Event
         </h1>
         <form onSubmit={editEvent.formSubmitHandler}>
-          <div className="grid grid-cols-2 gap-4 ">
+          <div className="lg:grid grid-cols-2 gap-4 ">
             <div className="col-span-1 pointer-events-auto">
               <div className=" w-full  bg-gray-400 justify-center h-56 border-2 border-dashed rounded-xl border-gray-700 mt-5 pointer-events-auto relative">
                 <div
@@ -118,7 +117,7 @@ function EditEvent() {
                 onChange={(e) => {
                   editEvent.setTags(parseTags(e.target.value));
                 }}
-                defaultValue={data.tags}
+                defaultValue={data.tags.join(", ")}
               />
             </div>{" "}
             <div className="col-span-1 mt-5">
@@ -179,6 +178,7 @@ function EditEvent() {
           </div>
         </form>
       </div>
+      <Footer/>
     </>
   );
 }

@@ -31,7 +31,7 @@ function useShowEvent(id) {
   }
 
   useEffect(() => {
-    return getData();
+   getData();
   }, []);
   return { canEdit, data };
 }

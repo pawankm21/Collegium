@@ -23,7 +23,6 @@ function AuthenticatedRoutes() {
         <Route exact path="/settings" component={Settings} />
         <Route path="/about" component={About} />
         <Route path="/team" component={Team} />
-
       </Switch>
     </Router>
   );
@@ -41,6 +40,7 @@ function App() {
         <Route path="/team" component={Team} />
         <Route path="/" exact component={Hero} />
       </Switch>
+     
     </Router>
   );
 }

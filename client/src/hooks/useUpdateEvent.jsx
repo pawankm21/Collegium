@@ -35,7 +35,13 @@ function useUpdateEvent(id) {
           { propName: "imageurl", value: data.url },
           { propName: "image_id", value: data.public_id },
         ];
-        event = event.filter((e) => e.value !== null && e.value !== "" && e.value !== [] && e.value !== undefined);
+        event = event.filter(
+          (e) =>
+            e.value !== null &&
+            e.value !== "" &&
+            e.value !== [] &&
+            e.value !== undefined
+        );
         fetch(`http://localhost:9000/Event/updateEvent/${id}`, {
           method: "PATCH",
           body: JSON.stringify(event),

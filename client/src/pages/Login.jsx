@@ -1,5 +1,6 @@
 import { LockClosedIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 import useLogin from "../hooks/useLogin";
 export default function Login() {
   const { emailRef, passwordRef, submitHandler, isLoading } = useLogin();
@@ -88,6 +89,7 @@ export default function Login() {
           </Link>
         </p>
       </div>
+      <Footer/>
     </div>
   );
 }

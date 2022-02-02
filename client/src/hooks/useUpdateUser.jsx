@@ -26,7 +26,7 @@ export default function useUpdateUser() {
       method: "post",
       body: formData,
     }).then((resp) => resp.json()).then((data)=>{
-      console.log(data.url);
+      // console.log(data.url);
       setImageUrl(data.url);
       var user = [
         { propName: "name", value: name },

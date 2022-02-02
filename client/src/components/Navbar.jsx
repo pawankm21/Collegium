@@ -1,5 +1,6 @@
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { ReactComponent as LoudIcon } from "../assets/loud.svg";
 import { Link, useHistory } from "react-router-dom";
 import { Fragment, useState } from "react";
 import { classNames } from "./utilities";
@@ -32,16 +33,8 @@ export default function Navbar() {
               </div>
               <div className="flex-1  flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                  <img
-                    className="block lg:hidden h-8 w-auto"
-                    src={process.env.PUBLIC_URL + "/images/loud.svg"}
-                    alt=""
-                  />
-                  <img
-                    className="hidden lg:block h-8 w-auto"
-                    src={process.env.PUBLIC_URL + "/images/loud.svg"}
-                    alt=""
-                  />
+                  <LoudIcon className="hidden lg:block h-8 w-auto" />
+                  <LoudIcon className="block lg:hidden h-8 w-auto" />
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">

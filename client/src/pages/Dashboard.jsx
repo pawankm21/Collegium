@@ -4,6 +4,7 @@ import UserProfileSmall from "../components/UserProfileSmall";
 import EventTabs from "../components/EventTabs";
 import useMyEvents from "../hooks/useMyEvents";
 import empty from "../assets/empty.png";
+import Footer from "../components/Footer";
 export default function Dashboard() {
   const { events, loading } = useMyEvents();
   function displayEvents() {
@@ -44,7 +45,7 @@ export default function Dashboard() {
           <EventTabs />
         </div>
       </div>
-      <footer className="h-16 "></footer>
+      <Footer />
     </>
   );
 }

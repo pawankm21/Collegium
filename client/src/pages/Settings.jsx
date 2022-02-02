@@ -2,6 +2,7 @@ import React from "react";
 import useUpdateUser from "../hooks/useUpdateUser";
 import useFetchUser from "../hooks/useFetchUser";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 export default function Settings() {
   const { username, email, college, roll, branch,profileImage } = useFetchUser();
   const {
@@ -164,6 +165,7 @@ export default function Settings() {
           </div>
         </form>
       </div>
+      <Footer/>
     </>
   );
 }

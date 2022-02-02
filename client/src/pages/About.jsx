@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../components/Footer'
 
 export default function About() {
     return (
@@ -9,7 +10,7 @@ export default function About() {
                 </div>
                 <div className="w-2/3"></div>
             </div>
-            
+            <Footer/>
         </div>
     )
 }

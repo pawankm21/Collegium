@@ -2,6 +2,7 @@ import React from "react";
 import { LockClosedIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
 import  useRegister  from "../hooks/useRegister";
+import Footer from "../components/Footer";
 export default function Register() {
   const {
     nameRef,
@@ -203,6 +204,7 @@ export default function Register() {
           </form>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

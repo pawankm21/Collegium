@@ -7,7 +7,7 @@ function useGetEvents() {
     try {
       const response = await fetch(`http://localhost:9000/Event/${activeTab}`);
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setEvents(data);
     } catch (err) {
       window.alert(err);

@@ -12,7 +12,7 @@ function useFetchUser() {
     fetch(`http://localhost:9000/User/getUser/${sessionStorage.getItem("id")}`)
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
+        // console.log(json);
         setUsername(json.name);
         setEmail(json.email);
         setCollege(json.college);

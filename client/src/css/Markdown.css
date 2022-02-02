@@ -6,6 +6,8 @@
   font-weight: 300;
   overflow-wrap: break-word;
   height: 100%;
+  color: black;
+  font-weight: 500;
 }
 .markdown-body ul,
 ol {
@@ -60,7 +62,7 @@ h6 {
   color: #003a6b;
   background-color: transparent;
   margin: 1em 0;
-  font-weight: normal;
+  font-weight: 700;
 }
 
 .markdown-body h1 {
@@ -100,11 +102,13 @@ h6 {
 }
 
 .markdown-body code {
-  padding: 0.1em;
+  padding: 0.3em;
   font-size: 14px;
+  border-radius: 15%;
   font-family: "Menlo", monospace;
-  background-color: #f5f5f5;
+  background-color: #ccc5c5;
   border: 1px solid #efefef;
+  color: rgb(29, 28, 28);
 }
 
 .markdown-body pre {
@@ -121,7 +125,7 @@ h6 {
 }
 
 .markdown-body pre code {
-  background-color: transparent;
+  background-color: white;
   border-width: 0;
 }
 

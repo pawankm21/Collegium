@@ -7,6 +7,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import "../css/Markdown.css";
 import "../css/DateTimePicker.css";
+import Footer from "../components/Footer";
 function NewEvent() {
   const {
     setName,
@@ -190,6 +191,7 @@ function NewEvent() {
           </div>
         </form>
       </div>
+      <Footer/>
     </>
   );
 }

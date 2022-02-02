@@ -13,6 +13,7 @@ import { classNames } from "../components/utilities";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import "../css/Markdown.css";
+import Footer from "../components/Footer";
 
 function ShowEvent() {
   const { id } = useParams();
@@ -33,7 +34,7 @@ function ShowEvent() {
       }
     );
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     window.alert(json.message);
   }
   function deleteEvent() {
@@ -48,7 +49,7 @@ function ShowEvent() {
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log(json);
+        // console.log(json);
         window.alert(json.message);
         history.replace("/");
       })
@@ -241,7 +242,7 @@ function ShowEvent() {
           </div>
         </div>
       </div>
-      <footer className="h-12"></footer>
+      <Footer/>
     </div>
   );
 }

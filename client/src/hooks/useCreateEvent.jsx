@@ -54,7 +54,7 @@ function useCreateEvent() {
         )
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
             fetch(`http://localhost:9000/Event/addCoordinator/${data.id}`, {
               method: "POST",
               headers: {
@@ -71,7 +71,7 @@ function useCreateEvent() {
               });
           })
           .catch((err) => {
-            console.log(err);
+            // console.log(err);
           });
       });
   }
