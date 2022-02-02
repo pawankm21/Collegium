@@ -9,7 +9,7 @@ function useFetchUser() {
   const [profileImage, setProfileImage] = useState("");
   const [profile_id, setProfile_id] = useState("");
   function fetchUser() {
-    fetch(`http://localhost:9000/User/getUser/${localStorage.getItem("id")}`)
+    fetch(`http://localhost:9000/User/getUser/${sessionStorage.getItem("id")}`)
       .then((res) => res.json())
       .then((json) => {
         console.log(json);

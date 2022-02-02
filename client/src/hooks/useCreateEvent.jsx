@@ -41,7 +41,7 @@ function useCreateEvent() {
           image_id: data.public_id,
         };
         fetch(
-          `http://localhost:9000/Event/createEvent/${localStorage.getItem(
+          `http://localhost:9000/Event/createEvent/${sessionStorage.getItem(
             "id"
           )}`,
           {
@@ -61,7 +61,7 @@ function useCreateEvent() {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
-                userId: localStorage.getItem("id"),
+                userId: sessionStorage.getItem("id"),
               }),
             })
               .then((res) => res.json())

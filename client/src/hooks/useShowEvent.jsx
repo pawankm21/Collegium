@@ -12,7 +12,8 @@ function useShowEvent(id) {
     tags: [],
     imageurl: "",
     type: "",
-    image_id:"",
+    image_id: "",
+    tillWhen: "",
   });
   const [canEdit, setCanEdit] = useState(false);
   function getData() {
@@ -21,7 +22,7 @@ function useShowEvent(id) {
       .then((json) => {
         setData(json);
 
-        if (json.coordinators.includes(localStorage.getItem("id"))) {
+        if (json.coordinators.includes(sessionStorage.getItem("id"))) {
           setCanEdit(true);
         } else {
           setCanEdit(false);

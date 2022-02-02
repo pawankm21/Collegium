@@ -17,7 +17,12 @@ function formatDate(date) {
   const month = MONTHS[d.getMonth()];
   const day = d.getDate();
   const year = d.getFullYear();
-  return `${day} ${month}, ${year}`;
+  var hours = d.getHours();
+  var minutes = d.getMinutes();
+  const ampm = hours >= 12 ? "pm" : "am";
+  hours = hours % 12;
+  minutes = minutes < 10 ? `0${minutes}` : minutes;
+  return `${hours}:${minutes} ${ampm} ${day} ${month}, ${year}`;
 }
 
 function parseTags(tags) {
@@ -42,7 +47,7 @@ function leftDays(date) {
 }
 
 function isAuthenticated() {
-  if (localStorage.getItem("id")) {
+  if (sessionStorage.getItem("id")) {
     return true;
   }
 

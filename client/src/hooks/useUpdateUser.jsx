@@ -39,7 +39,7 @@ export default function useUpdateUser() {
       ];
       user = user.filter((u) => u.value !== null && u.value !== "");
       fetch(
-        `http://localhost:9000/User/updateUser/${localStorage.getItem("id")}`,
+        `http://localhost:9000/User/updateUser/${sessionStorage.getItem("id")}`,
         {
           method: "PATCH",
           body: JSON.stringify(user),

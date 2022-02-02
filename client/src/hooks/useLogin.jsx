@@ -19,7 +19,7 @@ function useLogin() {
       const data = await response.json();
       if (data.user) {
         alert("Log in successfull");
-        localStorage.setItem("id", data.user);
+        sessionStorage.setItem("id", data.user);
         window.location.href = "/";
       } else {
         alert("Email or Password incorrect.");

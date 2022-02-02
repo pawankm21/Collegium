@@ -114,7 +114,8 @@ export default function Navbar() {
                         {({ active }) => (
                           <button
                             onClick={() => {
-                              localStorage.removeItem("id", history.push("/"));
+                              sessionStorage.removeItem("id");
+                              history.push("/");
                               window.location.reload();
                             }}
                             className={classNames(

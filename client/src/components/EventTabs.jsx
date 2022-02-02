@@ -83,7 +83,7 @@ function EventTabs() {
               );
             }}
             onSelect={() =>
-              setActiveTab("coordinator/" + localStorage.getItem("id"))
+              setActiveTab("coordinator/" + sessionStorage.getItem("id"))
             }
           >
             Your Events
