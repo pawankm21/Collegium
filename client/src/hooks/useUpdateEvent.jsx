@@ -31,12 +31,11 @@ function useUpdateEvent(id) {
           { propName: "when", value: when },
           { propName: "message", value: message },
           { propName: "lastDate", value: lastDate },
-          { propName: "tags", value: tags },
           { propName: "where", value: where },
           { propName: "imageurl", value: data.url },
           { propName: "image_id", value: data.public_id },
         ];
-        event = event.filter((e) => e.value !== null && e.value !== "" && e.value.length !== 0);
+        event = event.filter((e) => e.value !== null && e.value !== "" && e.value !== [] && e.value !== undefined);
         fetch(`http://localhost:9000/Event/updateEvent/${id}`, {
           method: "PATCH",
           body: JSON.stringify(event),

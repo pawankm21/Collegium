@@ -20,8 +20,8 @@ function useFetchUser() {
         setBranch(json.branch);
         setProfileImage(
           json.imageurl === null
-            ? ""
-            : "https://res.cloudinary.com/collegium12/image/upload/v1643635155/149071_omrq4m.png"
+            ? "https://res.cloudinary.com/collegium12/image/upload/v1643635155/149071_omrq4m.png"
+            : json.imageurl
         );
         setProfile_id(json.image_id);
       })

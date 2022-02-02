@@ -6,8 +6,13 @@ import { Link } from "react-router-dom";
 import { classNames } from "./utilities";
 import useGetEvents from "../hooks/useGetEvents";
 import empty from "../assets/empty.png";
+const tabRequest = [
+  "getEvent",
+  "past",
+  `coordinator/${sessionStorage.getItem("id")}`,
+];
 function EventTabs() {
-  const { setActiveTab, events } = useGetEvents();
+  const { setActiveTab, events } = useGetEvents(tabRequest[0]);
   function renderEvent() {
     var ret = events.map((event) => {
       return (
@@ -31,7 +36,11 @@ function EventTabs() {
     return ret;
   }
   return (
-    <Tab.Group>
+    <Tab.Group
+      onChange={(index) => {
+        setActiveTab(tabRequest[index]);
+      }}
+    >
       <Tab.List className="sticky top-0 bg-white p-1  shadow">
         <div className="m-2 bg-blue-900 grid grid-cols-4  rounded-lg p-3">
           <Tab
@@ -47,7 +56,6 @@ function EventTabs() {
                 "rounded-lg"
               );
             }}
-            onSelect={() => setActiveTab("getEvent")}
           >
             Upcoming
           </Tab>
@@ -64,7 +72,6 @@ function EventTabs() {
                 "rounded-lg"
               );
             }}
-            onSelect={() => setActiveTab("past")}
           >
             Past
           </Tab>
@@ -82,9 +89,6 @@ function EventTabs() {
                 "rounded-lg"
               );
             }}
-            onSelect={() =>
-              setActiveTab("coordinator/" + sessionStorage.getItem("id"))
-            }
           >
             Your Events
           </Tab>

@@ -48,7 +48,7 @@ router.get("/countEvent/:id", async (req, res) => {
   }
 });
 router.get("/coordinator/:id", (req, res) => {
-  var now = new Date();
+  // var now = new Date();
   Event.find(
     {
       // when: { $gte: now },

@@ -70,7 +70,7 @@ function ShowEvent() {
             className="h-96  object-cover w-full object-center shadow rounded"
           />
 
-          <h1 className="relative md:w-1/2 m-auto rounded p-4 text-center bottom-8 bg-white text-4xl font-bold shadow uppercase">
+          <h1 className="relative md:w-2/3 m-auto rounded px-4 py-6 text-center bottom-8 bg-white text-4xl font-bold shadow capitalize">
             {data.name}
           </h1>
         </div>
@@ -126,6 +126,7 @@ function ShowEvent() {
                   canEdit ? "" : "hidden",
                   "bg-red-700 w-full block text-center text-white p-2 rounded-xl shadow-lg hover:shadow-2xl hover:bg-red-900 ease-in-out duration-300 my-2"
                 )}
+                onClick={deleteEvent}
               >
                 Delete
               </button>
@@ -134,7 +135,7 @@ function ShowEvent() {
               <h1>Hosted By:</h1>
               <div className="">
                 {data.coordinators.map((coordinator) => {
-                  return <h1>{coordinator}</h1>;
+                  return <h1 key={coordinator} >{coordinator}</h1>;
                 })}
               </div>
             </div>
@@ -154,14 +155,22 @@ function ShowEvent() {
               <div className="">
                 <h1 className="font-bold text-xl"> Who can Attend?</h1>
                 <div className="flex">
-                  {data.tags.map((tag) => {
-                    return (
-                      <div className="flex m-2 w-max rounded-lg p-2 place-items-center bg-blue-900  shadow">
-                        <TagIcon className="text-white w-6 h-6 mx-2" />
-                        <span className="text-white">{tag}</span>
-                      </div>
-                    );
-                  })}
+                  {data.tags.length !== 0 ? (
+                    data.tags.map((tag) => {
+                      return (
+                        <div key={tag} className="flex m-2 w-max rounded-lg p-2 place-items-center bg-blue-900  shadow">
+                          <TagIcon className="text-white w-6 h-6 mx-2" />
+                          <span className="text-white">{tag}</span>
+                        </div>
+                      );
+                    })
+                  ) : (
+                    <div className="flex m-2 w-max rounded-lg p-2 place-items-center bg-blue-900  shadow">
+                      {" "}
+                      <TagIcon className="text-white w-6 h-6 mx-2" />
+                      <span className="text-white">Everone</span>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -216,6 +225,7 @@ function ShowEvent() {
                   canEdit ? "" : "hidden",
                   "bg-red-700 w-full block text-center text-white p-2 rounded-xl shadow-lg hover:shadow-2xl hover:bg-red-900 ease-in-out duration-300 my-2"
                 )}
+                onClick={deleteEvent}
               >
                 Delete
               </button>
@@ -224,7 +234,7 @@ function ShowEvent() {
               <h1>Hosted By:</h1>
               <div className="">
                 {data.coordinators.map((coordinator) => {
-                  return <h1>{coordinator}</h1>;
+                  return <h1 key={coordinator}>{coordinator}</h1>;
                 })}
               </div>
             </div>
