@@ -94,11 +94,11 @@ function EventTabs() {
           </Tab>
           <Link
             to="/new-event"
-            className="lg:w-36 ml-4 bg-green-500 rounded-lg text-white pt-2 text-center transition ease-in-out duration-300 transform hover:scale-105 "
+            className="lg:w-36 ml-4 font-semibold bg-yellow-400 rounded-lg text-blue-900 pt-2 text-center transition ease-in-out duration-300 transform hover:scale-105 "
           >
             {" "}
             New Event{" "}
-            <PlusCircleIcon className="inline w-6 relative bottom-0.5 text-gray-100" />{" "}
+            <PlusCircleIcon className="inline w-6 relative bottom-0.5 text-blue-900" />{" "}
           </Link>
         </div>
       </Tab.List>

@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var { deleteImage, uploadImage } = require("../cloudinary");
-var { User, Tag, Event } = require("../model");
+var { User, Event } = require("../model");
 
 router.get("/getEvent", (req, res) => {
   var now = new Date();
@@ -109,32 +109,32 @@ router.post("/createEvent/:id", (req, res) => {
 });
 router.patch("/updateEvent/:id", (req, res) => {
   var updateOps = {};
-
+  console.log(req.params.id);
   for (const ops of req.body) {
     updateOps[ops.propName] = ops.value;
   }
   console.log(updateOps);
-  Event.updateOne(
-    { _id: req.params.id },
-    {
-      $set: updateOps,
-    },
-    (err, event) => {
-      if (err) {
-        res.send({
-          status: "error",
-          message: "Error in updating event",
-          error: err,
-        });
-      } else {
-        res.send({
-          id: req.params.id,
-          message: "Updated Successfuly!",
-          event,
-        });
-      }
-    }
-  );
+  // Event.updateOne(
+  //   { _id: req.params.id },
+  //   {
+  //     $set: updateOps,
+  //   },
+  //   (err, event) => {
+  //     if (err) {
+  //       res.send({
+  //         status: "error",
+  //         message: "Error in updating event",
+  //         error: err,
+  //       });
+  //     } else {
+  //       res.send({
+  //         id: req.params.id,
+  //         message: "Updated Successfuly!",
+  //         event,
+  //       });
+  //     }
+  //   }
+  // );
 });
 router.post("/addCoordinator/:EventId", (req, res) => {
   console.log(req.body);

@@ -11,7 +11,7 @@ function UserProfileSmall() {
           {username}
         </h1>
         <img
-          className="w-28 rounded-full h-28 object-cover mt-3 object-center border-white border-8"
+          className="w-28 rounded-full h-28 object-cover mt-3 object-center border-8 border-white "
           src={profileImage}
           alt={username}
         />

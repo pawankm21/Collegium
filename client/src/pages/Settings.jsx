@@ -21,7 +21,7 @@ export default function Settings() {
 
   return (
     <>
-      <div className="p-6  w-full h-screen">
+      <div className="p-6  w-full h-full">
         <h1 className="w-full text-center text-6xl bold capitalize p-2">
           Settings
         </h1>
@@ -165,7 +165,7 @@ export default function Settings() {
           </div>
         </form>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

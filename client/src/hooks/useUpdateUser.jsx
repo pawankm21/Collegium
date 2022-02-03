@@ -25,32 +25,37 @@ export default function useUpdateUser() {
     fetch("https://api.cloudinary.com/v1_1/collegium12/image/upload", {
       method: "post",
       body: formData,
-    }).then((resp) => resp.json()).then((data)=>{
-      // console.log(data.url);
-      setImageUrl(data.url);
-      var user = [
-        { propName: "name", value: name },
-        { propName: "email", value: email },
-        { propName: "roll", value: roll },
-        { propName: "college", value: college },
-        { propName: "password", value: password },
-        { propName: "branch", value: branch },
-        { propName: "imageurl", value: data.url },
-      ];
-      user = user.filter((u) => u.value !== null && u.value !== "");
-      fetch(
-        `http://localhost:9000/User/updateUser/${sessionStorage.getItem("id")}`,
-        {
-          method: "PATCH",
-          body: JSON.stringify(user),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
-        .then((res) => res.json())
-        .then((json) => window.alert(json.message));
-    });
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        // console.log(data.url);
+        setImageUrl(data.url);
+        var user = [
+          { propName: "name", value: name },
+          { propName: "email", value: email },
+          { propName: "roll", value: roll },
+          { propName: "college", value: college },
+          { propName: "password", value: password },
+          { propName: "branch", value: branch },
+          { propName: "imageurl", value: data.url },
+        ];
+         user = user.filter((u) => u.value !== null && u.value !== "");
+        console.log(user);
+        fetch(
+          `http://localhost:9000/User/updateUser/${sessionStorage.getItem(
+            "id"
+          )}`,
+          {
+            method: "PATCH",
+            body: JSON.stringify(user),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+          .then((res) => res.json())
+          .then((json) => window.alert(json.message));
+      });
   }
 
   return {
