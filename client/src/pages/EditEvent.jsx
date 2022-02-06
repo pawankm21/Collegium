@@ -18,7 +18,7 @@ function EditEvent() {
     <>
       <div className="m-5 shadow divide-y divide-gray-700 p-4 bg-white ">
         <h1 className="text-center capitalize font-bold text-gray-800 text-3xl mt-10 mb-10 ">
-          Create Event
+          Edit Event
         </h1>
         <form onSubmit={editEvent.formSubmitHandler}>
           <div className="lg:grid grid-cols-2 gap-4 ">
@@ -37,14 +37,16 @@ function EditEvent() {
                         : data.imageurl
                     }
                     className="h-full w-full"
-                    alt={data.name}
-                    defaultValue={data.imageurl}
+                    alt={editEvent.banner ? 
+                      editEvent.banner.name : ""}
+                 
                   />
                 </div>
                 <input
                   type="file"
                   className=" opacity-0 w-full h-full focus:ring-2 ring-blue-400 outline-none"
                   onChange={(e) => {
+                    // console.log(editEvent.banner)
                     editEvent.setBanner(e.target.files[0]);
                   }}
                   defaultValue={data.imageurl}
@@ -68,7 +70,7 @@ function EditEvent() {
               <DateTimePicker
                 calendarIcon={<CalendarIcon className="w-6 h-6" />}
                 className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none date-time-picker"
-                onChange={editEvent.setStartDate}
+                onChange={editEvent.setWhen}
                 value={editEvent.when}
                 name="eventStartsOn"
                 showLeadingZeros={true}
@@ -127,6 +129,9 @@ function EditEvent() {
                 type="text"
                 placeholder="Add coordinator names separated by commas, eg. John, Mary, Sam...."
                 name="eventName"
+                onChange={(e) => {
+                  editEvent.setCoordinators(parseTags(e.target.value));
+                }}
               />
             </div>
             <div className="col-span-2 mt-5">
@@ -178,7 +183,7 @@ function EditEvent() {
           </div>
         </form>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

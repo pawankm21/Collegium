@@ -108,7 +108,7 @@ export default function Navbar() {
                           <button
                             onClick={() => {
                               sessionStorage.removeItem("id");
-                              history.push("/");
+                              history.replace("/");
                               window.location.reload();
                             }}
                             className={classNames(

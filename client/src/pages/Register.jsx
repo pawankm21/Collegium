@@ -1,7 +1,9 @@
 import React from "react";
-import { LockClosedIcon } from "@heroicons/react/solid";
+import { LockClosedIcon, MenuIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
-import  useRegister  from "../hooks/useRegister";
+import useRegister from "../hooks/useRegister";
+import { ReactComponent as LoudIcon } from "../assets/loud.svg";
+import {Menu} from '@headlessui/react'
 import Footer from "../components/Footer";
 export default function Register() {
   const {
@@ -19,15 +21,11 @@ export default function Register() {
 
   return (
     <div>
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen flex items-center justify-center bg-blue-900 text-yellow-400 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>
-            <img
-              className="mx-auto h-12 w-auto"
-              src={process.env.PUBLIC_URL + "/images/loud.svg"}
-              alt="collegium logo"
-            />
-            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+            <LoudIcon className="  mx-auto h-12 w-auto" alt="collegium logo" />
+            <h2 className="mt-6 text-center text-3xl font-extrabold text-yellow-400">
               Sign in to your account
             </h2>
           </div>
@@ -43,8 +41,7 @@ export default function Register() {
                   type="text"
                   autoComplete="text"
                   required
-                  className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
-                  placeholder=""
+                  className="appearance-none relative block w-full px-3 py-2 border border-gray-700 bg-gray-900 text-white rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
                   ref={nameRef}
                 />
               </div>
@@ -58,8 +55,7 @@ export default function Register() {
                   type="email"
                   autoComplete="email"
                   required
-                  className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm "
-                  placeholder=""
+                  className="appearance-none relative block w-full px-3 py-2 border border-gray-700 bg-gray-900 text-white rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
                   ref={emailRef}
                 />
               </div>
@@ -74,8 +70,7 @@ export default function Register() {
                     type="text"
                     autoComplete="rollno"
                     required
-                    className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
-                    placeholder=""
+                    className="appearance-none relative block w-full px-3 py-2 border border-gray-700 bg-gray-900 text-white rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
                     ref={rollRef}
                   />
                 </div>
@@ -204,7 +199,7 @@ export default function Register() {
           </form>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

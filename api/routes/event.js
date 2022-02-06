@@ -109,32 +109,41 @@ router.post("/createEvent/:id", (req, res) => {
 });
 router.patch("/updateEvent/:id", (req, res) => {
   var updateOps = {};
-  console.log(req.params.id);
+  // console.log(req.params.id);
   for (const ops of req.body) {
     updateOps[ops.propName] = ops.value;
   }
-  console.log(updateOps);
-  // Event.updateOne(
-  //   { _id: req.params.id },
-  //   {
-  //     $set: updateOps,
-  //   },
-  //   (err, event) => {
-  //     if (err) {
-  //       res.send({
-  //         status: "error",
-  //         message: "Error in updating event",
-  //         error: err,
-  //       });
-  //     } else {
-  //       res.send({
-  //         id: req.params.id,
-  //         message: "Updated Successfuly!",
-  //         event,
-  //       });
-  //     }
-  //   }
-  // );
+  // console.log(updateOps);
+  //find coordinators by their email and return an array of their ids
+  User.find(
+    {
+      email: { $in: updateOps.coordinators },
+    },
+    (err, users) => {
+      users = users.map((user) => user._id);
+      console.log(users);
+      updateOps.coordinators = users;
+      console.log(updateOps);
+      Event.findOneAndUpdate(
+        { _id: req.params.id },
+        { $set: updateOps },
+        (err, event) => {
+          if (err) {
+            res.send({
+              message: "Error in updating event",
+              error: err,
+            });
+          } else {
+            console.log(event);
+            res.send({
+              message: "Event updated successfully",
+              event,
+            });
+          }
+        }
+      );
+    }
+  );
 });
 router.post("/addCoordinator/:EventId", (req, res) => {
   console.log(req.body);

@@ -2,15 +2,16 @@ import { useState, useEffect } from "react";
 
 function useUpdateEvent(id) {
   const [name, setName] = useState(null);
+  const [coordinators, setCoordinators] = useState(null);
   const [tillWhen, settillWhen] = useState(null);
   const [when, setWhen] = useState(null);
   const [message, setMessage] = useState(null);
   const [lastDate, setLastDate] = useState(null);
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState(null);
   const [where, setWhere] = useState(null);
-  const [coordinators, setCoordinators] = useState([]);
   const [banner, setBanner] = useState(null);
   const [bannerUrl, setBannerUrl] = useState(null);
+  const [banner_id, setBanner_id] = useState(null);
   function formSubmitHandler(e) {
     e.preventDefault();
     const imageData = new FormData();
@@ -25,26 +26,31 @@ function useUpdateEvent(id) {
       .then((response) => response.json())
       .then((data) => {
         setBannerUrl(data.url);
-        var event = [
+        setBanner_id(data.public_id);
+      })
+      .catch((err) => console.log(err))
+      .finally(() => {
+        const event = [
           { propName: "name", value: name },
           { propName: "tillWhen", value: tillWhen },
           { propName: "when", value: when },
           { propName: "message", value: message },
           { propName: "lastDate", value: lastDate },
           { propName: "where", value: where },
-          { propName: "imageurl", value: data.url },
-          { propName: "image_id", value: data.public_id },
+          { propName: "tags", value: tags },
+          { propName: "coordinators", value: coordinators },
+          { propName: "imageurl", value: bannerUrl },
+          { propName: "image_id", value: banner_id },
         ];
-        event = event.filter(
-          (e) =>
-            e.value !== null &&
-            e.value !== "" &&
-            e.value !== [] &&
-            e.value !== undefined
-        );
+        const ops = event.filter((op) => op.value != null);
+        const index = ops.findIndex((op) => op.propName === "coordinators");
+        if (index) {
+          ops[index].value.push(sessionStorage.getItem("id"));
+        }
+        console.log(ops);
         fetch(`http://localhost:9000/Event/updateEvent/${id}`, {
           method: "PATCH",
-          body: JSON.stringify(event),
+          body: JSON.stringify(ops),
           headers: {
             "Content-Type": "application/json",
           },
@@ -61,8 +67,8 @@ function useUpdateEvent(id) {
     setMessage,
     setLastDate,
     setTags,
-    setWhere,
     setCoordinators,
+    setWhere,
     setBanner,
     setBannerUrl,
     formSubmitHandler,
@@ -73,7 +79,6 @@ function useUpdateEvent(id) {
     lastDate,
     tags,
     where,
-    coordinators,
     name,
     message,
   };

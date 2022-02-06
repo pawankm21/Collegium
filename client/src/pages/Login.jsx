@@ -4,7 +4,7 @@ import { ReactComponent as LoudIcon } from "../assets/loud.svg";
 import Footer from "../components/Footer";
 import useLogin from "../hooks/useLogin";
 export default function Login() {
-  const { emailRef, passwordRef, submitHandler, isLoading } = useLogin();
+  const { emailRef, passwordRef, submitHandler, } = useLogin();
   return (
     <>
       <div className="min-h-screen flex items-center justify-center bg-blue-900 py-12 px-4 sm:px-6 lg:px-8">

@@ -1,17 +1,17 @@
 import React from "react";
 import useUpdateUser from "../hooks/useUpdateUser";
 import useFetchUser from "../hooks/useFetchUser";
-import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 export default function Settings() {
-  const { username, email, college, roll, branch,profileImage } = useFetchUser();
+  const { username, email, college, roll, branch, profileImage } =
+    useFetchUser();
   const {
     formSubmitHandler,
     setName,
     setEmail,
     setPassword,
     setPasswordConfirm,
-    setIsLoading,
+    // setIsLoading,
     setRoll,
     setBranch,
     setCollege,

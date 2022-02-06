@@ -138,7 +138,7 @@ function NewEvent() {
               <textarea
                 className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
                 type="text"
-                placeholder="Add coordinator names separated by commas, eg. John, Mary, Sam...."
+                placeholder="Add coordinator by email separated by commas, eg. john@mail.com, doe@gmail.com...." 
                 name="eventName"
               />
             </div>
