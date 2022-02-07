@@ -5,7 +5,7 @@ import { ReactComponent as GithubIcon } from "../assets/github.svg";
 import { ReactComponent as LinkedinIcon } from "../assets/linkedin.svg";
 function Footer() {
   return (
-    <div className="w-full h-36 border-t-8 grid border-blue-400  bg-gray-900 shadow">
+    <div className="w-full h-36 border-t-8 grid mt-16 border-blue-400  bg-gray-900 shadow">
       <div className="w-full place-content-center grid grid-flow-col-dense gap-4 place-items-center mt-8">
         <a href="">
           <LinkedinIcon className="w-8 h-8 text-blue-400 fill-current" />
