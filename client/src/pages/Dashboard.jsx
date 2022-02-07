@@ -14,7 +14,7 @@ export default function Dashboard() {
     if (events.length === 0) {
       return (
         <div className="p-2  rounded-md">
-          <div className=" w-full text-center h-full bg-blue-700 m-auto py-6 ml-2 ">
+          <div className=" w-full text-center h-full m-auto py-6 ml-2 ">
             <img src={empty} alt="empty" className="h-24 w-24 mx-auto my-4" />
             <p className="text-xl text-gray-600 capitalize p-4 ">
               No events to display

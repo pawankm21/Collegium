@@ -1,9 +1,8 @@
 import React from "react";
-import { LockClosedIcon, MenuIcon } from "@heroicons/react/solid";
+import { LockClosedIcon} from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
 import useRegister from "../hooks/useRegister";
 import { ReactComponent as LoudIcon } from "../assets/loud.svg";
-import {Menu} from '@headlessui/react'
 import Footer from "../components/Footer";
 export default function Register() {
   const {
@@ -41,7 +40,7 @@ export default function Register() {
                   type="text"
                   autoComplete="text"
                   required
-                  className="appearance-none relative block w-full px-3 py-2 border border-gray-700 bg-gray-900 text-white rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                  className="appearance-none relative block w-full px-3 py-2 border border-gray-700  rounded text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
                   ref={nameRef}
                 />
               </div>
@@ -55,7 +54,7 @@ export default function Register() {
                   type="email"
                   autoComplete="email"
                   required
-                  className="appearance-none relative block w-full px-3 py-2 border border-gray-700 bg-gray-900 text-white rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                  className="appearance-none relative block w-full px-3 py-2 border border-gray-700  rounded focus:outline-none text-gray-900 focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
                   ref={emailRef}
                 />
               </div>
@@ -70,7 +69,7 @@ export default function Register() {
                     type="text"
                     autoComplete="rollno"
                     required
-                    className="appearance-none relative block w-full px-3 py-2 border border-gray-700 bg-gray-900 text-white rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                    className="appearance-none relative block w-full px-3 py-2 border border-gray-700 text-gray-900  rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
                     ref={rollRef}
                   />
                 </div>
@@ -175,7 +174,7 @@ export default function Register() {
               <div className="text-sm">
                 <Link
                   href="#"
-                  className="font-medium text-gray-600 hover:text-gray-500"
+                  className="font-medium text-yellow-400 hover:text-yellow-500"
                 >
                   Forgot your password?
                 </Link>
@@ -185,11 +184,11 @@ export default function Register() {
             <div>
               <button
                 type="submit"
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
               >
                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                   <LockClosedIcon
-                    className="h-5 w-5 text-gray-500 group-hover:text-gray-400"
+                    className="h-5 w-5 text-yellow-500 group-hover:text-yellow-400"
                     aria-hidden="true"
                   />
                 </span>
