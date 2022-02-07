@@ -8,13 +8,16 @@ function useLogin() {
     event.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    const response = await fetch("http://localhost:9000/User/login", {
-      method: "POST",
-      body: JSON.stringify({ email, password }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `${process.env.REACT_APP_SERVER_URL}/User/login`,
+      {
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     if (response.ok) {
       const data = await response.json();
       if (data.user) {

@@ -42,9 +42,9 @@ export default function useUpdateUser() {
          user = user.filter((u) => u.value !== null && u.value !== "");
         console.log(user);
         fetch(
-          `http://localhost:9000/User/updateUser/${sessionStorage.getItem(
-            "id"
-          )}`,
+          `${
+            process.env.REACT_APP_SERVER_URL
+          }/User/updateUser/${sessionStorage.getItem("id")}`,
           {
             method: "PATCH",
             body: JSON.stringify(user),

@@ -5,7 +5,9 @@ function useMyEvents() {
   const [loading, setLoading] = useState(false);
   async function getMyEvents() {
     const response = await fetch(
-      `http://localhost:9000/Event/attendee/${sessionStorage.getItem("id")}`
+      `${
+        process.env.REACT_APP_SERVER_URL
+      }/Event/attendee/${sessionStorage.getItem("id")}`
     );
     const data = await response.json();
     setEvents(data);

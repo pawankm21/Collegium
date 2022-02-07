@@ -22,7 +22,7 @@ function ShowEvent() {
   //fix delete event function
   async function joinEvent() {
     const response = await fetch(
-      `http://localhost:9000/Event/addAttendee/${id}`,
+      `${process.env.REACT_APP_SERVER_URL}/Event/addAttendee/${id}`,
       {
         method: "POST",
         headers: {
@@ -38,7 +38,7 @@ function ShowEvent() {
     window.alert(json.message);
   }
   function deleteEvent() {
-    fetch(`http://localhost:9000/Event/deleteEvent/${id}`, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/Event/deleteEvent/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

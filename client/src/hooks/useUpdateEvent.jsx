@@ -48,7 +48,7 @@ function useUpdateEvent(id) {
           ops[index].value.push(sessionStorage.getItem("id"));
         }
         console.log(ops);
-        fetch(`http://localhost:9000/Event/updateEvent/${id}`, {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/Event/updateEvent/${id}`, {
           method: "PATCH",
           body: JSON.stringify(ops),
           headers: {

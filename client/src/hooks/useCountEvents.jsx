@@ -6,9 +6,9 @@ function useCountEvents() {
     const [conducted, setConducted] = useState(0)
     async function getCounts() {
         const response = await fetch(
-          `http://localhost:9000/Event/countEvent/${sessionStorage.getItem(
-            "id"
-          )}`
+          `${
+            process.env.REACT_APP_SERVER_URL
+          }/Event/countEvent/${sessionStorage.getItem("id")}`
         );
         const data = await response.json()
         setUpcoming(data.upcoming)

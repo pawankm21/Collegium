@@ -41,9 +41,9 @@ function useCreateEvent() {
           image_id: data.public_id,
         };
         fetch(
-          `http://localhost:9000/Event/createEvent/${sessionStorage.getItem(
-            "id"
-          )}`,
+          `${
+            process.env.REACT_APP_SERVER_URL
+          }/Event/createEvent/${sessionStorage.getItem("id")}`,
           {
             method: "POST",
             headers: {
@@ -55,15 +55,18 @@ function useCreateEvent() {
           .then((res) => res.json())
           .then((data) => {
             // console.log(data);
-            fetch(`http://localhost:9000/Event/addCoordinator/${data.id}`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                userId: sessionStorage.getItem("id"),
-              }),
-            })
+            fetch(
+              `${process.env.REACT_APP_SERVER_URL}/Event/addCoordinator/${data.id}`,
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  userId: sessionStorage.getItem("id"),
+                }),
+              }
+            )
               .then((res) => res.json())
               .then((data) => {
                 window.alert(data.message);

@@ -5,7 +5,9 @@ function useGetEvents() {
   const [activeTab, setActiveTab] = useState("getEvent");
   async function getEvents() {
     try {
-      const response = await fetch(`http://localhost:9000/Event/${activeTab}`);
+      const response = await fetch(
+        `${process.env.REACT_APP_SERVER_URL}/Event/${activeTab}`
+      );
       const data = await response.json();
       // console.log(data);
       setEvents(data);

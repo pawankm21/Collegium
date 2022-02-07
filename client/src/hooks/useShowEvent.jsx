@@ -17,7 +17,7 @@ function useShowEvent(id) {
   });
   const [canEdit, setCanEdit] = useState(false);
   function getData() {
-    fetch(`http://localhost:9000/Event/getEvent/${id}`)
+    fetch(`${process.env.REACT_APP_SERVER_URL}/Event/getEvent/${id}`)
       .then((res) => res.json())
       .then((json) => {
         setData(json);

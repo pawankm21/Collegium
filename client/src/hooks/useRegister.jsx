@@ -24,13 +24,16 @@ function useRegister() {
          branch: branchRef.current.value,
          college: collegeRef.current.value,
        };
-       const response = await fetch("http://localhost:9000/User/createUser", {
-         method: "POST",
-         body: JSON.stringify(user),
-         headers: {
-           "Content-Type": "application/json",
-         },
-       });
+       const response = await fetch(
+         `${process.env.REACT_APP_SERVER_URL}/User/createUser`,
+         {
+           method: "POST",
+           body: JSON.stringify(user),
+           headers: {
+             "Content-Type": "application/json",
+           },
+         }
+       );
        if (response.ok) {
          const data = await response.json();
          if (data.status === "success") {
