@@ -43,10 +43,6 @@ function useUpdateEvent(id) {
           { propName: "image_id", value: banner_id },
         ];
         const ops = event.filter((op) => op.value != null);
-        const index = ops.findIndex((op) => op.propName === "coordinators");
-        if (index) {
-          ops[index].value.push(sessionStorage.getItem("id"));
-        }
         console.log(ops);
         fetch(`http://localhost:9000/Event/updateEvent/${id}`, {
           method: "PATCH",
