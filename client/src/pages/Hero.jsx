@@ -13,8 +13,8 @@ const navigation = [
 
 export default function Hero({ isAuth }) {
   return (
-    <>
-      <div className="relative bg-white overflow-hidden">
+    <div className="bg-blue-900">
+      <div className="relative bg-blue-900 h-full overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="relative z-10 pb-8 bg-blue-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
             <svg
@@ -42,15 +42,15 @@ export default function Hero({ isAuth }) {
                           alt="logo"
                         />
                       </Link>
-                      <div className="-mr-2 flex items-center md:hidden">
-                        <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500">
+                      <div className="-mr-2 flex items-center md:hidden bg-blue-900">
+                        <Popover.Button className="bg-blue-900 rounded-md p-2 inline-flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-inset ">
                           <span className="sr-only">Open main menu</span>
                           <MenuIcon className="h-6 w-6" aria-hidden="true" />
                         </Popover.Button>
                       </div>
                     </div>
                   </div>
-                  <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
+                  <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8 ">
                     <Link
                       to="/about"
                       className="font-medium text-white hover:text-yellow-400"
@@ -96,7 +96,7 @@ export default function Hero({ isAuth }) {
                   className="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
                 >
                   <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
-                    <div className="px-5 pt-4 flex items-center justify-between">
+                    <div className="px-5 pt-4 flex items-center justify-between bg-gray-900">
                       <div>
                         <img
                           className="h-8 w-auto"
@@ -105,38 +105,38 @@ export default function Hero({ isAuth }) {
                         />
                       </div>
                       <div className="-mr-2">
-                        <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500">
+                        <Popover.Button className="bg-blue-900 rounded-md p-2 inline-flex items-center justify-center text-white hover:text-yellow-400 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500">
                           <span className="sr-only">Close main menu</span>
                           <XIcon className="h-6 w-6" aria-hidden="true" />
                         </Popover.Button>
                       </div>
                     </div>
-                    <div className="px-2 pt-2 pb-3 space-y-1">
+                    <div className="px-2 pt-2 pb-3 space-y-1 bg-gray-900">
                       {navigation.map((item) => (
                         <a
                           key={item.name}
                           href={item.href}
-                          className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-yellow-400 hover:bg-gray-50"
+                          className="block px-3 py-2 rounded-md text-base text-white hover:text-yellow-400 hover:bg-blue-900 first-of-type:font-medium "
                         >
                           {item.name}
                         </a>
                       ))}
                       <Link
                         to="/about"
-                        className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-yellow-400 hover:bg-gray-50"
+                        className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-yellow-400 hover:bg-blue-900 "
                       >
                         About
                       </Link>
                       <Link
                         to="/team"
-                        className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-yellow-400 hover:bg-gray-50"
+                        className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-yellow-400 hover:bg-blue-900 "
                       >
                         Team
                       </Link>
                     </div>
                     <Link
                       to="/login"
-                      className="block w-full px-5 py-3 text-center font-medium text-white bg-gray-50 hover:bg-gray-100"
+                      className="block w-full px-5 py-3 text-center font-medium bg-black text-white hover:text-yellow-400 hover:bg-blue-900 "
                     >
                       Log in
                     </Link>
@@ -150,6 +150,7 @@ export default function Hero({ isAuth }) {
                 <h1 className="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl">
                   <span className="block xl:inline">All events at</span>
                   <span className="block text-yellow-400 xl:inline">
+                    {" "}
                     One Place.
                   </span>
                 </h1>
@@ -179,7 +180,10 @@ export default function Hero({ isAuth }) {
           />
         </div>
       </div>
-      <Footer />
-    </>
+      <div className="w-full h-full">
+        
+      </div>
+      <Footer/>
+    </div>
   );
 }
