@@ -29,23 +29,27 @@ export default function Dashboard() {
   }
   return (
     <>
-      <div className="md:flex  bg-gray-100 mt-4 w-screen h-screen">
-        <div className="flex flex-col md:w-1/3">
-          <UserProfileSmall />
-          <div className="shadow rounded mt-4 ml-2 mr-2 justify-center h-80 overflow-y-scroll bg-gray-100">
-            <h1 className="text-2xl p-2 font-bold shadow bg-blue-900 text-white w-full sticky top-0 pl-4">
-              Registrations
-            </h1>
-            <div className="pr-4 border-4 bg-white h-full divide-solid ">
-              {displayEvents()}
+      <div className="w-full h-fit">
+        <div className="md:flex  bg-gray-100 mt-4 w-screen ">
+          <div className="flex flex-col md:w-1/3">
+            <UserProfileSmall />
+            <div className="shadow rounded mt-4 ml-2 mr-2 justify-center h-80 overflow-y-scroll bg-gray-100">
+              <h1 className="text-2xl p-2 font-bold shadow bg-blue-900 text-white w-full sticky top-0 pl-4">
+                Registrations
+              </h1>
+              <div className="pr-4 border-4 bg-white h-full divide-solid ">
+                {displayEvents()}
+              </div>
             </div>
           </div>
+          <div className="md:w-2/3 mt-2 overflow-y-scroll">
+            <EventTabs />
+          </div>
         </div>
-        <div className="md:w-2/3 mt-2 overflow-y-scroll">
-          <EventTabs />
+        <div className="w-full  mt-16">
+          <Footer />
         </div>
       </div>
-      <Footer />
     </>
   );
 }
