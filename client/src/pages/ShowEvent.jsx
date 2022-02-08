@@ -242,7 +242,10 @@ function ShowEvent() {
           </div>
         </div>
       </div>
+      <div className="mt-16 w-full ">
+
       <Footer/>
+      </div>
     </div>
   );
 }
