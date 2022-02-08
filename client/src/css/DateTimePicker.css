@@ -1,8 +1,12 @@
-.date-time-picker input,select{
-
-    border: none;
-    background-color: #F3F4F6 !important;
-    outline: none;
-    margin: 0;
-    padding: 0;
+.date-time-picker input,
+select {
+  border: none;
+  background-color: #dbeafe !important;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  color: #1e3a8a !important;
+}
+.date-time-picker input::placeholder {
+  color: #1e3a8a !important;
 }

@@ -23,13 +23,13 @@ function EditEvent() {
         showButton={false}
       />
       <div className="m-5 shadow divide-y divide-gray-700 p-4 bg-white ">
-        <h1 className="text-center capitalize font-bold text-gray-800 text-3xl mt-10 mb-10 ">
+        <h1 className="text-center capitalize font-bold text-blue-900 text-3xl mt-10 mb-10 ">
           Edit Event
         </h1>
         <form onSubmit={editEvent.formSubmitHandler}>
           <div className="lg:grid grid-cols-2 gap-4 ">
             <div className="col-span-1 pointer-events-auto">
-              <div className=" w-full  bg-gray-400 justify-center h-56 border-2 border-dashed rounded-xl border-gray-700 mt-5 pointer-events-auto relative">
+              <div className=" w-full  bg-blue-400 justify-center h-56 border-2 border-dashed rounded-xl border-gray-700 mt-5 pointer-events-auto relative">
                 <div
                   className={classNames(
                     data.imageurl ? "opacity-30 " : "hidden",
@@ -55,25 +55,25 @@ function EditEvent() {
                   }}
                   defaultValue={data.imageurl}
                 />
-                <div className="pointer-events-none text-center relative bottom-24 text-gray-600">
+                <div className="pointer-events-none text-center relative bottom-24 text-blue-900">
                   Upload Image
                 </div>
               </div>
             </div>
             <div className="col-span-1 mt-5">
-              <label className="text-gray-800">Event Name</label>
+              <label className="text-blue-900">Event Name</label>
               <input
-                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none "
+                className="border border-gray-400 p-2 rounded-sm bg-blue-100 w-full focus:ring-2 ring-blue-400 outline-none "
                 type="text"
                 placeholder="Event Name"
                 name="eventName"
                 onChange={(e) => editEvent.setName(e.target.value)}
                 defaultValue={data.name}
               />{" "}
-              <label className="text-gray-800">Event Starts on</label>
+              <label className="text-blue-900">Event Starts on</label>
               <DateTimePicker
                 calendarIcon={<CalendarIcon className="w-6 h-6" />}
-                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none date-time-picker"
+                className="border border-gray-400 p-2 rounded-sm bg-blue-100 w-full focus:ring-2 ring-blue-400 outline-none date-time-picker"
                 onChange={editEvent.setWhen}
                 value={editEvent.when}
                 name="eventStartsOn"
@@ -84,10 +84,10 @@ function EditEvent() {
                 dayPlaceholder="dd"
                 yearPlaceholder="yyyy"
               />
-              <label className="text-gray-800">Event Ends on</label>
+              <label className="text-blue-900">Event Ends on</label>
               <DateTimePicker
                 calendarIcon={<CalendarIcon className="w-6 h-6" />}
-                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none date-time-picker"
+                className="border border-gray-400 p-2 rounded-sm bg-blue-100 w-full focus:ring-2 ring-blue-400 outline-none date-time-picker"
                 onChange={editEvent.settillWhen}
                 value={editEvent.tillWhen}
                 name="eventEndsDate"
@@ -98,10 +98,10 @@ function EditEvent() {
                 dayPlaceholder="dd"
                 yearPlaceholder="yyyy"
               />
-              <label className="text-gray-800">Deadline</label>
+              <label className="text-blue-900">Deadline</label>
               <DateTimePicker
                 calendarIcon={<CalendarIcon className="w-6 h-6" />}
-                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none date-time-picker"
+                className="border border-gray-400 p-2 rounded-sm bg-blue-100 w-full focus:ring-2 ring-blue-400 outline-none date-time-picker"
                 onChange={editEvent.setLastDate}
                 value={editEvent.lastDate}
                 name="deadline"
@@ -114,9 +114,9 @@ function EditEvent() {
               />
             </div>
             <div className="col-span-1 mt-5">
-              <label className="text-gray-800">Add tags</label>
+              <label className="text-blue-900">Add tags</label>
               <textarea
-                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
+                className="border border-gray-400 p-2 rounded-sm bg-blue-100 w-full focus:ring-2 ring-blue-400 outline-none"
                 type="search"
                 placeholder="add tags separated by commas, eg. Women-Only, Students-Only...."
                 name="eventName"
@@ -127,9 +127,9 @@ function EditEvent() {
               />
             </div>{" "}
             <div className="col-span-1 mt-5">
-              <label className="text-gray-800">Add Coordinators</label>
+              <label className="text-blue-900">Add Coordinators</label>
               <textarea
-                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
+                className="border border-gray-400 p-2 rounded-sm bg-blue-100 w-full focus:ring-2 ring-blue-400 outline-none"
                 type="text"
                 placeholder="Add coordinator names separated by commas, eg. John, Mary, Sam...."
                 name="eventName"
@@ -139,9 +139,9 @@ function EditEvent() {
               />
             </div>
             <div className="col-span-2 mt-5">
-              <label className="text-gray-800 text-lg  m-auto">Venue</label>
+              <label className="text-blue-900 text-lg  m-auto">Venue</label>
               <textarea
-                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none"
+                className="border border-gray-400 p-2 rounded-sm bg-blue-100 w-full focus:ring-2 ring-blue-400 outline-none"
                 type="text"
                 cols="10"
                 rows="3"
@@ -151,11 +151,11 @@ function EditEvent() {
               />
             </div>
             <div className="col-span-1 mt-5">
-              <label className="text-gray-800 text-lg font-bold  m-auto">
+              <label className="text-blue-900 text-lg font-bold  m-auto">
                 Message
               </label>
               <textarea
-                className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none h-full"
+                className="border border-gray-400 p-2 rounded-sm bg-blue-100 w-full focus:ring-2 ring-blue-400 outline-none h-full"
                 type="text"
                 rows="15"
                 name="eventName"
@@ -165,10 +165,10 @@ function EditEvent() {
               />
             </div>
             <div className="col-span-1 mt-5">
-              <label className="text-gray-800 text-lg font-bold m-auto">
+              <label className="text-blue-900 text-lg font-bold m-auto">
                 Preview
               </label>
-              <div className="border border-gray-400 p-2 rounded-sm bg-gray-100 w-full focus:ring-2 ring-blue-400 outline-none h-full">
+              <div className="border border-gray-400 p-2 rounded-sm bg-blue-100 w-full focus:ring-2 ring-blue-400 outline-none h-full">
                 <ReactMarkdown
                   className="markdown-body"
                   children={editEvent.message}
@@ -180,7 +180,7 @@ function EditEvent() {
           <div className="w-full text-center mt-12">
             <button
               type="submit"
-              className="w-1/2 m-5 p-4 text-lg rounded-md bg-blue-500 text-white hover:bg-blue-700"
+              className="w-1/2 m-5 p-4 text-lg rounded-md bg-blue-900 text-white hover:bg-blue-700"
             >
               Submit
             </button>

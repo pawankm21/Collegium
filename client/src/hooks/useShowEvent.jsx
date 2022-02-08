@@ -35,7 +35,7 @@ function useShowEvent(id) {
   useEffect(() => {
    getData();
   }, []);
-  return { canEdit, data, loading };
+  return { canEdit, data, loading,setLoading };
 }
 
 export default useShowEvent;

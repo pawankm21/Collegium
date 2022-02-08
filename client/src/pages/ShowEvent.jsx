@@ -14,10 +14,11 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import "../css/Markdown.css";
 import Footer from "../components/Footer";
+import LoadingModal from "../components/LoadingModal";
 
 function ShowEvent() {
   const { id } = useParams();
-  const { data, canEdit } = useShowEvent(id);
+  const { data, canEdit,loading,setLoading } = useShowEvent(id);
   const history = useHistory();
   //fix delete event function
   async function joinEvent() {
@@ -58,6 +59,8 @@ function ShowEvent() {
       });
   }
   return (
+    <>
+      <LoadingModal loading={loading} setLoading={setLoading} showButton={false} />
     <div className="w-full h-screen">
       <div className="w-full">
         <div className="w-full p-2 ">
@@ -246,7 +249,8 @@ function ShowEvent() {
 
       <Footer/>
       </div>
-    </div>
+      </div>
+      </>
   );
 }
 
