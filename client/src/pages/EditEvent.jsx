@@ -10,12 +10,18 @@ import "../css/DateTimePicker.css";
 import useShowEvent from "../hooks/useShowEvent";
 import { useParams } from "react-router-dom";
 import Footer from "../components/Footer";
+import LoadingModal from "../components/LoadingModal";
 function EditEvent() {
   const { id } = useParams();
   const { data } = useShowEvent(id);
   const editEvent = useUpdateEvent(id);
   return (
     <>
+      <LoadingModal
+        loading={editEvent.loading}
+        setLoading={editEvent.setLoading}
+        showButton={false}
+      />
       <div className="m-5 shadow divide-y divide-gray-700 p-4 bg-white ">
         <h1 className="text-center capitalize font-bold text-gray-800 text-3xl mt-10 mb-10 ">
           Edit Event
@@ -37,9 +43,7 @@ function EditEvent() {
                         : data.imageurl
                     }
                     className="h-full w-full"
-                    alt={editEvent.banner ? 
-                      editEvent.banner.name : ""}
-                 
+                    alt={editEvent.banner ? editEvent.banner.name : ""}
                   />
                 </div>
                 <input

@@ -2,11 +2,24 @@ import { LockClosedIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
 import { ReactComponent as LoudIcon } from "../assets/loud.svg";
 import Footer from "../components/Footer";
+import LoadingModal from "../components/LoadingModal";
 import useLogin from "../hooks/useLogin";
 export default function Login() {
-  const { emailRef, passwordRef, submitHandler, } = useLogin();
+  const {
+    emailRef,
+    passwordRef,
+    submitHandler,
+    loading,
+    modalMessage,
+    setLoading,
+  } = useLogin();
   return (
     <>
+      <LoadingModal
+        loading={loading}
+        setLoading={setLoading}
+        showButton={false}
+      />
       <div className="min-h-screen flex items-center justify-center bg-blue-900 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>

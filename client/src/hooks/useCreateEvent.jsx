@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 function useCreateEvent() {
   const history = useHistory();
+  const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [tillWhen, settillWhen] = useState("");
   const [when, setWhen] = useState("");
@@ -15,6 +16,7 @@ function useCreateEvent() {
   const [image, setImage] = useState("");
 
   function createEvent(event) {
+    setLoading(true);
     event.preventDefault();
     const formData = new FormData();
     formData.append("file", image);
@@ -69,12 +71,13 @@ function useCreateEvent() {
             )
               .then((res) => res.json())
               .then((data) => {
-                window.alert(data.message);
+                setLoading(false);
+                window.alert("Event Created!");
                 history.replace("/");
               });
           })
           .catch((err) => {
-            // console.log(err);
+            console.log(err);
           });
       });
   }
@@ -92,6 +95,7 @@ function useCreateEvent() {
     setCoordinators,
     setTagline,
     setType,
+    setLoading,
     image,
     where,
     name,
@@ -100,6 +104,7 @@ function useCreateEvent() {
     message,
     lastDate,
     tags,
+    loading,
   };
 }
 

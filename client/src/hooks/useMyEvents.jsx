@@ -4,6 +4,7 @@ function useMyEvents() {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(false);
   async function getMyEvents() {
+    setLoading(true);
     const response = await fetch(
       `${
         process.env.REACT_APP_SERVER_URL

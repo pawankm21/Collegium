@@ -8,7 +8,9 @@ function useFetchUser() {
   const [branch, setBranch] = useState("");
   const [profileImage, setProfileImage] = useState("");
   const [profile_id, setProfile_id] = useState("");
+  const [firstloading, setFirstLoading] = useState(false);
   function fetchUser() {
+    setFirstLoading(true);
     fetch(
       `${
         process.env.REACT_APP_SERVER_URL
@@ -16,7 +18,7 @@ function useFetchUser() {
     )
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
+        // console.log(json);
         setUsername(json.name);
         setEmail(json.email);
         setCollege(json.college);
@@ -28,6 +30,7 @@ function useFetchUser() {
             : "https://res.cloudinary.com/collegium12/image/upload/v1643635155/149071_omrq4m.png"
         );
         setProfile_id(json.image_id);
+        setFirstLoading(false);
       })
       .catch((err) => console.log(err));
   }
@@ -41,6 +44,8 @@ function useFetchUser() {
     roll,
     branch,
     profileImage,
+    firstloading,
+    setFirstLoading
   };
 }
 

@@ -12,7 +12,9 @@ function useUpdateEvent(id) {
   const [banner, setBanner] = useState(null);
   const [bannerUrl, setBannerUrl] = useState(null);
   const [banner_id, setBanner_id] = useState(null);
+  const [loading,setLoading]=useState(false);
   function formSubmitHandler(e) {
+    setLoading(true);
     e.preventDefault();
     const imageData = new FormData();
     imageData.append("file", banner);
@@ -52,7 +54,10 @@ function useUpdateEvent(id) {
           },
         })
           .then((res) => res.json())
-          .then((json) => window.alert(json.message));
+          .then((json) => {
+            setLoading(false);
+            window.alert(json.message)
+          });
       });
   }
 
@@ -68,6 +73,7 @@ function useUpdateEvent(id) {
     setBanner,
     setBannerUrl,
     formSubmitHandler,
+    setLoading,
     bannerUrl,
     banner,
     when,
@@ -77,6 +83,7 @@ function useUpdateEvent(id) {
     where,
     name,
     message,
+    loading,
   };
 }
 

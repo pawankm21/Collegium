@@ -8,6 +8,7 @@ import remarkGfm from "remark-gfm";
 import "../css/Markdown.css";
 import "../css/DateTimePicker.css";
 import Footer from "../components/Footer";
+import LoadingModal from "../components/LoadingModal";
 function NewEvent() {
   const {
     setName,
@@ -21,6 +22,8 @@ function NewEvent() {
     setImage,
     setCoordinators,
     setType,
+    setLoading,
+    loading,
     image,
     message,
     when,
@@ -29,6 +32,7 @@ function NewEvent() {
   } = useCreateEvent();
   return (
     <>
+      {<LoadingModal loading={loading} setLoading={setLoading} showButton={false} />}
       <div className="m-5 shadow divide-y divide-gray-700 p-4 bg-white ">
         <h1 className="text-center capitalize font-bold text-gray-800 text-3xl mt-10 mb-10 ">
           Create Event

@@ -3,7 +3,9 @@ import React, { useState, useEffect } from "react";
 function useGetEvents() {
   const [events, setEvents] = useState([]);
   const [activeTab, setActiveTab] = useState("getEvent");
+  const [loading, setLoading] = useState(false);
   async function getEvents() {
+    setLoading(true);
     try {
       const response = await fetch(
         `${process.env.REACT_APP_SERVER_URL}/Event/${activeTab}`
@@ -11,6 +13,7 @@ function useGetEvents() {
       const data = await response.json();
       // console.log(data);
       setEvents(data);
+      setLoading(false);
     } catch (err) {
       window.alert(err);
     }
@@ -18,7 +21,7 @@ function useGetEvents() {
   useEffect(() => {
     return getEvents();
   }, [activeTab]);
-  return { setActiveTab, events };
+  return { setActiveTab, events, loading,setLoading };
 }
 
 export default useGetEvents;

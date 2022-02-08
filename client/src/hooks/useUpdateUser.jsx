@@ -5,7 +5,7 @@ export default function useUpdateUser() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [passwordConfirm, setPasswordConfirm] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [roll, setRoll] = useState(null);
   const [branch, setBranch] = useState(null);
   const [college, setCollege] = useState(null);
@@ -13,6 +13,7 @@ export default function useUpdateUser() {
   const [imageurl, setImageUrl] = useState(null);
 
   function formSubmitHandler(event, image) {
+    setLoading(true);
     event.preventDefault();
     if (password !== passwordConfirm) {
       window.alert("Passwords do not match");
@@ -54,7 +55,10 @@ export default function useUpdateUser() {
           }
         )
           .then((res) => res.json())
-          .then((json) => window.alert(json.message));
+          .then((json) => {
+            setLoading(false);
+            window.alert(json.message);
+          });
       });
   }
 
@@ -64,12 +68,12 @@ export default function useUpdateUser() {
     setEmail,
     setPassword,
     setPasswordConfirm,
-    setIsLoading,
     setRoll,
     setBranch,
     setCollege,
     setImage,
     imageurl,
     image,
+    loading,
   };
 }

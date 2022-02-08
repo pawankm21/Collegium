@@ -2,16 +2,26 @@ import React from "react";
 import useUpdateUser from "../hooks/useUpdateUser";
 import useFetchUser from "../hooks/useFetchUser";
 import Footer from "../components/Footer";
+import LoadingModal from "../components/LoadingModal";
 export default function Settings() {
-  const { username, email, college, roll, branch, profileImage } =
-    useFetchUser();
+  const {
+    username,
+    email,
+    college,
+    roll,
+    branch,
+    profileImage,
+    setFirstLoading,
+    firstloading,
+  } = useFetchUser();
   const {
     formSubmitHandler,
     setName,
     setEmail,
     setPassword,
     setPasswordConfirm,
-    // setIsLoading,
+    setIsLoading,
+    loading,
     setRoll,
     setBranch,
     setCollege,
@@ -21,6 +31,14 @@ export default function Settings() {
 
   return (
     <>
+      <LoadingModal
+        loading={loading || firstloading}
+        setIsLoading={() => {
+          setIsLoading(!loading);
+          setFirstLoading(!firstloading);
+        }}
+        showButton={false}
+      />
       <div className="p-6  w-full h-full">
         <h1 className="w-full text-center text-6xl bold capitalize p-2">
           Settings

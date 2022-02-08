@@ -15,13 +15,15 @@ function useShowEvent(id) {
     image_id: "",
     tillWhen: "",
   });
+  const [loading, setLoading] = useState(false);
   const [canEdit, setCanEdit] = useState(false);
   function getData() {
+    setLoading(true);
     fetch(`${process.env.REACT_APP_SERVER_URL}/Event/getEvent/${id}`)
       .then((res) => res.json())
       .then((json) => {
         setData(json);
-
+        setLoading(false);
         if (json.coordinators.includes(sessionStorage.getItem("id"))) {
           setCanEdit(true);
         } else {
@@ -33,7 +35,7 @@ function useShowEvent(id) {
   useEffect(() => {
    getData();
   }, []);
-  return { canEdit, data };
+  return { canEdit, data, loading };
 }
 
 export default useShowEvent;

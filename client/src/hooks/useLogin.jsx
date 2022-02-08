@@ -1,10 +1,13 @@
-
-import { useRef } from "react";
+import { useRef, useState, } from "react";
 function useLogin() {
-  
+
   const emailRef = useRef("");
   const passwordRef = useRef("");
+  const [loading, setLoading] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+
   const submitHandler = async (event) => {
+    setLoading(true);
     event.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
@@ -20,16 +23,24 @@ function useLogin() {
     );
     if (response.ok) {
       const data = await response.json();
+      setLoading(false);
       if (data.user) {
-        alert("Log in successfull");
+        setModalMessage("Login Successful!");
         sessionStorage.setItem("id", data.user);
-        window.location.href = "/";
+        window.location.href="/";
       } else {
-        alert("Email or Password incorrect.");
+        setModalMessage("Email or Password incorrect.");
       }
     }
   };
-    return {emailRef, passwordRef, submitHandler};
+  return {
+    emailRef,
+    passwordRef,
+    submitHandler,
+    loading,
+    modalMessage,
+    setLoading,
+  };
 }
 
-export default useLogin
+export default useLogin;
