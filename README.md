@@ -1,15 +1,9 @@
 
+![image](https://user-images.githubusercontent.com/63885768/153009034-1b2b16ad-ba35-4248-b42c-adf911cfed49.png)
+
 # Collegium
 
 An Web Application to manage college events.
-
-## Features
-
-- lorem ipsum
-- lorem ipsum
-- lorem ipsum
-- lorem ipsum
-
 
   
 ## Run Locally
@@ -17,7 +11,7 @@ An Web Application to manage college events.
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://
 ```
 
 Go to the project directory
@@ -41,45 +35,20 @@ Start the server
   
 ## Tech Stack
 
-**Client:** React, Redux, TailwindCSS
+**Client:** React, Tailwindcss, React-Router
 
-**Server:** Node, Express
+**Server:** Node, Express, Bcrypt, Cloudinary SDK
 
-  
-![Logo]()
+**Database:** MongoDB Atlass
 
     
 ## Screenshots
 
-![App Screenshot]()
 
-  
-## Acknowledgements
-
- - []()
- - []()
- - []()
-
-  
-## Authors
-
-- []()
-
-  
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-
-  
-## Support
-
-For support, email fake@fake.com or join our Slack channel.
-
-  
-## Badges
-
-Add badges from somewhere like: [shields.io](https://shields.io/)
-
+<img src="https://user-images.githubusercontent.com/63885768/153008877-562d48c9-1855-4ce6-86ad-f4126f47f25b.png" class="image"/>
+<img src="https://user-images.githubusercontent.com/63885768/153009140-b85492f6-10dd-4d18-b666-42c00aac4b42.png" class="image" />
+<img src="https://user-images.githubusercontent.com/63885768/153011624-28b6cb31-6edc-4cb7-9138-1e1537d7dfab.png" class="image" />
+<img src="https://user-images.githubusercontent.com/63885768/153011773-934525bc-c7bf-47a6-aea2-0f3338e50ad9.png" class="image"/>
 
 
   
