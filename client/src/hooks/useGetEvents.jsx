@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 //optimise this for performance by using hooks instead of calling api everytime
 function useGetEvents() {
   const [events, setEvents] = useState([]);
