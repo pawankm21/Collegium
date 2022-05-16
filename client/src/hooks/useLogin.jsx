@@ -5,7 +5,12 @@ function useLogin() {
   const passwordRef = useRef("");
   const [loading, setLoading] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
-
+  const dummyFill =  () => {
+     emailRef.current.focus();
+     emailRef.current.value = "test@mail.com";
+     passwordRef.current.value = "test";
+  
+  }
   const submitHandler = async (event) => {
     setLoading(true);
     event.preventDefault();
@@ -40,6 +45,7 @@ function useLogin() {
     loading,
     modalMessage,
     setLoading,
+    dummyFill,
   };
 }
 

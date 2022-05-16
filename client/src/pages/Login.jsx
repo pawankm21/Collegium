@@ -10,7 +10,7 @@ export default function Login() {
     passwordRef,
     submitHandler,
     loading,
-
+    dummyFill,
     setLoading,
   } = useLogin();
   return (
@@ -99,6 +99,12 @@ export default function Login() {
               Register here.
             </Link>
           </p>
+          <button
+            onClick={dummyFill}
+            className="m-auto bg-yellow-300 p-2 flex rounded items-center pl-3"
+          >
+            Use test account
+          </button>
         </div>
       </div>
       <Footer />
