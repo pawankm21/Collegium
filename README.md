@@ -11,7 +11,7 @@ An Web Application to manage college events.
 Clone the project
 
 ```bash
-  git clone https://
+  https://github.com/pawankm21/Collegium.git
 ```
 
 Go to the project directory
