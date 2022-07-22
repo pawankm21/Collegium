@@ -29,11 +29,11 @@ export default function Dashboard() {
   }
   return (
     <>
-      <div className="w-full h-fit">
-        <div className="md:flex  bg-gray-100 mt-4 w-screen ">
-          <div className="flex flex-col md:w-1/3">
+      <div className="w-full min-h-[100vh] overflow-hidden">
+        <div className="md:flex h-[90vh] bg-gray-100 mt-4 w-screen ">
+          <div className="flex flex-col md:w-1/3 h-full">
             <UserProfileSmall />
-            <div className="shadow rounded mt-4 ml-2 mr-2 justify-center h-80 overflow-y-scroll bg-gray-100">
+            <div className="shadow rounded mt-4 ml-2 mr-2 justify-center overflow-y-scroll bg-gray-100 h-full">
               <h1 className="text-2xl p-2 font-bold shadow bg-blue-900 text-white w-full sticky top-0 pl-4">
                 Registrations
               </h1>
@@ -42,7 +42,7 @@ export default function Dashboard() {
               </div>
             </div>
           </div>
-          <div className="md:w-2/3 mt-2 overflow-y-scroll">
+          <div className="md:w-2/3 mt-2 overflow-y-scroll h-full overflow-x-hidden">
             <EventTabs />
           </div>
         </div>

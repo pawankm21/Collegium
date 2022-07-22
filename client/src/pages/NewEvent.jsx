@@ -42,7 +42,7 @@ function NewEvent() {
             createEvent(e);
           }}
         >
-          <div className="grid grid-cols-2 gap-4 ">
+          <div className="lg:grid grid-cols-2 gap-4 ">
             <div className="col-span-1 pointer-events-auto">
               <div className=" w-full  bg-blue-400 justify-center h-56 border-2 border-dashed rounded-xl border-gray-700 mt-5 pointer-events-auto relative">
                 <div
@@ -72,7 +72,7 @@ function NewEvent() {
             <div className="col-span-1 mt-5">
               <label className="text-blue-900">Event Name</label>
               <input
-                className="border border-gray-400 placeholder:text-blue-900  p-2 rounded-sm bg-b-100 w-full focus:ring-2 ring-blue-400 bg-blue-100 outline-none "
+                className="border border-gray-400 placeholder:text-blue-900  p-2 rounded-sm bg-b-100 w-full focus:ring-2 ring-blue-400 bg-neutral-100 outline-none "
                 type="text"
                 placeholder="Event Name"
                 name="eventName"
@@ -82,7 +82,7 @@ function NewEvent() {
               <label className="text-blue-900">Event Starts on</label>
               <DateTimePicker
                 calendarIcon={<CalendarIcon className="w-6 h-6" />}
-                className="border border-gray-400 p-2 rounded-sm bg-blue-100 w-full focus:ring-2 ring-blue-400 outline-none placeholder:text-blue-900  date-time-picker"
+                className="border border-gray-400 p-2 rounded-sm bg-neutral-100 w-full focus:ring-2 ring-blue-400 outline-none placeholder:text-blue-900  date-time-picker text-blue-900"
                 onChange={setWhen}
                 value={when}
                 name="eventStartsOn"
@@ -97,7 +97,7 @@ function NewEvent() {
               <label className="text-blue-900">Event Ends on</label>
               <DateTimePicker
                 calendarIcon={<CalendarIcon className="w-6 h-6" />}
-                className="border border-gray-400 p-2 placeholder:text-blue-900  rounded-sm bg-blue-100 w-full focus:ring-2 ring-blue-400 outline-none date-time-picker"
+                className="border border-gray-400 p-2 placeholder:text-blue-900  rounded-sm bg-neutral-100 w-full focus:ring-2 ring-blue-400 outline-none date-time-picker text-blue-900"
                 onChange={settillWhen}
                 value={tillWhen}
                 name="eventEndsDate"
@@ -112,7 +112,7 @@ function NewEvent() {
               <label className="text-blue-900">Deadline</label>
               <DateTimePicker
                 calendarIcon={<CalendarIcon className="w-6 h-6" />}
-                className="border border-gray-400 p-2  placeholder:text-blue-900 rounded-sm bg-blue-100 w-full focus:ring-2 ring-blue-400 outline-none date-time-picker"
+                className="border border-gray-400 p-2  placeholder:text-blue-900 rounded-sm bg-neutral-100 w-full focus:ring-2 ring-blue-400 outline-none date-time-picker text-blue-900"
                 onChange={setLastDate}
                 value={lastDate}
                 name="deadline"
@@ -128,7 +128,7 @@ function NewEvent() {
             <div className="col-span-1 mt-5">
               <label className="text-blue-900">Add tags</label>
               <textarea
-                className="border border-gray-400 p-2 placeholder:text-blue-900  rounded-sm bg-blue-100 w-full focus:ring-2 ring-blue-400 outline-none"
+                className="border border-gray-400 p-2 placeholder:text-blue-900  rounded-sm bg-neutral-100 w-full focus:ring-2 ring-blue-400 outline-none"
                 type="search"
                 placeholder="add tags separated by commas, eg. Women-Only, Students-Only...."
                 name="eventName"
@@ -140,7 +140,7 @@ function NewEvent() {
             <div className="col-span-1 mt-5">
               <label className="text-blue-900">Add Coordinators</label>
               <textarea
-                className="border border-gray-400 p-2 placeholder:text-blue-900  rounded-sm bg-blue-100 w-full focus:ring-2 ring-blue-400 outline-none"
+                className="border border-gray-400 p-2 placeholder:text-blue-900  rounded-sm bg-neutral-100 w-full focus:ring-2 ring-blue-400 outline-none"
                 type="text"
                 placeholder="Add coordinator by email separated by commas, eg. john@mail.com, doe@gmail.com...." 
                 name="eventName"
@@ -149,7 +149,7 @@ function NewEvent() {
             <div className="col-span-2 mt-5">
               <label className="text-blue-900 text-lg  m-auto">Venue</label>
               <textarea
-                className="border border-gray-400 p-2 placeholder:text-blue-900  rounded-sm bg-blue-100 w-full focus:ring-2 ring-blue-400 outline-none"
+                className="border border-gray-400 p-2 placeholder:text-blue-900  rounded-sm bg-neutral-100 w-full focus:ring-2 ring-blue-400 outline-none"
                 type="text"
                 cols="10"
                 rows="3"
@@ -163,7 +163,7 @@ function NewEvent() {
                 Message
               </label>
               <textarea
-                className="border border-gray-400 placeholder:text-blue-900  p-2 rounded-sm bg-blue-100 w-full focus:ring-2 ring-blue-400 outline-none h-full"
+                className="border border-gray-400 placeholder:text-blue-900  p-2 rounded-sm bg-neutral-100 w-full focus:ring-2 ring-blue-400 outline-none h-full"
                 type="text"
                 rows="15"
                 name="eventName"
@@ -176,7 +176,7 @@ function NewEvent() {
               <label className="text-blue-900 text-lg font-bold m-auto">
                 Preview
               </label>
-              <div className="border border-gray-400 p-2 rounded-sm bg-blue-100 w-full focus:ring-2 ring-blue-400 outline-none h-full">
+              <div className="border border-gray-400 p-2 rounded-sm bg-neutral-100 w-full focus:ring-2 ring-blue-400 outline-none h-full">
                 <ReactMarkdown
                   className="markdown-body"
                   children={message}

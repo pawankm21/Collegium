@@ -24,8 +24,8 @@ function EventTabs() {
     });
     if (ret.length === 0) {
       ret = (
-        <div className="p-2">
-          <div className=" w-full text-center h-full bg-gray-200 m-4 py-6 ">
+        <div className="p-2 h-full ">
+          <div className=" w-full text-center h-full m-4 py-6 ">
             <img src={empty} alt="empty" className="h-32 w-32 mx-auto my-12" />
             <p className="text-xl text-gray-600 capitalize p-6 ">
               No events to display
