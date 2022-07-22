@@ -13,12 +13,12 @@ const navigation = [
 
 export default function Hero({ isAuth }) {
   return (
-    <div className="bg-blue-900">
+    <div className="bg-blue-900 h-[100vh]">
       <div className="relative bg-blue-900 h-full overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="relative z-10 pb-8 bg-blue-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+          <div className="relative z-10 pb-8 bg-blue-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 h-full">
             <svg
-              className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-gray-900 transform translate-x-1/2"
+              className="hidden lg:block absolute right-0 inset-y-0 h-[100vh] w-48 text-gray-900 transform translate-x-1/2 "
               fill="currentColor"
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
@@ -179,9 +179,6 @@ export default function Hero({ isAuth }) {
             alt="banner"
           />
         </div>
-      </div>
-      <div className="w-full h-full">
-        
       </div>
       <Footer/>
     </div>
